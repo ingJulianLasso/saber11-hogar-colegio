@@ -1,5 +1,6 @@
-# Datos crudos y entornos virtuales quedan fuera. Excepción: data/agregados/ guarda
-# solo datos agregados que el dashboard lee desde el repositorio, nunca filas individuales.
+# Datos crudos y entornos virtuales quedan fuera. Excepciones: los dos recortes del ICFES
+# que leen el cuaderno y el script de R, para reproducir sin descargar, y data/agregados/,
+# que guarda solo los agregados que el dashboard lee desde el repositorio.
 data/*
 !data/.gitkeep
 !data/agregados/
@@ -7,6 +8,8 @@ data/*
 *.csv
 !data/agregados/*.csv
 !data/agregados/*.parquet
+!data/saber11-20224.parquet
+!data/saber11-serie.parquet
 .venv/
 
 # Cachés de Python y de pytest.

@@ -13,7 +13,7 @@ El trabajo avanza en cuatro fases. La fase 1, que este repositorio fija en la et
 | `src/r/` | `instalar.R` instala los paquetes de R y registra sus versiones; `fase-1.R` replica en R los descriptivos, las frecuencias, las correlaciones y las pruebas χ² del cuaderno y dibuja sus gráficos en ggplot2. |
 | `tests/` | Pruebas automáticas con pytest. |
 | `data/agregados/` | Datos agregados que el tablero leerá desde el repositorio. Ver su propio README. |
-| `data/` | Los recortes con filas individuales se generan aquí y no se versionan. |
+| `data/saber11-20224.parquet`, `data/saber11-serie.parquet` | Recortes del conjunto de datos que leen el cuaderno y el script de R: 2022-2 y la serie de 2014-2 a 2022-2. Vienen con el repositorio, así que no hace falta descargar nada. |
 | `figuras/fase-1/` | Figuras de la fase 1 (las de R en `r/`). |
 | `resultados/` | Cifras de la fase 1 (`cifras-fase-1.json` y `.tex`) y salida del script de R (`r/fase-1.json`). |
 | `dashboard/` | Tablero de las fases siguientes. |
@@ -21,7 +21,7 @@ El trabajo avanza en cuatro fases. La fase 1, que este repositorio fija en la et
 
 ## Reproducir la fase 1
 
-Los pasos van en este orden, porque cada uno usa la salida del anterior: datos, R y cuaderno. Todos se corren desde la raíz del repositorio.
+Los pasos van en este orden, porque cada uno usa la salida del anterior: entorno, R y cuaderno. El paso de datos es opcional, porque los recortes ya vienen en `data/`. Todos se corren desde la raíz del repositorio.
 
 1. **Entorno de Python** (3.13). Con [uv](https://docs.astral.sh/uv/):
 
@@ -38,7 +38,7 @@ Los pasos van en este orden, porque cada uno usa la salida del anterior: datos, 
 
    La segunda línea instala el paquete `saber11` del proyecto, que `requirements.txt` no incluye. El entorno trae dependencias de las fases siguientes, entre ellas PyTorch con CUDA; la fase 1 no las usa.
 
-2. **Datos.** Se descargan del portal de datos abiertos y se verifican contra los conteos esperados:
+2. **Datos (opcional).** Los recortes ya están en `data/`. Para regenerarlos desde el portal de datos abiertos y verificarlos contra los conteos esperados:
 
    ```bash
    uv run python -m saber11.datos --fuente api --verificar --materializar
@@ -74,6 +74,6 @@ Los pasos van en este orden, porque cada uno usa la salida del anterior: datos, 
 
 Los datos son del Instituto Colombiano para la Evaluación de la Educación (ICFES): Instituto Colombiano para la Evaluación de la Educación. (2023). *Resultados únicos Saber 11* [Conjunto de datos]. Datos Abiertos Colombia. https://www.datos.gov.co/Educaci-n/Resultados-nicos-Saber-11/kgxf-xxbe
 
-Esos datos tienen licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Los agregados de `data/agregados/`, que se derivan de ellos, conservan la misma licencia. El código del repositorio tiene licencia MIT (ver `LICENSE`).
+Esos datos tienen licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Los recortes de `data/` y los agregados de `data/agregados/`, que se derivan de ellos, conservan la misma licencia, con atribución al ICFES. El código del repositorio tiene licencia MIT (ver `LICENSE`).
 
-El repositorio no contiene filas individuales: solo agregados con 10 o más estudiantes por celda, en atención a la Ley 1581 de 2012 de protección de datos personales.
+Los recortes de `data/` tienen una fila por estudiante, tal como las publica el ICFES, sin nombre, documento, colegio ni municipio: conservan 27 de las 51 columnas y solo los resultados en estado `PUBLICAR`, sin las filas duplicadas del portal. El cuaderno no imprime filas individuales, y los agregados tienen 10 o más estudiantes por celda, en atención a la Ley 1581 de 2012 de protección de datos personales.
