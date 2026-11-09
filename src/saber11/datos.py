@@ -38,8 +38,13 @@ LIMITE_PAGINA = 50_000
 PERIODO_MODELADO = 20224
 ESTADO_VALIDO = "PUBLICAR"
 
-# Filas únicas por periodo (tabla "Conteo por periodo" de dataset/saber11/README.md)
-# y filas fuera de PUBLICAR (verificadas en la Actividad 1).
+# Filas publicadas en el portal por periodo, duplicados exactos incluidos. Salen de la
+# exportación completa del 3-oct-2026 (CSV con su SHA-256 verificado, tabla "Conteo por
+# periodo" de dataset/saber11/README.md); la API dio las mismas 1.065.888 del 20224 el
+# 8-nov-2026. Fijarlas aquí deja el diagnóstico de duplicados igual en un clon limpio.
+FILAS_PORTAL = {20142: 546_727, 20152: 544_491, 20162: 550_275, 20172: 548_269, 20194: 1_096_524, 20224: 1_065_888}
+# Filas únicas por periodo (misma tabla) y filas fuera de PUBLICAR (verificadas en la
+# Actividad 1).
 FILAS_UNICAS = {20142: 544_535, 20152: 542_450, 20162: 548_206, 20172: 546_261, 20194: 546_211, 20224: 532_792}
 EXCLUIDAS = {20142: 171, 20152: 925, 20162: 1, 20172: 557, 20194: 457, 20224: 226}
 

@@ -75,6 +75,12 @@ def test_materializar_quita_las_columnas_de_control(tmp_path):
     assert recorte.height == 2
 
 
+def test_filas_portal_cubre_los_periodos_y_no_baja_de_las_unicas():
+    assert datos.FILAS_PORTAL.keys() == datos.FILAS_UNICAS.keys()
+    for periodo, unicas in datos.FILAS_UNICAS.items():
+        assert datos.FILAS_PORTAL[periodo] >= unicas
+
+
 @pytest.mark.skipif(not datos.PARQUET_LOCAL.exists(), reason="sin el Parquet local del dataset")
 def test_conteos_del_parquet_local_coinciden_con_los_esperados():
     periodos = sorted(datos.FILAS_UNICAS)
