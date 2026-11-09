@@ -1,0 +1,14 @@
+# Datos crudos y entornos virtuales quedan fuera. Excepción: data/agregados/ guarda
+# solo datos agregados que el dashboard lee desde el repositorio, nunca filas individuales.
+data/*
+!data/.gitkeep
+!data/agregados/
+*.parquet
+*.csv
+!data/agregados/*.csv
+!data/agregados/*.parquet
+.venv/
+
+# Cachés de Python y de pytest.
+__pycache__/
+.pytest_cache/
