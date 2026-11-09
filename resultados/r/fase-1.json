@@ -1,0 +1,255 @@
+{
+  "version_r": "4.6.1",
+  "version_ggplot2": "4.0.3",
+  "licencia_ggplot2": "MIT + file LICENSE",
+  "descriptivos": {
+    "PUNT_GLOBAL": {
+      "n": 532566,
+      "media": 250.139301044378,
+      "mediana": 247,
+      "moda": 237,
+      "varianza": 2687.52367630885,
+      "desviacion": 51.8413317374163,
+      "minimo": 0,
+      "maximo": 477,
+      "rango": 477,
+      "q1": 210,
+      "q3": 288,
+      "iqr": 78,
+      "asimetria": 0.277231988103165,
+      "curtosis": -0.539678704113661
+    },
+    "PUNT_LECTURA_CRITICA": {
+      "n": 532566,
+      "media": 52.8002050450085,
+      "mediana": 53,
+      "moda": 53,
+      "varianza": 116.002566855894,
+      "desviacion": 10.7704487769031,
+      "minimo": 0,
+      "maximo": 100,
+      "rango": 100,
+      "q1": 45,
+      "q3": 61,
+      "iqr": 16,
+      "asimetria": 0.0218564575059219,
+      "curtosis": -0.318708362260768
+    },
+    "PUNT_MATEMATICAS": {
+      "n": 532566,
+      "media": 50.5907061284423,
+      "mediana": 51,
+      "moda": 52,
+      "varianza": 149.609290432254,
+      "desviacion": 12.2314876622696,
+      "minimo": 0,
+      "maximo": 100,
+      "rango": 100,
+      "q1": 42,
+      "q3": 59,
+      "iqr": 17,
+      "asimetria": 0.0489898084748926,
+      "curtosis": -0.1080611253274
+    },
+    "PUNT_C_NATURALES": {
+      "n": 532566,
+      "media": 49.0835164092338,
+      "mediana": 48,
+      "moda": 43,
+      "varianza": 107.853308717528,
+      "desviacion": 10.3852447596351,
+      "minimo": 0,
+      "maximo": 100,
+      "rango": 100,
+      "q1": 41,
+      "q3": 56,
+      "iqr": 15,
+      "asimetria": 0.340436035190607,
+      "curtosis": -0.420547886571861
+    },
+    "PUNT_SOCIALES_CIUDADANAS": {
+      "n": 532566,
+      "media": 47.7031090982151,
+      "mediana": 47,
+      "moda": 40,
+      "varianza": 142.181054691831,
+      "desviacion": 11.9239697538962,
+      "minimo": 0,
+      "maximo": 100,
+      "rango": 100,
+      "q1": 38,
+      "q3": 57,
+      "iqr": 19,
+      "asimetria": 0.205821785387291,
+      "curtosis": -0.666490149851168
+    },
+    "PUNT_INGLES": {
+      "n": 530589,
+      "media": 49.863875805944,
+      "mediana": 49,
+      "moda": 39,
+      "varianza": 171.698945875067,
+      "desviacion": 13.103394440948,
+      "minimo": 0,
+      "maximo": 100,
+      "rango": 100,
+      "q1": 39,
+      "q3": 58,
+      "iqr": 19,
+      "asimetria": 0.585218596754396,
+      "curtosis": 0.483427606765622
+    }
+  },
+  "frecuencias": {
+    "FAMI_ESTRATOVIVIENDA": {
+      "Estrato 1": 146261,
+      "Estrato 2": 180019,
+      "Estrato 3": 110215,
+      "Estrato 4": 28080,
+      "Estrato 5": 8445,
+      "Estrato 6": 3879,
+      "Sin Estrato": 19770,
+      "(sin respuesta)": 35897
+    },
+    "COLE_NATURALEZA": {
+      "OFICIAL": 412123,
+      "NO OFICIAL": 120442,
+      "(sin respuesta)": 1
+    }
+  },
+  "correlacion": {
+    "n": 530589,
+    "pearson": {
+      "PUNT_GLOBAL": {
+        "PUNT_GLOBAL": 1,
+        "PUNT_LECTURA_CRITICA": 0.910924724458206,
+        "PUNT_MATEMATICAS": 0.9081572628536,
+        "PUNT_C_NATURALES": 0.920949336520005,
+        "PUNT_SOCIALES_CIUDADANAS": 0.917036320567858,
+        "PUNT_INGLES": 0.801603740851067
+      },
+      "PUNT_LECTURA_CRITICA": {
+        "PUNT_GLOBAL": 0.910924724458206,
+        "PUNT_LECTURA_CRITICA": 1,
+        "PUNT_MATEMATICAS": 0.765313751571721,
+        "PUNT_C_NATURALES": 0.77690636410939,
+        "PUNT_SOCIALES_CIUDADANAS": 0.808348883160499,
+        "PUNT_INGLES": 0.705643973971045
+      },
+      "PUNT_MATEMATICAS": {
+        "PUNT_GLOBAL": 0.9081572628536,
+        "PUNT_LECTURA_CRITICA": 0.765313751571721,
+        "PUNT_MATEMATICAS": 1,
+        "PUNT_C_NATURALES": 0.810808961532165,
+        "PUNT_SOCIALES_CIUDADANAS": 0.750133945282806,
+        "PUNT_INGLES": 0.676992420460723
+      },
+      "PUNT_C_NATURALES": {
+        "PUNT_GLOBAL": 0.920949336520005,
+        "PUNT_LECTURA_CRITICA": 0.77690636410939,
+        "PUNT_MATEMATICAS": 0.810808961532165,
+        "PUNT_C_NATURALES": 1,
+        "PUNT_SOCIALES_CIUDADANAS": 0.802818648811284,
+        "PUNT_INGLES": 0.715639577228773
+      },
+      "PUNT_SOCIALES_CIUDADANAS": {
+        "PUNT_GLOBAL": 0.917036320567858,
+        "PUNT_LECTURA_CRITICA": 0.808348883160499,
+        "PUNT_MATEMATICAS": 0.750133945282806,
+        "PUNT_C_NATURALES": 0.802818648811284,
+        "PUNT_SOCIALES_CIUDADANAS": 1,
+        "PUNT_INGLES": 0.698334520777897
+      },
+      "PUNT_INGLES": {
+        "PUNT_GLOBAL": 0.801603740851067,
+        "PUNT_LECTURA_CRITICA": 0.705643973971045,
+        "PUNT_MATEMATICAS": 0.676992420460723,
+        "PUNT_C_NATURALES": 0.715639577228773,
+        "PUNT_SOCIALES_CIUDADANAS": 0.698334520777897,
+        "PUNT_INGLES": 1
+      }
+    },
+    "spearman": {
+      "PUNT_GLOBAL": {
+        "PUNT_GLOBAL": 1,
+        "PUNT_LECTURA_CRITICA": 0.914322232045446,
+        "PUNT_MATEMATICAS": 0.909426338174885,
+        "PUNT_C_NATURALES": 0.916391195943605,
+        "PUNT_SOCIALES_CIUDADANAS": 0.916892521971733,
+        "PUNT_INGLES": 0.791980391488524
+      },
+      "PUNT_LECTURA_CRITICA": {
+        "PUNT_GLOBAL": 0.914322232045446,
+        "PUNT_LECTURA_CRITICA": 1,
+        "PUNT_MATEMATICAS": 0.770209233038858,
+        "PUNT_C_NATURALES": 0.778485852014816,
+        "PUNT_SOCIALES_CIUDADANAS": 0.814816431646469,
+        "PUNT_INGLES": 0.709352475473856
+      },
+      "PUNT_MATEMATICAS": {
+        "PUNT_GLOBAL": 0.909426338174885,
+        "PUNT_LECTURA_CRITICA": 0.770209233038858,
+        "PUNT_MATEMATICAS": 1,
+        "PUNT_C_NATURALES": 0.81210550957888,
+        "PUNT_SOCIALES_CIUDADANAS": 0.753960445286683,
+        "PUNT_INGLES": 0.679009850314821
+      },
+      "PUNT_C_NATURALES": {
+        "PUNT_GLOBAL": 0.916391195943605,
+        "PUNT_LECTURA_CRITICA": 0.778485852014816,
+        "PUNT_MATEMATICAS": 0.81210550957888,
+        "PUNT_C_NATURALES": 1,
+        "PUNT_SOCIALES_CIUDADANAS": 0.79823937400382,
+        "PUNT_INGLES": 0.701159060303957
+      },
+      "PUNT_SOCIALES_CIUDADANAS": {
+        "PUNT_GLOBAL": 0.916892521971733,
+        "PUNT_LECTURA_CRITICA": 0.814816431646469,
+        "PUNT_MATEMATICAS": 0.753960445286683,
+        "PUNT_C_NATURALES": 0.79823937400382,
+        "PUNT_SOCIALES_CIUDADANAS": 1,
+        "PUNT_INGLES": 0.689473411535314
+      },
+      "PUNT_INGLES": {
+        "PUNT_GLOBAL": 0.791980391488524,
+        "PUNT_LECTURA_CRITICA": 0.709352475473856,
+        "PUNT_MATEMATICAS": 0.679009850314821,
+        "PUNT_C_NATURALES": 0.701159060303957,
+        "PUNT_SOCIALES_CIUDADANAS": 0.689473411535314,
+        "PUNT_INGLES": 1
+      }
+    }
+  },
+  "chi2": {
+    "estrato_naturaleza": {
+      "n": 496669,
+      "estadistico": 46630.680488902,
+      "gl": 6,
+      "p": 0,
+      "v_cramer": 0.306409587110229
+    },
+    "internet_zona": {
+      "n": 500923,
+      "estadistico": 36492.5910650444,
+      "gl": 1,
+      "p": 0,
+      "v_cramer": 0.269908687778611
+    }
+  },
+  "medicion": {
+    "histograma": {
+      "instrucciones": 1,
+      "componentes": 5,
+      "tiempo_s": 0.190832376480103,
+      "png_kb": 28.6572265625,
+      "pdf_kb": 4.7734375
+    },
+    "correlacion": {
+      "instrucciones": 3,
+      "componentes": 7,
+      "tiempo_s": 0.102615356445312,
+      "png_kb": 54.521484375,
+      "pdf_kb": 6.12890625
+    }
+  }
+}
