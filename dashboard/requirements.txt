@@ -1,0 +1,7 @@
+# Dependencias del dashboard en Streamlit Community Cloud, que lee este archivo antes que el
+# uv.lock de la raíz (ese trae las bibliotecas de GPU del modelado). Mismas versiones de
+# requirements.txt.
+numpy==2.5.4
+pandas==3.1.1
+plotly==7.1.0
+streamlit==1.67.0
