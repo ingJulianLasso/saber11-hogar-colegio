@@ -1,0 +1,791 @@
+{
+  "version_r": "4.6.1",
+  "version_ggplot2": "4.0.3",
+  "simple": {
+    "r2": 0.105655122930842,
+    "r2_ajustado": 0.10565272387272,
+    "n": 372792,
+    "coeficientes": {
+      "Intercept": {
+        "estimado": 218.216387139456,
+        "error": 0.172000697081865,
+        "inferior": 217.879270873319,
+        "superior": 218.553503405592
+      },
+      "INDICE_BIENES": {
+        "estimado": 13.7367273739538,
+        "error": 0.0654573447105422,
+        "inferior": 13.6084329192545,
+        "superior": 13.8650218286531
+      }
+    }
+  },
+  "multiple": {
+    "r2": 0.31805520883753,
+    "r2_ajustado": 0.317881381495245,
+    "n": 372792,
+    "coeficientes": {
+      "Intercept": {
+        "estimado": 299.862789971113,
+        "error": 1.08066153165515,
+        "inferior": 297.744725410981,
+        "superior": 301.980854531245
+      },
+      "FAMI_CUARTOSHOGAR": {
+        "estimado": -4.20652166311735,
+        "error": 0.0875011158386123,
+        "inferior": -4.37802125572885,
+        "superior": -4.03502207050586
+      },
+      "FAMI_PERSONASHOGAR": {
+        "estimado": 0.164943898210241,
+        "error": 0.0502617859658804,
+        "inferior": 0.0664322879929137,
+        "superior": 0.263455508427568
+      },
+      "ESTU_EDAD": {
+        "estimado": -3.67683307337553,
+        "error": 0.0435622000774984,
+        "inferior": -3.76221369389619,
+        "superior": -3.59145245285486
+      },
+      "FAMI_ESTRATOVIVIENDA=Estrato 2": {
+        "estimado": -1.97572782315169,
+        "error": 0.191100585651578,
+        "inferior": -2.35027930484378,
+        "superior": -1.6011763414596
+      },
+      "FAMI_ESTRATOVIVIENDA=Estrato 3": {
+        "estimado": -4.47966351177305,
+        "error": 0.228417187131511,
+        "inferior": -4.9273544259183,
+        "superior": -4.03197259762781
+      },
+      "FAMI_ESTRATOVIVIENDA=Estrato 4": {
+        "estimado": -8.29006963180431,
+        "error": 0.359003329727747,
+        "inferior": -8.99370551352308,
+        "superior": -7.58643375008554
+      },
+      "FAMI_ESTRATOVIVIENDA=Estrato 5": {
+        "estimado": -9.51451040483495,
+        "error": 0.589232653180914,
+        "inferior": -10.6693889341591,
+        "superior": -8.35963187551083
+      },
+      "FAMI_ESTRATOVIVIENDA=Estrato 6": {
+        "estimado": -15.3690966064979,
+        "error": 0.844677006426183,
+        "inferior": -17.0246384941874,
+        "superior": -13.7135547188085
+      },
+      "FAMI_ESTRATOVIVIENDA=Sin Estrato": {
+        "estimado": -16.3775536211226,
+        "error": 0.395585517183719,
+        "inferior": -17.1528895055831,
+        "superior": -15.602217736662
+      },
+      "FAMI_EDUCACIONMADRE=Educación profesional completa": {
+        "estimado": 18.9530533362751,
+        "error": 0.609894864045637,
+        "inferior": 17.7576774862964,
+        "superior": 20.1484291862538
+      },
+      "FAMI_EDUCACIONMADRE=Educación profesional incompleta": {
+        "estimado": 16.9920689184199,
+        "error": 0.703877538458912,
+        "inferior": 15.6124898132033,
+        "superior": 18.3716480236365
+      },
+      "FAMI_EDUCACIONMADRE=No Aplica": {
+        "estimado": -2.46872635109801,
+        "error": 1.64809839842201,
+        "inferior": -5.69895034543367,
+        "superior": 0.761497643237648
+      },
+      "FAMI_EDUCACIONMADRE=No sabe": {
+        "estimado": 12.1573029517496,
+        "error": 0.737031654825679,
+        "inferior": 10.7127427614829,
+        "superior": 13.6018631420164
+      },
+      "FAMI_EDUCACIONMADRE=Postgrado": {
+        "estimado": 34.25456966016,
+        "error": 0.782378350667511,
+        "inferior": 32.7211312905852,
+        "superior": 35.7880080297347
+      },
+      "FAMI_EDUCACIONMADRE=Primaria completa": {
+        "estimado": 2.85667412673578,
+        "error": 0.597109666793149,
+        "inferior": 1.6863568842873,
+        "superior": 4.02699136918427
+      },
+      "FAMI_EDUCACIONMADRE=Primaria incompleta": {
+        "estimado": 2.72717444941371,
+        "error": 0.573558083039408,
+        "inferior": 1.60301761281162,
+        "superior": 3.85133128601581
+      },
+      "FAMI_EDUCACIONMADRE=Secundaria (Bachillerato) completa": {
+        "estimado": 7.10700908085277,
+        "error": 0.570053920071108,
+        "inferior": 5.98972029976914,
+        "superior": 8.22429786193639
+      },
+      "FAMI_EDUCACIONMADRE=Secundaria (Bachillerato) incompleta": {
+        "estimado": 3.79072444272119,
+        "error": 0.580711915313832,
+        "inferior": 2.65254630697433,
+        "superior": 4.92890257846806
+      },
+      "FAMI_EDUCACIONMADRE=Técnica o tecnológica completa": {
+        "estimado": 17.6057678145871,
+        "error": 0.605995731526604,
+        "inferior": 16.4180341487353,
+        "superior": 18.7935014804389
+      },
+      "FAMI_EDUCACIONMADRE=Técnica o tecnológica incompleta": {
+        "estimado": 12.9278452042875,
+        "error": 0.679220837985101,
+        "inferior": 11.5965925009217,
+        "superior": 14.2590979076534
+      },
+      "FAMI_EDUCACIONPADRE=Educación profesional completa": {
+        "estimado": 19.5853166044643,
+        "error": 0.518202828058603,
+        "inferior": 18.569654426326,
+        "superior": 20.6009787826025
+      },
+      "FAMI_EDUCACIONPADRE=Educación profesional incompleta": {
+        "estimado": 19.9046516501536,
+        "error": 0.665833219965764,
+        "inferior": 18.5996382811591,
+        "superior": 21.2096650191481
+      },
+      "FAMI_EDUCACIONPADRE=No Aplica": {
+        "estimado": 14.9301069523986,
+        "error": 0.768013406170403,
+        "inferior": 13.4248234481136,
+        "superior": 16.4353904566835
+      },
+      "FAMI_EDUCACIONPADRE=No sabe": {
+        "estimado": 15.40077221537,
+        "error": 0.523611792050095,
+        "inferior": 14.3745086281856,
+        "superior": 16.4270358025543
+      },
+      "FAMI_EDUCACIONPADRE=Postgrado": {
+        "estimado": 36.8296779129515,
+        "error": 0.750158292278416,
+        "inferior": 35.3593899024858,
+        "superior": 38.2999659234172
+      },
+      "FAMI_EDUCACIONPADRE=Primaria completa": {
+        "estimado": 6.45512389196495,
+        "error": 0.495153568166942,
+        "inferior": 5.48463757979742,
+        "superior": 7.42561020413247
+      },
+      "FAMI_EDUCACIONPADRE=Primaria incompleta": {
+        "estimado": 6.84266398795628,
+        "error": 0.459715770685435,
+        "inferior": 5.94163470811205,
+        "superior": 7.7436932678005
+      },
+      "FAMI_EDUCACIONPADRE=Secundaria (Bachillerato) completa": {
+        "estimado": 9.36719940647852,
+        "error": 0.464136459307367,
+        "inferior": 8.45750570800994,
+        "superior": 10.2768931049471
+      },
+      "FAMI_EDUCACIONPADRE=Secundaria (Bachillerato) incompleta": {
+        "estimado": 7.18706103336058,
+        "error": 0.474488706680505,
+        "inferior": 6.25707723698764,
+        "superior": 8.11704482973352
+      },
+      "FAMI_EDUCACIONPADRE=Técnica o tecnológica completa": {
+        "estimado": 18.4508596718177,
+        "error": 0.531654684771403,
+        "inferior": 17.4088322533736,
+        "superior": 19.4928870902618
+      },
+      "FAMI_EDUCACIONPADRE=Técnica o tecnológica incompleta": {
+        "estimado": 13.0261995793902,
+        "error": 0.650599754542823,
+        "inferior": 11.7510433509482,
+        "superior": 14.3013558078322
+      },
+      "FAMI_TIENEINTERNET=Si": {
+        "estimado": 7.0236994366368,
+        "error": 0.198467337866706,
+        "inferior": 6.63470933902929,
+        "superior": 7.41268953424431
+      },
+      "FAMI_TIENECOMPUTADOR=Si": {
+        "estimado": 9.01054410374542,
+        "error": 0.178911592682824,
+        "inferior": 8.65988268686509,
+        "superior": 9.36120552062576
+      },
+      "FAMI_TIENEAUTOMOVIL=Si": {
+        "estimado": 1.44141096386275,
+        "error": 0.186968683186112,
+        "inferior": 1.07495788849093,
+        "superior": 1.80786403923458
+      },
+      "FAMI_TIENELAVADORA=Si": {
+        "estimado": 1.62612979681059,
+        "error": 0.191791101056198,
+        "inferior": 1.25022492539942,
+        "superior": 2.00203466822176
+      },
+      "COLE_NATURALEZA=NO OFICIAL": {
+        "estimado": 12.4461472323382,
+        "error": 0.229118174286364,
+        "inferior": 11.9970824041539,
+        "superior": 12.8952120605225
+      },
+      "COLE_AREA_UBICACION=RURAL": {
+        "estimado": -10.2562912897224,
+        "error": 0.212224425488278,
+        "inferior": -10.6722448711667,
+        "superior": -9.84033770827802
+      },
+      "COLE_JORNADA=COMPLETA": {
+        "estimado": 11.2457311783546,
+        "error": 0.260890542343175,
+        "inferior": 10.7343934508384,
+        "superior": 11.7570689058708
+      },
+      "COLE_JORNADA=NOCHE": {
+        "estimado": -19.8270637928125,
+        "error": 0.380284811853155,
+        "inferior": -20.5724107484952,
+        "superior": -19.0817168371297
+      },
+      "COLE_JORNADA=SABATINA": {
+        "estimado": -23.0640363078897,
+        "error": 0.368863051716563,
+        "inferior": -23.7869969523631,
+        "superior": -22.3410756634164
+      },
+      "COLE_JORNADA=TARDE": {
+        "estimado": -1.7639457052379,
+        "error": 0.261941900798037,
+        "inferior": -2.27734406415255,
+        "superior": -1.25054734632326
+      },
+      "COLE_JORNADA=UNICA": {
+        "estimado": 3.64719627130541,
+        "error": 0.190397122420955,
+        "inferior": 3.27402355668746,
+        "superior": 4.02036898592336
+      },
+      "COLE_CALENDARIO=B": {
+        "estimado": 2.57709850803847,
+        "error": 1.99639061387557,
+        "inferior": -1.33576790162607,
+        "superior": 6.489964917703
+      },
+      "COLE_CALENDARIO=OTRO": {
+        "estimado": -8.64739400639439,
+        "error": 1.32637713776281,
+        "inferior": -11.247053868962,
+        "superior": -6.04773414382677
+      },
+      "COLE_CARACTER=NO APLICA": {
+        "estimado": -8.60539443500494,
+        "error": 0.580311904906931,
+        "inferior": -9.7427885622147,
+        "superior": -7.46800030779518
+      },
+      "COLE_CARACTER=TÉCNICO": {
+        "estimado": -2.23161017769285,
+        "error": 0.25328807734542,
+        "inferior": -2.72804729922862,
+        "superior": -1.73517305615709
+      },
+      "COLE_CARACTER=TÉCNICO/ACADÉMICO": {
+        "estimado": 0.0336517788197869,
+        "error": 0.183142110666332,
+        "inferior": -0.325301327872197,
+        "superior": 0.39260488551177
+      },
+      "COLE_BILINGUE=S": {
+        "estimado": -2.78568251357635,
+        "error": 0.696255954468714,
+        "inferior": -4.1503235401542,
+        "superior": -1.4210414869985
+      },
+      "COLE_GENERO=FEMENINO": {
+        "estimado": 16.8930309876158,
+        "error": 0.487535058013957,
+        "inferior": 15.9374767294572,
+        "superior": 17.8485852457744
+      },
+      "COLE_GENERO=MASCULINO": {
+        "estimado": 13.667264905279,
+        "error": 0.852078524792958,
+        "inferior": 11.9972162610477,
+        "superior": 15.3373135495102
+      },
+      "COLE_DEPTO_UBICACION=AMAZONAS": {
+        "estimado": -19.7822235467566,
+        "error": 1.79380365677474,
+        "inferior": -23.2980255272626,
+        "superior": -16.2664215662506
+      },
+      "COLE_DEPTO_UBICACION=ANTIOQUIA": {
+        "estimado": -9.67662172247194,
+        "error": 0.278013796519978,
+        "inferior": -10.2215205204655,
+        "superior": -9.13172292447842
+      },
+      "COLE_DEPTO_UBICACION=ARAUCA": {
+        "estimado": 0.808971464193205,
+        "error": 0.925306888184959,
+        "inferior": -1.00460260104521,
+        "superior": 2.62254552943162
+      },
+      "COLE_DEPTO_UBICACION=ATLANTICO": {
+        "estimado": -16.115668092512,
+        "error": 0.363466614890643,
+        "inferior": -16.8280518808125,
+        "superior": -15.4032843042116
+      },
+      "COLE_DEPTO_UBICACION=BOLIVAR": {
+        "estimado": -21.4800009170172,
+        "error": 0.385401860161094,
+        "inferior": -22.2353771356616,
+        "superior": -20.7246246983728
+      },
+      "COLE_DEPTO_UBICACION=BOYACA": {
+        "estimado": 6.9403389164489,
+        "error": 0.469139843928131,
+        "inferior": 6.02083873247536,
+        "superior": 7.85983910042244
+      },
+      "COLE_DEPTO_UBICACION=CALDAS": {
+        "estimado": -1.27794562404778,
+        "error": 0.551612629942329,
+        "inferior": -2.35909002326833,
+        "superior": -0.196801224827228
+      },
+      "COLE_DEPTO_UBICACION=CAQUETA": {
+        "estimado": -4.92624326099705,
+        "error": 0.848166445500993,
+        "inferior": -6.58862434581026,
+        "superior": -3.26386217618383
+      },
+      "COLE_DEPTO_UBICACION=CASANARE": {
+        "estimado": 4.19804619190669,
+        "error": 0.723982665984521,
+        "inferior": 2.77906163286249,
+        "superior": 5.61703075095089
+      },
+      "COLE_DEPTO_UBICACION=CAUCA": {
+        "estimado": -13.7946766941853,
+        "error": 0.502833159254314,
+        "inferior": -14.7802147771821,
+        "superior": -12.8091386111885
+      },
+      "COLE_DEPTO_UBICACION=CESAR": {
+        "estimado": -11.1330000479317,
+        "error": 0.493220529880924,
+        "inferior": -12.0996976623737,
+        "superior": -10.1663024334896
+      },
+      "COLE_DEPTO_UBICACION=CHOCO": {
+        "estimado": -38.024519846392,
+        "error": 0.781593579230006,
+        "inferior": -39.5564200872179,
+        "superior": -36.4926196055661
+      },
+      "COLE_DEPTO_UBICACION=CORDOBA": {
+        "estimado": -9.70756240565232,
+        "error": 0.414760711912476,
+        "inferior": -10.5204811032314,
+        "superior": -8.89464370807321
+      },
+      "COLE_DEPTO_UBICACION=CUNDINAMARCA": {
+        "estimado": 0.697618897893585,
+        "error": 0.337371877418909,
+        "inferior": 0.0363800213216157,
+        "superior": 1.35885777446555
+      },
+      "COLE_DEPTO_UBICACION=GUAINIA": {
+        "estimado": -4.36084850041932,
+        "error": 2.60434215524887,
+        "inferior": -9.46528190524485,
+        "superior": 0.743584904406204
+      },
+      "COLE_DEPTO_UBICACION=GUAVIARE": {
+        "estimado": -9.36841986702755,
+        "error": 1.62258435836505,
+        "inferior": -12.5486370993499,
+        "superior": -6.18820263470521
+      },
+      "COLE_DEPTO_UBICACION=HUILA": {
+        "estimado": 0.983669419939793,
+        "error": 0.497544244059408,
+        "inferior": 0.00849745390723522,
+        "superior": 1.95884138597235
+      },
+      "COLE_DEPTO_UBICACION=LA GUAJIRA": {
+        "estimado": -20.946218643368,
+        "error": 0.571320590424197,
+        "inferior": -22.0659900607866,
+        "superior": -19.8264472259495
+      },
+      "COLE_DEPTO_UBICACION=MAGDALENA": {
+        "estimado": -22.1163121198252,
+        "error": 0.457788751374368,
+        "inferior": -23.0135644989564,
+        "superior": -21.219059740694
+      },
+      "COLE_DEPTO_UBICACION=META": {
+        "estimado": -1.80078354221655,
+        "error": 0.523772438584193,
+        "inferior": -2.8273619918445,
+        "superior": -0.774205092588606
+      },
+      "COLE_DEPTO_UBICACION=NARIÑO": {
+        "estimado": 2.75044711377903,
+        "error": 0.467360570918021,
+        "inferior": 1.83443425214937,
+        "superior": 3.66645997540869
+      },
+      "COLE_DEPTO_UBICACION=NORTE SANTANDER": {
+        "estimado": 2.24263461890466,
+        "error": 0.459468975662745,
+        "inferior": 1.34208904998736,
+        "superior": 3.14318018782195
+      },
+      "COLE_DEPTO_UBICACION=PUTUMAYO": {
+        "estimado": -4.10971820026122,
+        "error": 0.858625476423636,
+        "inferior": -5.79259867556967,
+        "superior": -2.42683772495277
+      },
+      "COLE_DEPTO_UBICACION=QUINDIO": {
+        "estimado": 3.79859458024146,
+        "error": 0.714056629772234,
+        "inferior": 2.39906475786364,
+        "superior": 5.19812440261929
+      },
+      "COLE_DEPTO_UBICACION=RISARALDA": {
+        "estimado": -0.552019307468934,
+        "error": 0.565410049188611,
+        "inferior": -1.66020623931492,
+        "superior": 0.556167624377048
+      },
+      "COLE_DEPTO_UBICACION=SAN ANDRES": {
+        "estimado": -20.4827076419593,
+        "error": 2.11791894541576,
+        "inferior": -24.6337659780941,
+        "superior": -16.3316493058245
+      },
+      "COLE_DEPTO_UBICACION=SANTANDER": {
+        "estimado": 10.5195979590925,
+        "error": 0.387727026488126,
+        "inferior": 9.75966448338895,
+        "superior": 11.2795314347961
+      },
+      "COLE_DEPTO_UBICACION=SUCRE": {
+        "estimado": -12.3801717872349,
+        "error": 0.538830896704505,
+        "inferior": -13.4362643682913,
+        "superior": -11.3240792061786
+      },
+      "COLE_DEPTO_UBICACION=TOLIMA": {
+        "estimado": -9.15554347283532,
+        "error": 0.460944243016704,
+        "inferior": -10.0589805220243,
+        "superior": -8.25210642364635
+      },
+      "COLE_DEPTO_UBICACION=VALLE": {
+        "estimado": -7.09097324653497,
+        "error": 0.345074845573403,
+        "inferior": -7.76730971229462,
+        "superior": -6.41463678077532
+      },
+      "COLE_DEPTO_UBICACION=VAUPES": {
+        "estimado": -12.7600720913671,
+        "error": 2.5159944206031,
+        "inferior": -17.6913465558216,
+        "superior": -7.82879762691262
+      },
+      "COLE_DEPTO_UBICACION=VICHADA": {
+        "estimado": -14.7696573499517,
+        "error": 2.1104417493133,
+        "inferior": -18.9060606034266,
+        "superior": -10.6332540964768
+      },
+      "ESTU_GENERO=M": {
+        "estimado": 6.58003706311599,
+        "error": 0.143277653296568,
+        "inferior": 6.2992171108766,
+        "superior": 6.86085701535538
+      },
+      "FALTA_FAMI_ESTRATOVIVIENDA": {
+        "estimado": -7.69602829040037,
+        "error": 0.669185070200922,
+        "inferior": -9.00761118647253,
+        "superior": -6.38444539432822
+      },
+      "FALTA_FAMI_EDUCACIONMADRE": {
+        "estimado": -0.0235635411019508,
+        "error": 1.27491088151467,
+        "inferior": -2.52235106741191,
+        "superior": 2.47522398520801
+      },
+      "FALTA_FAMI_EDUCACIONPADRE": {
+        "estimado": 0.0378680605361635,
+        "error": 1.1638344250465,
+        "inferior": -2.24321290454371,
+        "superior": 2.31894902561604
+      },
+      "FALTA_FAMI_TIENEINTERNET": {
+        "estimado": -4.28719711545656,
+        "error": 0.998063291013894,
+        "inferior": -6.2433715729923,
+        "superior": -2.33102265792082
+      },
+      "FALTA_FAMI_TIENECOMPUTADOR": {
+        "estimado": 4.91121646655106,
+        "error": 1.35483216113202,
+        "inferior": 2.25578560187906,
+        "superior": 7.56664733122306
+      },
+      "FALTA_FAMI_TIENEAUTOMOVIL": {
+        "estimado": -12.0525704240515,
+        "error": 1.21845451143182,
+        "inferior": -14.440705138946,
+        "superior": -9.66443570915706
+      },
+      "FALTA_FAMI_TIENELAVADORA": {
+        "estimado": 0.449771946604704,
+        "error": 1.37752597315249,
+        "inferior": -2.25013811674964,
+        "superior": 3.14968200995904
+      },
+      "FALTA_FAMI_CUARTOSHOGAR": {
+        "estimado": 2.78904569702714,
+        "error": 0.96769520388027,
+        "inferior": 0.892391789851147,
+        "superior": 4.68569960420312
+      },
+      "FALTA_FAMI_PERSONASHOGAR": {
+        "estimado": 1.02629677801348,
+        "error": 1.09386188006371,
+        "inferior": -1.11764007360534,
+        "superior": 3.17023362963231
+      },
+      "FALTA_COLE_CARACTER": {
+        "estimado": -8.26726602728549,
+        "error": 0.415198317918035,
+        "inferior": -9.08104241966035,
+        "superior": -7.45348963491063
+      },
+      "FALTA_COLE_BILINGUE": {
+        "estimado": -3.44249303218932,
+        "error": 0.215959016160051,
+        "inferior": -3.8657663006187,
+        "superior": -3.01921976375993
+      },
+      "FALTA_ESTU_EDAD": {
+        "estimado": -24.3195185254025,
+        "error": 3.69080995134398,
+        "inferior": -31.5533965965051,
+        "superior": -17.0856404543
+      }
+    }
+  },
+  "laboratorio": {
+    "numericas": {
+      "ESTU_EDAD": {
+        "antes": {
+          "n": 372657,
+          "media": 17.5897004484016,
+          "mediana": 17,
+          "moda": 17,
+          "varianza": 7.68660584630612,
+          "desviacion": 2.77247287566644,
+          "rango": 62
+        },
+        "despues": {
+          "n": 372792,
+          "media": 17.4925937251872,
+          "mediana": 17,
+          "moda": 17,
+          "varianza": 3.61287035168565,
+          "desviacion": 1.90075520561845,
+          "rango": 20
+        }
+      },
+      "FAMI_CUARTOSHOGAR": {
+        "antes": {
+          "n": 356187,
+          "media": 2.74300016564333,
+          "mediana": 3,
+          "moda": 3,
+          "varianza": 0.942951814959011,
+          "desviacion": 0.971057060609216,
+          "rango": 5
+        },
+        "despues": {
+          "n": 372792,
+          "media": 2.75444752033305,
+          "mediana": 3,
+          "moda": 3,
+          "varianza": 0.903761426674162,
+          "desviacion": 0.950663676951088,
+          "rango": 5
+        }
+      },
+      "FAMI_PERSONASHOGAR": {
+        "antes": {
+          "n": 356800,
+          "media": 4.33506306053812,
+          "mediana": 3.5,
+          "moda": 3.5,
+          "varianza": 2.80021326736101,
+          "desviacion": 1.67338377766758,
+          "rango": 7.5
+        },
+        "despues": {
+          "n": 372792,
+          "media": 4.29924059529174,
+          "mediana": 3.5,
+          "moda": 3.5,
+          "varianza": 2.70872047611806,
+          "desviacion": 1.64581908972951,
+          "rango": 7.5
+        }
+      },
+      "HACINAMIENTO": {
+        "antes": {
+          "n": 355301,
+          "media": 1.70578530598,
+          "mediana": 1.75,
+          "moda": 1.75,
+          "varianza": 0.691887417614325,
+          "desviacion": 0.831797702337729,
+          "rango": 8.75
+        },
+        "despues": {
+          "n": 372792,
+          "media": 1.68293822918231,
+          "mediana": 1.75,
+          "moda": 1.16666666666667,
+          "varianza": 0.673799816598177,
+          "desviacion": 0.820853102935097,
+          "rango": 8.75
+        }
+      },
+      "PUNT_GLOBAL": {
+        "antes": {
+          "n": 372792,
+          "media": 250.138897830426,
+          "mediana": 247,
+          "moda": 232,
+          "varianza": 2686.58465968959,
+          "desviacion": 51.8322743055867,
+          "rango": 449
+        },
+        "despues": {
+          "n": 372792,
+          "media": 250.138897830426,
+          "mediana": 247,
+          "moda": 232,
+          "varianza": 2686.58465968959,
+          "desviacion": 51.8322743055867,
+          "rango": 449
+        }
+      }
+    },
+    "categoricas": {
+      "FAMI_ESTRATOVIVIENDA": {
+        "antes": {
+          "Estrato 1": 102421,
+          "Estrato 2": 125981,
+          "Estrato 3": 77084,
+          "Estrato 4": 19720,
+          "Estrato 5": 5914,
+          "Estrato 6": 2692,
+          "Sin dato": 25137,
+          "Sin Estrato": 13843
+        },
+        "despues": {
+          "Estrato 1": 102421,
+          "Estrato 2": 151118,
+          "Estrato 3": 77084,
+          "Estrato 4": 19720,
+          "Estrato 5": 5914,
+          "Estrato 6": 2692,
+          "Sin Estrato": 13843
+        }
+      },
+      "FAMI_TIENEINTERNET": {
+        "antes": {
+          "No": 95928,
+          "Si": 254681,
+          "Sin dato": 22183
+        },
+        "despues": {
+          "No": 95928,
+          "Si": 276864
+        }
+      },
+      "FAMI_EDUCACIONMADRE": {
+        "antes": {
+          "Educación profesional completa": 43482,
+          "Educación profesional incompleta": 10598,
+          "Ninguno": 7096,
+          "No Aplica": 770,
+          "No sabe": 8917,
+          "Postgrado": 7937,
+          "Primaria completa": 29558,
+          "Primaria incompleta": 43986,
+          "Secundaria (Bachillerato) completa": 100682,
+          "Secundaria (Bachillerato) incompleta": 48861,
+          "Sin dato": 21753,
+          "Técnica o tecnológica completa": 36701,
+          "Técnica o tecnológica incompleta": 12451
+        },
+        "despues": {
+          "Educación profesional completa": 43482,
+          "Educación profesional incompleta": 10598,
+          "Ninguno": 7096,
+          "No Aplica": 770,
+          "No sabe": 8917,
+          "Postgrado": 7937,
+          "Primaria completa": 29558,
+          "Primaria incompleta": 43986,
+          "Secundaria (Bachillerato) completa": 122435,
+          "Secundaria (Bachillerato) incompleta": 48861,
+          "Técnica o tecnológica completa": 36701,
+          "Técnica o tecnológica incompleta": 12451
+        }
+      }
+    }
+  },
+  "medicion": {
+    "coeficientes": {
+      "instrucciones": 1,
+      "componentes": 6,
+      "tiempo_s": 0.0905001163482666,
+      "png_kb": 84.0478515625,
+      "pdf_kb": 5.78515625
+    },
+    "residuos": {
+      "instrucciones": 1,
+      "componentes": 7,
+      "tiempo_s": 0.265989303588867,
+      "png_kb": 38.7998046875,
+      "pdf_kb": 12.697265625
+    }
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "objetivo": "PUNT_GLOBAL",
+  "predictor_simple": "INDICE_BIENES",
+  "spearman_simple": 0.32763955617991475,
+  "imputacion": "moda",
+  "especificacion": "componentes",
+  "atipicos": {
+    "ESTU_EDAD": "winsorizar",
+    "HACINAMIENTO": "conservar"
+  },
+  "numericas": [
+    "FAMI_CUARTOSHOGAR",
+    "FAMI_PERSONASHOGAR",
+    "ESTU_EDAD"
+  ],
+  "categoricas": {
+    "FAMI_ESTRATOVIVIENDA": {
+      "referencia": "Estrato 1",
+      "niveles": [
+        "Estrato 1",
+        "Estrato 2",
+        "Estrato 3",
+        "Estrato 4",
+        "Estrato 5",
+        "Estrato 6",
+        "Sin Estrato"
+      ]
+    },
+    "FAMI_EDUCACIONMADRE": {
+      "referencia": "Ninguno",
+      "niveles": [
+        "Educación profesional completa",
+        "Educación profesional incompleta",
+        "Ninguno",
+        "No Aplica",
+        "No sabe",
+        "Postgrado",
+        "Primaria completa",
+        "Primaria incompleta",
+        "Secundaria (Bachillerato) completa",
+        "Secundaria (Bachillerato) incompleta",
+        "Técnica o tecnológica completa",
+        "Técnica o tecnológica incompleta"
+      ]
+    },
+    "FAMI_EDUCACIONPADRE": {
+      "referencia": "Ninguno",
+      "niveles": [
+        "Educación profesional completa",
+        "Educación profesional incompleta",
+        "Ninguno",
+        "No Aplica",
+        "No sabe",
+        "Postgrado",
+        "Primaria completa",
+        "Primaria incompleta",
+        "Secundaria (Bachillerato) completa",
+        "Secundaria (Bachillerato) incompleta",
+        "Técnica o tecnológica completa",
+        "Técnica o tecnológica incompleta"
+      ]
+    },
+    "FAMI_TIENEINTERNET": {
+      "referencia": "No",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    "FAMI_TIENECOMPUTADOR": {
+      "referencia": "No",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    "FAMI_TIENEAUTOMOVIL": {
+      "referencia": "No",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    "FAMI_TIENELAVADORA": {
+      "referencia": "No",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    "COLE_NATURALEZA": {
+      "referencia": "OFICIAL",
+      "niveles": [
+        "NO OFICIAL",
+        "OFICIAL"
+      ]
+    },
+    "COLE_AREA_UBICACION": {
+      "referencia": "URBANO",
+      "niveles": [
+        "RURAL",
+        "URBANO"
+      ]
+    },
+    "COLE_JORNADA": {
+      "referencia": "MAÑANA",
+      "niveles": [
+        "COMPLETA",
+        "MAÑANA",
+        "NOCHE",
+        "SABATINA",
+        "TARDE",
+        "UNICA"
+      ]
+    },
+    "COLE_CALENDARIO": {
+      "referencia": "A",
+      "niveles": [
+        "A",
+        "B",
+        "OTRO"
+      ]
+    },
+    "COLE_CARACTER": {
+      "referencia": "ACADÉMICO",
+      "niveles": [
+        "ACADÉMICO",
+        "NO APLICA",
+        "TÉCNICO",
+        "TÉCNICO/ACADÉMICO"
+      ]
+    },
+    "COLE_BILINGUE": {
+      "referencia": "N",
+      "niveles": [
+        "N",
+        "S"
+      ]
+    },
+    "COLE_GENERO": {
+      "referencia": "MIXTO",
+      "niveles": [
+        "FEMENINO",
+        "MASCULINO",
+        "MIXTO"
+      ]
+    },
+    "COLE_DEPTO_UBICACION": {
+      "referencia": "BOGOTÁ",
+      "niveles": [
+        "AMAZONAS",
+        "ANTIOQUIA",
+        "ARAUCA",
+        "ATLANTICO",
+        "BOGOTÁ",
+        "BOLIVAR",
+        "BOYACA",
+        "CALDAS",
+        "CAQUETA",
+        "CASANARE",
+        "CAUCA",
+        "CESAR",
+        "CHOCO",
+        "CORDOBA",
+        "CUNDINAMARCA",
+        "GUAINIA",
+        "GUAVIARE",
+        "HUILA",
+        "LA GUAJIRA",
+        "MAGDALENA",
+        "META",
+        "NARIÑO",
+        "NORTE SANTANDER",
+        "PUTUMAYO",
+        "QUINDIO",
+        "RISARALDA",
+        "SAN ANDRES",
+        "SANTANDER",
+        "SUCRE",
+        "TOLIMA",
+        "VALLE",
+        "VAUPES",
+        "VICHADA"
+      ]
+    },
+    "ESTU_GENERO": {
+      "referencia": "F",
+      "niveles": [
+        "F",
+        "M"
+      ]
+    }
+  },
+  "indicadores": [
+    "FALTA_FAMI_ESTRATOVIVIENDA",
+    "FALTA_FAMI_EDUCACIONMADRE",
+    "FALTA_FAMI_EDUCACIONPADRE",
+    "FALTA_FAMI_TIENEINTERNET",
+    "FALTA_FAMI_TIENECOMPUTADOR",
+    "FALTA_FAMI_TIENEAUTOMOVIL",
+    "FALTA_FAMI_TIENELAVADORA",
+    "FALTA_FAMI_CUARTOSHOGAR",
+    "FALTA_FAMI_PERSONASHOGAR",
+    "FALTA_COLE_CARACTER",
+    "FALTA_COLE_BILINGUE",
+    "FALTA_ESTU_EDAD"
+  ],
+  "descriptivas_numericas": [
+    "ESTU_EDAD",
+    "FAMI_CUARTOSHOGAR",
+    "FAMI_PERSONASHOGAR",
+    "HACINAMIENTO",
+    "PUNT_GLOBAL"
+  ],
+  "descriptivas_categoricas": [
+    "FAMI_ESTRATOVIVIENDA",
+    "FAMI_TIENEINTERNET",
+    "FAMI_EDUCACIONMADRE"
+  ],
+  "prefijo_antes": "ANTES_",
+  "terminos_figura": {
+    "FAMI_TIENEINTERNET=Si": "Internet en el hogar",
+    "FAMI_TIENECOMPUTADOR=Si": "Computador en el hogar",
+    "FAMI_TIENEAUTOMOVIL=Si": "Automóvil en el hogar",
+    "FAMI_TIENELAVADORA=Si": "Lavadora en el hogar",
+    "FAMI_EDUCACIONMADRE=Educación profesional completa": "Madre profesional",
+    "FAMI_EDUCACIONMADRE=Postgrado": "Madre con posgrado",
+    "FAMI_EDUCACIONPADRE=Educación profesional completa": "Padre profesional",
+    "FAMI_ESTRATOVIVIENDA=Estrato 4": "Estrato 4",
+    "COLE_NATURALEZA=NO OFICIAL": "Colegio no oficial",
+    "COLE_AREA_UBICACION=RURAL": "Sede rural",
+    "COLE_JORNADA=COMPLETA": "Jornada completa",
+    "COLE_JORNADA=NOCHE": "Jornada nocturna",
+    "COLE_JORNADA=SABATINA": "Jornada sabatina",
+    "ESTU_GENERO=M": "Hombre"
+  },
+  "filas": 372792
+}
