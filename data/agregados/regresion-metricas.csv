@@ -1,0 +1,10 @@
+modelo,conjunto,n,r2,rmse,mae
+Media del entrenamiento,entrenamiento,372792,0.0,51.8322,42.9493
+Media del entrenamiento,prueba,79885,-0.0,51.8276,43.0224
+Media del entrenamiento,validación,79884,-0.0,51.8683,42.94
+Lineal simple,entrenamiento,372792,0.1057,49.0176,40.2396
+Lineal simple,prueba,79885,0.1065,48.9912,40.3033
+Lineal simple,validación,79884,0.1054,49.0597,40.2293
+Regresión múltiple,entrenamiento,372792,0.3181,42.803,34.7157
+Regresión múltiple,prueba,79885,0.3186,42.7829,34.7549
+Regresión múltiple,validación,79884,0.3187,42.8114,34.7083

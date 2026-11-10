@@ -1,0 +1,46 @@
+[
+  {
+    "modelo": "dummyRegresion",
+    "metricas": {
+      "r2": -3.933906555175781e-06,
+      "rmse": 51.82762145996094,
+      "mae": 43.022377014160156
+    }
+  },
+  {
+    "modelo": "linealSimple",
+    "metricas": {
+      "r2": 0.10645572485691068,
+      "rmse": 48.99124418203955,
+      "mae": 40.30326723858765
+    }
+  },
+  {
+    "modelo": "regresionMultiple",
+    "metricas": {
+      "r2": 0.3185730912948004,
+      "rmse": 42.782885299603336,
+      "mae": 34.7549203415657
+    }
+  },
+  {
+    "modelo": "dummyClasificacion",
+    "metricas": {
+      "accuracy": 0.773849909244539,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc": 0.5
+    }
+  },
+  {
+    "modelo": "logisticaBase",
+    "metricas": {
+      "accuracy": 0.7115979220128935,
+      "precision": 0.41436787546922893,
+      "recall": 0.6660024355142257,
+      "f1": 0.5108804110141605,
+      "auc": 0.765248769433774
+    }
+  }
+]

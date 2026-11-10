@@ -1,0 +1,2658 @@
+{
+  "filasRecorte": {
+    "valor": 532566.0,
+    "texto": "532.566"
+  },
+  "exclusionesSinColegio": {
+    "valor": 1.0,
+    "texto": "1"
+  },
+  "exclusionesGlobalCero": {
+    "valor": 4.0,
+    "texto": "4"
+  },
+  "filasAnalisis": {
+    "valor": 532561.0,
+    "texto": "532.561"
+  },
+  "fechasVacias": {
+    "valor": 81.0,
+    "texto": "81"
+  },
+  "fechasSinFormato": {
+    "valor": 0.0,
+    "texto": "0"
+  },
+  "fechasAntesMinimo": {
+    "valor": 27.0,
+    "texto": "27"
+  },
+  "fechasDespuesMaximo": {
+    "valor": 97.0,
+    "texto": "97"
+  },
+  "fechasANulo": {
+    "valor": 124.0,
+    "texto": "124"
+  },
+  "anioMinimo": {
+    "valor": "1950",
+    "texto": "1950"
+  },
+  "anioMaximo": {
+    "valor": "2012",
+    "texto": "2012"
+  },
+  "fraseRural": {
+    "valor": 0.0,
+    "texto": "0"
+  },
+  "edadesNulas": {
+    "valor": 205.0,
+    "texto": "205"
+  },
+  "filasEntrenamiento": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "pctNoOficialEntrenamiento": {
+    "valor": 22.615560419751496,
+    "texto": "22,62"
+  },
+  "filasValidacion": {
+    "valor": 79884.0,
+    "texto": "79.884"
+  },
+  "pctNoOficialValidacion": {
+    "valor": 22.615292173651795,
+    "texto": "22,62"
+  },
+  "filasPrueba": {
+    "valor": 79885.0,
+    "texto": "79.885"
+  },
+  "pctNoOficialPrueba": {
+    "valor": 22.615009075546098,
+    "texto": "22,62"
+  },
+  "huellaParticion": {
+    "valor": "f2ef524a50955a63f10ee2464c097791e9d2652161f3763bc2a62946ef2c9f0b",
+    "texto": "f2ef524a50955a63f10ee2464c097791e9d2652161f3763bc2a62946ef2c9f0b"
+  },
+  "huellaParticionCorta": {
+    "valor": "f2ef524a5095",
+    "texto": "f2ef524a5095"
+  },
+  "pctOficialEntrenamiento": {
+    "valor": 77.3844395802485,
+    "texto": "77,4"
+  },
+  "pesoOficial": {
+    "valor": 0.646124728320213,
+    "texto": "0,646"
+  },
+  "pesoNoOficial": {
+    "valor": 2.2108671672063482,
+    "texto": "2,211"
+  },
+  "medidaExponenteSVM": {
+    "valor": 2.2501652383766317,
+    "texto": "2,25"
+  },
+  "medidaExponenteWard": {
+    "valor": 2.464822650523664,
+    "texto": "2,46"
+  },
+  "medidaCostoMuestra": {
+    "valor": 63.35699924399508,
+    "texto": "63"
+  },
+  "tamanoMuestra": {
+    "valor": 20000.0,
+    "texto": "20.000"
+  },
+  "presupuestoMuestra": {
+    "valor": 120.0,
+    "texto": "120"
+  },
+  "huellaMuestra": {
+    "valor": "b156f6d03f18b1436ad0cf766641039febf98024c2858dbaca47a9de0efd1bd4",
+    "texto": "b156f6d03f18b1436ad0cf766641039febf98024c2858dbaca47a9de0efd1bd4"
+  },
+  "huellaMuestraCorta": {
+    "valor": "b156f6d03f18",
+    "texto": "b156f6d03f18"
+  },
+  "pctFaltaFamiEstratovivienda": {
+    "valor": 6.742902208201893,
+    "texto": "6,74"
+  },
+  "dFaltaFamiEstratovivienda": {
+    "valor": -0.406100869178772,
+    "texto": "-0,41"
+  },
+  "aucFaltaFamiEstratovivienda": {
+    "valor": 0.6165291685849131,
+    "texto": "0,62"
+  },
+  "pctFaltaFamiEducacionmadre": {
+    "valor": 5.835157406811305,
+    "texto": "5,84"
+  },
+  "dFaltaFamiEducacionmadre": {
+    "valor": -0.4158041179180145,
+    "texto": "-0,42"
+  },
+  "aucFaltaFamiEducacionmadre": {
+    "valor": 0.6134283278148642,
+    "texto": "0,61"
+  },
+  "pctFaltaFamiEducacionpadre": {
+    "valor": 5.809942273439344,
+    "texto": "5,81"
+  },
+  "dFaltaFamiEducacionpadre": {
+    "valor": -0.41078898310661316,
+    "texto": "-0,41"
+  },
+  "aucFaltaFamiEducacionpadre": {
+    "valor": 0.6120474318922662,
+    "texto": "0,61"
+  },
+  "pctFaltaFamiTieneinternet": {
+    "valor": 5.95050322968304,
+    "texto": "5,95"
+  },
+  "dFaltaFamiTieneinternet": {
+    "valor": -0.4236707091331482,
+    "texto": "-0,42"
+  },
+  "aucFaltaFamiTieneinternet": {
+    "valor": 0.6160415979010131,
+    "texto": "0,62"
+  },
+  "pctFaltaFamiTienecomputador": {
+    "valor": 4.417745015987467,
+    "texto": "4,42"
+  },
+  "dFaltaFamiTienecomputador": {
+    "valor": -0.23740249872207642,
+    "texto": "-0,24"
+  },
+  "aucFaltaFamiTienecomputador": {
+    "valor": 0.6003956212758199,
+    "texto": "0,60"
+  },
+  "pctFaltaFamiTieneautomovil": {
+    "valor": 4.60176184038284,
+    "texto": "4,60"
+  },
+  "dFaltaFamiTieneautomovil": {
+    "valor": -0.2674125134944916,
+    "texto": "-0,27"
+  },
+  "aucFaltaFamiTieneautomovil": {
+    "valor": 0.6028272255579111,
+    "texto": "0,60"
+  },
+  "pctFaltaFamiTienelavadora": {
+    "valor": 4.4324985514710615,
+    "texto": "4,43"
+  },
+  "dFaltaFamiTienelavadora": {
+    "valor": -0.24435323476791382,
+    "texto": "-0,24"
+  },
+  "aucFaltaFamiTienelavadora": {
+    "valor": 0.6000803889954414,
+    "texto": "0,60"
+  },
+  "pctFaltaFamiCuartoshogar": {
+    "valor": 4.4542264855469,
+    "texto": "4,45"
+  },
+  "dFaltaFamiCuartoshogar": {
+    "valor": -0.20496031641960144,
+    "texto": "-0,20"
+  },
+  "aucFaltaFamiCuartoshogar": {
+    "valor": 0.589999894640026,
+    "texto": "0,59"
+  },
+  "pctFaltaFamiPersonashogar": {
+    "valor": 4.289791626429752,
+    "texto": "4,29"
+  },
+  "dFaltaFamiPersonashogar": {
+    "valor": -0.2203533947467804,
+    "texto": "-0,22"
+  },
+  "aucFaltaFamiPersonashogar": {
+    "valor": 0.5922386756543911,
+    "texto": "0,59"
+  },
+  "pctFaltaColeCaracter": {
+    "valor": 3.8584518981094016,
+    "texto": "3,86"
+  },
+  "dFaltaColeCaracter": {
+    "valor": -0.28513312339782715,
+    "texto": "-0,29"
+  },
+  "aucFaltaColeCaracter": {
+    "valor": 0.7829314856769956,
+    "texto": "0,78"
+  },
+  "pctFaltaColeBilingue": {
+    "valor": 18.07737290499796,
+    "texto": "18,08"
+  },
+  "dFaltaColeBilingue": {
+    "valor": -0.20001111924648285,
+    "texto": "-0,20"
+  },
+  "aucFaltaColeBilingue": {
+    "valor": 0.692638576215864,
+    "texto": "0,69"
+  },
+  "pctFaltaEstuEdad": {
+    "valor": 0.036213223459730895,
+    "texto": "0,04"
+  },
+  "dFaltaEstuEdad": {
+    "valor": -0.7515963315963745,
+    "texto": "-0,75"
+  },
+  "aucFaltaEstuEdad": {
+    "valor": 0.8075395217466881,
+    "texto": "0,81"
+  },
+  "dFaltaMinimo": {
+    "valor": -0.7515963315963745,
+    "texto": "-0,75"
+  },
+  "dFaltaMaximo": {
+    "valor": -0.20001111924648285,
+    "texto": "-0,20"
+  },
+  "aucFaltaMaximo": {
+    "valor": 0.8075395217466881,
+    "texto": "0,81"
+  },
+  "variablesConFaltantes": {
+    "valor": 12.0,
+    "texto": "12"
+  },
+  "mediaInternetSi": {
+    "valor": 260.08001708984375,
+    "texto": "260,1"
+  },
+  "mediaInternetNo": {
+    "valor": 228.4981689453125,
+    "texto": "228,5"
+  },
+  "mediaInternetSinDato": {
+    "valor": 229.5887451171875,
+    "texto": "229,6"
+  },
+  "mediaComputadorSi": {
+    "valor": 265.48736572265625,
+    "texto": "265,5"
+  },
+  "mediaComputadorNo": {
+    "valor": 233.72171020507812,
+    "texto": "233,7"
+  },
+  "mediaComputadorSinDato": {
+    "valor": 238.39134216308594,
+    "texto": "238,4"
+  },
+  "coincidenciaMinBloqueA": {
+    "valor": 0.8829383216026931,
+    "texto": "0,88"
+  },
+  "coincidenciaMaxBloqueA": {
+    "valor": 0.9614547618004846,
+    "texto": "0,96"
+  },
+  "coincidenciaMinBloqueB": {
+    "valor": 0.8880038433531097,
+    "texto": "0,89"
+  },
+  "coincidenciaMaxBloqueB": {
+    "valor": 0.9545570310344533,
+    "texto": "0,95"
+  },
+  "coincidenciaEntreBloquesMax": {
+    "valor": 0.4508292088259558,
+    "texto": "0,45"
+  },
+  "rmseImputacionLista": {
+    "valor": 43.02920928231666,
+    "texto": "43,029"
+  },
+  "rmseImputacionModa": {
+    "valor": 42.97159742704606,
+    "texto": "42,972"
+  },
+  "rmseImputacionIterativa": {
+    "valor": 42.99025897520661,
+    "texto": "42,990"
+  },
+  "coberturaLista": {
+    "valor": 73.38766211005958,
+    "texto": "73,4"
+  },
+  "filasCompletasEntrenamiento": {
+    "valor": 274549.0,
+    "texto": "274.549"
+  },
+  "medidaSegundosIterativa": {
+    "valor": 23.893383171000096,
+    "texto": "23,9"
+  },
+  "imputacionElegida": {
+    "valor": "moda",
+    "texto": "moda"
+  },
+  "atipicosIqrGlobal": {
+    "valor": 483.0,
+    "texto": "483"
+  },
+  "percentilNoventaNueveGlobal": {
+    "valor": 370.0,
+    "texto": "370"
+  },
+  "maximoGlobal": {
+    "valor": 477.0,
+    "texto": "477"
+  },
+  "atipicosIqrEdad": {
+    "valor": 25545.0,
+    "texto": "25.545"
+  },
+  "percentilNoventaNueveEdad": {
+    "valor": 30.0,
+    "texto": "30"
+  },
+  "maximoEdad": {
+    "valor": 72.0,
+    "texto": "72"
+  },
+  "atipicosIqrHacinamiento": {
+    "valor": 19925.0,
+    "texto": "19.925"
+  },
+  "percentilNoventaNueveHacinamiento": {
+    "valor": 5.5,
+    "texto": "5,50"
+  },
+  "maximoHacinamiento": {
+    "valor": 9.0,
+    "texto": "9,00"
+  },
+  "rmseAtipicosEdadConservar": {
+    "valor": 42.97159742704606,
+    "texto": "42,972"
+  },
+  "rmseAtipicosEdadWinsorizar": {
+    "valor": 42.81137555835408,
+    "texto": "42,811"
+  },
+  "rmseAtipicosEdadLog": {
+    "valor": 42.82962104102207,
+    "texto": "42,830"
+  },
+  "tratamientoEdad": {
+    "valor": "winsorizar",
+    "texto": "winsorizar"
+  },
+  "rmseAtipicosHacinamientoConservar": {
+    "valor": 43.416590602763165,
+    "texto": "43,417"
+  },
+  "rmseAtipicosHacinamientoWinsorizar": {
+    "valor": 43.41449208176604,
+    "texto": "43,414"
+  },
+  "rmseAtipicosHacinamientoLog": {
+    "valor": 43.389442955923435,
+    "texto": "43,389"
+  },
+  "tratamientoHacinamiento": {
+    "valor": "conservar",
+    "texto": "conservar"
+  },
+  "rmseDepartamentoOnehot": {
+    "valor": 42.81137555835408,
+    "texto": "42,811"
+  },
+  "rmseDepartamentoObjetivo": {
+    "valor": 42.99823477006361,
+    "texto": "42,998"
+  },
+  "columnasCodificadas": {
+    "valor": 95.0,
+    "texto": "95"
+  },
+  "labMediaEdadAntes": {
+    "valor": 17.58970044840161,
+    "texto": "17,59"
+  },
+  "labMedianaEdadAntes": {
+    "valor": 17.0,
+    "texto": "17,00"
+  },
+  "labModaEdadAntes": {
+    "valor": 17.0,
+    "texto": "17,00"
+  },
+  "labVarianzaEdadAntes": {
+    "valor": 7.686605846306124,
+    "texto": "7,69"
+  },
+  "labDesviacionEdadAntes": {
+    "valor": 2.772472875666437,
+    "texto": "2,77"
+  },
+  "labRangoEdadAntes": {
+    "valor": 62.0,
+    "texto": "62,00"
+  },
+  "labNEdadAntes": {
+    "valor": 372657.0,
+    "texto": "372.657"
+  },
+  "labMediaEdadDespues": {
+    "valor": 17.492593725187234,
+    "texto": "17,49"
+  },
+  "labMedianaEdadDespues": {
+    "valor": 17.0,
+    "texto": "17,00"
+  },
+  "labModaEdadDespues": {
+    "valor": 17.0,
+    "texto": "17,00"
+  },
+  "labVarianzaEdadDespues": {
+    "valor": 3.612870351685642,
+    "texto": "3,61"
+  },
+  "labDesviacionEdadDespues": {
+    "valor": 1.9007552056184516,
+    "texto": "1,90"
+  },
+  "labRangoEdadDespues": {
+    "valor": 20.0,
+    "texto": "20,00"
+  },
+  "labNEdadDespues": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labMediaCuartosAntes": {
+    "valor": 2.743000165643328,
+    "texto": "2,74"
+  },
+  "labMedianaCuartosAntes": {
+    "valor": 3.0,
+    "texto": "3,00"
+  },
+  "labModaCuartosAntes": {
+    "valor": 3.0,
+    "texto": "3,00"
+  },
+  "labVarianzaCuartosAntes": {
+    "valor": 0.9429518149590107,
+    "texto": "0,94"
+  },
+  "labDesviacionCuartosAntes": {
+    "valor": 0.971057060609216,
+    "texto": "0,97"
+  },
+  "labRangoCuartosAntes": {
+    "valor": 5.0,
+    "texto": "5,00"
+  },
+  "labNCuartosAntes": {
+    "valor": 356187.0,
+    "texto": "356.187"
+  },
+  "labMediaCuartosDespues": {
+    "valor": 2.7544475203330543,
+    "texto": "2,75"
+  },
+  "labMedianaCuartosDespues": {
+    "valor": 3.0,
+    "texto": "3,00"
+  },
+  "labModaCuartosDespues": {
+    "valor": 3.0,
+    "texto": "3,00"
+  },
+  "labVarianzaCuartosDespues": {
+    "valor": 0.9037614266741627,
+    "texto": "0,90"
+  },
+  "labDesviacionCuartosDespues": {
+    "valor": 0.950663676951088,
+    "texto": "0,95"
+  },
+  "labRangoCuartosDespues": {
+    "valor": 5.0,
+    "texto": "5,00"
+  },
+  "labNCuartosDespues": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labMediaPersonasAntes": {
+    "valor": 4.335063060538117,
+    "texto": "4,34"
+  },
+  "labMedianaPersonasAntes": {
+    "valor": 3.5,
+    "texto": "3,50"
+  },
+  "labModaPersonasAntes": {
+    "valor": 3.5,
+    "texto": "3,50"
+  },
+  "labVarianzaPersonasAntes": {
+    "valor": 2.800213267361001,
+    "texto": "2,80"
+  },
+  "labDesviacionPersonasAntes": {
+    "valor": 1.6733837776675742,
+    "texto": "1,67"
+  },
+  "labRangoPersonasAntes": {
+    "valor": 7.5,
+    "texto": "7,50"
+  },
+  "labNPersonasAntes": {
+    "valor": 356800.0,
+    "texto": "356.800"
+  },
+  "labMediaPersonasDespues": {
+    "valor": 4.299240595291744,
+    "texto": "4,30"
+  },
+  "labMedianaPersonasDespues": {
+    "valor": 3.5,
+    "texto": "3,50"
+  },
+  "labModaPersonasDespues": {
+    "valor": 3.5,
+    "texto": "3,50"
+  },
+  "labVarianzaPersonasDespues": {
+    "valor": 2.7087204761180583,
+    "texto": "2,71"
+  },
+  "labDesviacionPersonasDespues": {
+    "valor": 1.6458190897295055,
+    "texto": "1,65"
+  },
+  "labRangoPersonasDespues": {
+    "valor": 7.5,
+    "texto": "7,50"
+  },
+  "labNPersonasDespues": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labMediaHacinamientoAntes": {
+    "valor": 1.7057853059799999,
+    "texto": "1,71"
+  },
+  "labMedianaHacinamientoAntes": {
+    "valor": 1.75,
+    "texto": "1,75"
+  },
+  "labModaHacinamientoAntes": {
+    "valor": 1.75,
+    "texto": "1,75"
+  },
+  "labVarianzaHacinamientoAntes": {
+    "valor": 0.6918874176143256,
+    "texto": "0,69"
+  },
+  "labDesviacionHacinamientoAntes": {
+    "valor": 0.8317977023377292,
+    "texto": "0,83"
+  },
+  "labRangoHacinamientoAntes": {
+    "valor": 8.75,
+    "texto": "8,75"
+  },
+  "labNHacinamientoAntes": {
+    "valor": 355301.0,
+    "texto": "355.301"
+  },
+  "labMediaHacinamientoDespues": {
+    "valor": 1.6829382291823143,
+    "texto": "1,68"
+  },
+  "labMedianaHacinamientoDespues": {
+    "valor": 1.75,
+    "texto": "1,75"
+  },
+  "labModaHacinamientoDespues": {
+    "valor": 1.1666666666666667,
+    "texto": "1,17"
+  },
+  "labVarianzaHacinamientoDespues": {
+    "valor": 0.6737998165981772,
+    "texto": "0,67"
+  },
+  "labDesviacionHacinamientoDespues": {
+    "valor": 0.8208531029350972,
+    "texto": "0,82"
+  },
+  "labRangoHacinamientoDespues": {
+    "valor": 8.75,
+    "texto": "8,75"
+  },
+  "labNHacinamientoDespues": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labMediaPuntajeGlobalAntes": {
+    "valor": 250.13889783042555,
+    "texto": "250,14"
+  },
+  "labMedianaPuntajeGlobalAntes": {
+    "valor": 247.0,
+    "texto": "247,00"
+  },
+  "labModaPuntajeGlobalAntes": {
+    "valor": 232.0,
+    "texto": "232,00"
+  },
+  "labVarianzaPuntajeGlobalAntes": {
+    "valor": 2686.5846596895863,
+    "texto": "2686,58"
+  },
+  "labDesviacionPuntajeGlobalAntes": {
+    "valor": 51.83227430558673,
+    "texto": "51,83"
+  },
+  "labRangoPuntajeGlobalAntes": {
+    "valor": 449.0,
+    "texto": "449,00"
+  },
+  "labNPuntajeGlobalAntes": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labMediaPuntajeGlobalDespues": {
+    "valor": 250.13889783042555,
+    "texto": "250,14"
+  },
+  "labMedianaPuntajeGlobalDespues": {
+    "valor": 247.0,
+    "texto": "247,00"
+  },
+  "labModaPuntajeGlobalDespues": {
+    "valor": 232.0,
+    "texto": "232,00"
+  },
+  "labVarianzaPuntajeGlobalDespues": {
+    "valor": 2686.5846596895863,
+    "texto": "2686,58"
+  },
+  "labDesviacionPuntajeGlobalDespues": {
+    "valor": 51.83227430558673,
+    "texto": "51,83"
+  },
+  "labRangoPuntajeGlobalDespues": {
+    "valor": 449.0,
+    "texto": "449,00"
+  },
+  "labNPuntajeGlobalDespues": {
+    "valor": 372792.0,
+    "texto": "372.792"
+  },
+  "labSinDatoEstrato": {
+    "valor": 25137.0,
+    "texto": "25.137"
+  },
+  "labPctSinDatoEstrato": {
+    "valor": 6.742902208201892,
+    "texto": "6,74"
+  },
+  "labSinDatoInternet": {
+    "valor": 22183.0,
+    "texto": "22.183"
+  },
+  "labPctSinDatoInternet": {
+    "valor": 5.950503229683041,
+    "texto": "5,95"
+  },
+  "labSinDatoEducacionMadre": {
+    "valor": 21753.0,
+    "texto": "21.753"
+  },
+  "labPctSinDatoEducacionMadre": {
+    "valor": 5.835157406811304,
+    "texto": "5,84"
+  },
+  "labPctInternetSiAntes": {
+    "valor": 68.31718491813129,
+    "texto": "68,3"
+  },
+  "labPctInternetSiDespues": {
+    "valor": 74.26768814781433,
+    "texto": "74,3"
+  },
+  "predictorSimple": {
+    "valor": "índice de bienes",
+    "texto": "índice de bienes"
+  },
+  "spearmanSimple": {
+    "valor": 0.32763955617991475,
+    "texto": "0,328"
+  },
+  "rCuadradoEntrenamientoDummy": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "rmseEntrenamientoDummy": {
+    "valor": 51.83220291137695,
+    "texto": "51,8"
+  },
+  "maeEntrenamientoDummy": {
+    "valor": 42.94931411743164,
+    "texto": "42,9"
+  },
+  "rCuadradoValidacionDummy": {
+    "valor": -5.245208740234375e-06,
+    "texto": "-0,000"
+  },
+  "rmseValidacionDummy": {
+    "valor": 51.86829376220703,
+    "texto": "51,9"
+  },
+  "maeValidacionDummy": {
+    "valor": 42.94001770019531,
+    "texto": "42,9"
+  },
+  "rCuadradoEntrenamientoSimple": {
+    "valor": 0.10565512293083945,
+    "texto": "0,106"
+  },
+  "rmseEntrenamientoSimple": {
+    "valor": 49.01761705721533,
+    "texto": "49,0"
+  },
+  "maeEntrenamientoSimple": {
+    "valor": 40.239607030677654,
+    "texto": "40,2"
+  },
+  "rCuadradoValidacionSimple": {
+    "valor": 0.1053591081008528,
+    "texto": "0,105"
+  },
+  "rmseValidacionSimple": {
+    "valor": 49.05973435460947,
+    "texto": "49,1"
+  },
+  "maeValidacionSimple": {
+    "valor": 40.22926070275756,
+    "texto": "40,2"
+  },
+  "accuracyEntrenamientoDummyClase": {
+    "valor": 0.773844395802485,
+    "texto": "0,774"
+  },
+  "precisionEntrenamientoDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "recallEntrenamientoDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "fUnoEntrenamientoDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "aucEntrenamientoDummyClase": {
+    "valor": 0.5,
+    "texto": "0,500"
+  },
+  "accuracyValidacionDummyClase": {
+    "valor": 0.7738470782634821,
+    "texto": "0,774"
+  },
+  "precisionValidacionDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "recallValidacionDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "fUnoValidacionDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "aucValidacionDummyClase": {
+    "valor": 0.5,
+    "texto": "0,500"
+  },
+  "accuracyEntrenamientoLogistica": {
+    "valor": 0.711882229232387,
+    "texto": "0,712"
+  },
+  "precisionEntrenamientoLogistica": {
+    "valor": 0.4144005929219937,
+    "texto": "0,414"
+  },
+  "recallEntrenamientoLogistica": {
+    "valor": 0.6631913556085353,
+    "texto": "0,663"
+  },
+  "fUnoEntrenamientoLogistica": {
+    "valor": 0.510075991862576,
+    "texto": "0,510"
+  },
+  "aucEntrenamientoLogistica": {
+    "valor": 0.7655659028788483,
+    "texto": "0,766"
+  },
+  "accuracyValidacionLogistica": {
+    "valor": 0.70733814030344,
+    "texto": "0,707"
+  },
+  "precisionValidacionLogistica": {
+    "valor": 0.40885854461865717,
+    "texto": "0,409"
+  },
+  "recallValidacionLogistica": {
+    "valor": 0.6596368869699989,
+    "texto": "0,660"
+  },
+  "fUnoValidacionLogistica": {
+    "valor": 0.504818588100735,
+    "texto": "0,505"
+  },
+  "aucValidacionLogistica": {
+    "valor": 0.762470293041253,
+    "texto": "0,762"
+  },
+  "columnasComponentes": {
+    "valor": 95.0,
+    "texto": "95"
+  },
+  "vifMaximoColumnaComponentes": {
+    "valor": 18.1680018727164,
+    "texto": "18,2"
+  },
+  "columnasVifAltoComponentes": {
+    "valor": 7.0,
+    "texto": "7"
+  },
+  "gvifAjustadoMaximoComponentes": {
+    "valor": 1.3670774281731104,
+    "texto": "1,37"
+  },
+  "rmseEspecificacionComponentes": {
+    "valor": 42.81137555835408,
+    "texto": "42,811"
+  },
+  "columnasDerivadas": {
+    "valor": 79.0,
+    "texto": "79"
+  },
+  "vifMaximoColumnaDerivadas": {
+    "valor": 25.858845971519827,
+    "texto": "25,9"
+  },
+  "columnasVifAltoDerivadas": {
+    "valor": 10.0,
+    "texto": "10"
+  },
+  "gvifAjustadoMaximoDerivadas": {
+    "valor": 1.3613357415837901,
+    "texto": "1,36"
+  },
+  "rmseEspecificacionDerivadas": {
+    "valor": 43.24965103235968,
+    "texto": "43,250"
+  },
+  "especificacionElegida": {
+    "valor": "componentes",
+    "texto": "componentes"
+  },
+  "umbralGvif": {
+    "valor": 3.1622776601683795,
+    "texto": "3,16"
+  },
+  "rCuadradoSimpleEntrenamiento": {
+    "valor": 0.10565512293083923,
+    "texto": "0,106"
+  },
+  "pendienteSimple": {
+    "valor": 13.736727373916846,
+    "texto": "13,74"
+  },
+  "pendienteSimpleInf": {
+    "valor": 13.608432919217679,
+    "texto": "13,61"
+  },
+  "pendienteSimpleSup": {
+    "valor": 13.865021828616014,
+    "texto": "13,87"
+  },
+  "interceptoSimple": {
+    "valor": 218.21638713952814,
+    "texto": "218,22"
+  },
+  "rCuadradoMultipleEntrenamiento": {
+    "valor": 0.31805520883752925,
+    "texto": "0,318"
+  },
+  "rCuadradoAjustadoMultiple": {
+    "valor": 0.3178813814952438,
+    "texto": "0,318"
+  },
+  "coeficientesMultiple": {
+    "valor": 95.0,
+    "texto": "95"
+  },
+  "coeficientesNoSignificativos": {
+    "valor": 10.0,
+    "texto": "10"
+  },
+  "coefIntercepto": {
+    "valor": 299.86278997123605,
+    "texto": "299,9"
+  },
+  "coefInfIntercepto": {
+    "valor": 297.7447254111037,
+    "texto": "297,7"
+  },
+  "coefSupIntercepto": {
+    "valor": 301.98085453136844,
+    "texto": "302,0"
+  },
+  "coefFamiEstratoviviendaEstratoDos": {
+    "valor": -1.9757278231454234,
+    "texto": "-2,0"
+  },
+  "coefInfFamiEstratoviviendaEstratoDos": {
+    "valor": -2.3502793048372324,
+    "texto": "-2,4"
+  },
+  "coefSupFamiEstratoviviendaEstratoDos": {
+    "valor": -1.6011763414536144,
+    "texto": "-1,6"
+  },
+  "coefFamiEstratoviviendaEstratoTres": {
+    "valor": -4.479663511766548,
+    "texto": "-4,5"
+  },
+  "coefInfFamiEstratoviviendaEstratoTres": {
+    "valor": -4.927354425911585,
+    "texto": "-4,9"
+  },
+  "coefSupFamiEstratoviviendaEstratoTres": {
+    "valor": -4.03197259762151,
+    "texto": "-4,0"
+  },
+  "coefFamiEstratoviviendaEstratoCuatro": {
+    "valor": -8.290069631796644,
+    "texto": "-8,3"
+  },
+  "coefInfFamiEstratoviviendaEstratoCuatro": {
+    "valor": -8.993705513515545,
+    "texto": "-9,0"
+  },
+  "coefSupFamiEstratoviviendaEstratoCuatro": {
+    "valor": -7.586433750077744,
+    "texto": "-7,6"
+  },
+  "coefFamiEstratoviviendaEstratoCinco": {
+    "valor": -9.514510404838704,
+    "texto": "-9,5"
+  },
+  "coefInfFamiEstratoviviendaEstratoCinco": {
+    "valor": -10.669388934162939,
+    "texto": "-10,7"
+  },
+  "coefSupFamiEstratoviviendaEstratoCinco": {
+    "valor": -8.35963187551447,
+    "texto": "-8,4"
+  },
+  "coefFamiEstratoviviendaEstratoSeis": {
+    "valor": -15.369096606494045,
+    "texto": "-15,4"
+  },
+  "coefInfFamiEstratoviviendaEstratoSeis": {
+    "valor": -17.02463849418333,
+    "texto": "-17,0"
+  },
+  "coefSupFamiEstratoviviendaEstratoSeis": {
+    "valor": -13.713554718804762,
+    "texto": "-13,7"
+  },
+  "coefFamiEstratoviviendaSinEstrato": {
+    "valor": -16.377553621109936,
+    "texto": "-16,4"
+  },
+  "coefInfFamiEstratoviviendaSinEstrato": {
+    "valor": -17.152889505570226,
+    "texto": "-17,2"
+  },
+  "coefSupFamiEstratoviviendaSinEstrato": {
+    "valor": -15.602217736649644,
+    "texto": "-15,6"
+  },
+  "coefFamiEducacionmadreEducacionProfesionalCompleta": {
+    "valor": 18.95305333626846,
+    "texto": "19,0"
+  },
+  "coefInfFamiEducacionmadreEducacionProfesionalCompleta": {
+    "valor": 17.757677486290145,
+    "texto": "17,8"
+  },
+  "coefSupFamiEducacionmadreEducacionProfesionalCompleta": {
+    "valor": 20.148429186246776,
+    "texto": "20,1"
+  },
+  "coefFamiEducacionmadreEducacionProfesionalIncompleta": {
+    "valor": 16.992068918418482,
+    "texto": "17,0"
+  },
+  "coefInfFamiEducacionmadreEducacionProfesionalIncompleta": {
+    "valor": 15.612489813201778,
+    "texto": "15,6"
+  },
+  "coefSupFamiEducacionmadreEducacionProfesionalIncompleta": {
+    "valor": 18.371648023635185,
+    "texto": "18,4"
+  },
+  "coefFamiEducacionmadreNoAplica": {
+    "valor": -2.4687263511027333,
+    "texto": "-2,5"
+  },
+  "coefInfFamiEducacionmadreNoAplica": {
+    "valor": -5.698950345439155,
+    "texto": "-5,7"
+  },
+  "coefSupFamiEducacionmadreNoAplica": {
+    "valor": 0.7614976432336875,
+    "texto": "0,8"
+  },
+  "coefFamiEducacionmadreNoSabe": {
+    "valor": 12.157302951738266,
+    "texto": "12,2"
+  },
+  "coefInfFamiEducacionmadreNoSabe": {
+    "valor": 10.71274276147216,
+    "texto": "10,7"
+  },
+  "coefSupFamiEducacionmadreNoSabe": {
+    "valor": 13.601863142004373,
+    "texto": "13,6"
+  },
+  "coefFamiEducacionmadrePostgrado": {
+    "valor": 34.25456966013019,
+    "texto": "34,3"
+  },
+  "coefInfFamiEducacionmadrePostgrado": {
+    "valor": 32.72113129055623,
+    "texto": "32,7"
+  },
+  "coefSupFamiEducacionmadrePostgrado": {
+    "valor": 35.788008029704145,
+    "texto": "35,8"
+  },
+  "coefFamiEducacionmadrePrimariaCompleta": {
+    "valor": 2.856674126737447,
+    "texto": "2,9"
+  },
+  "coefInfFamiEducacionmadrePrimariaCompleta": {
+    "valor": 1.6863568842888408,
+    "texto": "1,7"
+  },
+  "coefSupFamiEducacionmadrePrimariaCompleta": {
+    "valor": 4.026991369186053,
+    "texto": "4,0"
+  },
+  "coefFamiEducacionmadrePrimariaIncompleta": {
+    "valor": 2.7271744494120975,
+    "texto": "2,7"
+  },
+  "coefInfFamiEducacionmadrePrimariaIncompleta": {
+    "valor": 1.6030176128110927,
+    "texto": "1,6"
+  },
+  "coefSupFamiEducacionmadrePrimariaIncompleta": {
+    "valor": 3.851331286013102,
+    "texto": "3,9"
+  },
+  "coefFamiEducacionmadreSecundariaBachilleratoCompleta": {
+    "valor": 7.107009080854789,
+    "texto": "7,1"
+  },
+  "coefInfFamiEducacionmadreSecundariaBachilleratoCompleta": {
+    "valor": 5.989720299771313,
+    "texto": "6,0"
+  },
+  "coefSupFamiEducacionmadreSecundariaBachilleratoCompleta": {
+    "valor": 8.224297861938265,
+    "texto": "8,2"
+  },
+  "coefFamiEducacionmadreSecundariaBachilleratoIncompleta": {
+    "valor": 3.790724442718637,
+    "texto": "3,8"
+  },
+  "coefInfFamiEducacionmadreSecundariaBachilleratoIncompleta": {
+    "valor": 2.652546306972278,
+    "texto": "2,7"
+  },
+  "coefSupFamiEducacionmadreSecundariaBachilleratoIncompleta": {
+    "valor": 4.928902578464996,
+    "texto": "4,9"
+  },
+  "coefFamiEducacionmadreTecnicaOTecnologicaCompleta": {
+    "valor": 17.60576781458122,
+    "texto": "17,6"
+  },
+  "coefInfFamiEducacionmadreTecnicaOTecnologicaCompleta": {
+    "valor": 16.41803414872996,
+    "texto": "16,4"
+  },
+  "coefSupFamiEducacionmadreTecnicaOTecnologicaCompleta": {
+    "valor": 18.793501480432482,
+    "texto": "18,8"
+  },
+  "coefFamiEducacionmadreTecnicaOTecnologicaIncompleta": {
+    "valor": 12.927845204293561,
+    "texto": "12,9"
+  },
+  "coefInfFamiEducacionmadreTecnicaOTecnologicaIncompleta": {
+    "valor": 11.596592500927546,
+    "texto": "11,6"
+  },
+  "coefSupFamiEducacionmadreTecnicaOTecnologicaIncompleta": {
+    "valor": 14.259097907659577,
+    "texto": "14,3"
+  },
+  "coefFamiEducacionpadreEducacionProfesionalCompleta": {
+    "valor": 19.585316604472887,
+    "texto": "19,6"
+  },
+  "coefInfFamiEducacionpadreEducacionProfesionalCompleta": {
+    "valor": 18.569654426334285,
+    "texto": "18,6"
+  },
+  "coefSupFamiEducacionpadreEducacionProfesionalCompleta": {
+    "valor": 20.600978782611488,
+    "texto": "20,6"
+  },
+  "coefFamiEducacionpadreEducacionProfesionalIncompleta": {
+    "valor": 19.90465165015485,
+    "texto": "19,9"
+  },
+  "coefInfFamiEducacionpadreEducacionProfesionalIncompleta": {
+    "valor": 18.599638281160285,
+    "texto": "18,6"
+  },
+  "coefSupFamiEducacionpadreEducacionProfesionalIncompleta": {
+    "valor": 21.209665019149416,
+    "texto": "21,2"
+  },
+  "coefFamiEducacionpadreNoAplica": {
+    "valor": 14.930106952397633,
+    "texto": "14,9"
+  },
+  "coefInfFamiEducacionpadreNoAplica": {
+    "valor": 13.424823448112791,
+    "texto": "13,4"
+  },
+  "coefSupFamiEducacionpadreNoAplica": {
+    "valor": 16.435390456682473,
+    "texto": "16,4"
+  },
+  "coefFamiEducacionpadreNoSabe": {
+    "valor": 15.4007722153712,
+    "texto": "15,4"
+  },
+  "coefInfFamiEducacionpadreNoSabe": {
+    "valor": 14.37450862818678,
+    "texto": "14,4"
+  },
+  "coefSupFamiEducacionpadreNoSabe": {
+    "valor": 16.427035802555622,
+    "texto": "16,4"
+  },
+  "coefFamiEducacionpadrePostgrado": {
+    "valor": 36.82967791294929,
+    "texto": "36,8"
+  },
+  "coefInfFamiEducacionpadrePostgrado": {
+    "valor": 35.35938990248366,
+    "texto": "35,4"
+  },
+  "coefSupFamiEducacionpadrePostgrado": {
+    "valor": 38.29996592341492,
+    "texto": "38,3"
+  },
+  "coefFamiEducacionpadrePrimariaCompleta": {
+    "valor": 6.455123891965239,
+    "texto": "6,5"
+  },
+  "coefInfFamiEducacionpadrePrimariaCompleta": {
+    "valor": 5.484637579797639,
+    "texto": "5,5"
+  },
+  "coefSupFamiEducacionpadrePrimariaCompleta": {
+    "valor": 7.4256102041328385,
+    "texto": "7,4"
+  },
+  "coefFamiEducacionpadrePrimariaIncompleta": {
+    "valor": 6.842663987954873,
+    "texto": "6,8"
+  },
+  "coefInfFamiEducacionpadrePrimariaIncompleta": {
+    "valor": 5.941634708110823,
+    "texto": "5,9"
+  },
+  "coefSupFamiEducacionpadrePrimariaIncompleta": {
+    "valor": 7.743693267798924,
+    "texto": "7,7"
+  },
+  "coefFamiEducacionpadreSecundariaBachilleratoCompleta": {
+    "valor": 9.367199406475741,
+    "texto": "9,4"
+  },
+  "coefInfFamiEducacionpadreSecundariaBachilleratoCompleta": {
+    "valor": 8.457505708007348,
+    "texto": "8,5"
+  },
+  "coefSupFamiEducacionpadreSecundariaBachilleratoCompleta": {
+    "valor": 10.276893104944135,
+    "texto": "10,3"
+  },
+  "coefFamiEducacionpadreSecundariaBachilleratoIncompleta": {
+    "valor": 7.187061033363859,
+    "texto": "7,2"
+  },
+  "coefInfFamiEducacionpadreSecundariaBachilleratoIncompleta": {
+    "valor": 6.2570772369907335,
+    "texto": "6,3"
+  },
+  "coefSupFamiEducacionpadreSecundariaBachilleratoIncompleta": {
+    "valor": 8.117044829736985,
+    "texto": "8,1"
+  },
+  "coefFamiEducacionpadreTecnicaOTecnologicaCompleta": {
+    "valor": 18.45085967181791,
+    "texto": "18,5"
+  },
+  "coefInfFamiEducacionpadreTecnicaOTecnologicaCompleta": {
+    "valor": 17.408832253373813,
+    "texto": "17,4"
+  },
+  "coefSupFamiEducacionpadreTecnicaOTecnologicaCompleta": {
+    "valor": 19.492887090262006,
+    "texto": "19,5"
+  },
+  "coefFamiEducacionpadreTecnicaOTecnologicaIncompleta": {
+    "valor": 13.026199579390905,
+    "texto": "13,0"
+  },
+  "coefInfFamiEducacionpadreTecnicaOTecnologicaIncompleta": {
+    "valor": 11.751043350948837,
+    "texto": "11,8"
+  },
+  "coefSupFamiEducacionpadreTecnicaOTecnologicaIncompleta": {
+    "valor": 14.301355807832973,
+    "texto": "14,3"
+  },
+  "coefFamiTieneinternetSi": {
+    "valor": 7.023699436635279,
+    "texto": "7,0"
+  },
+  "coefInfFamiTieneinternetSi": {
+    "valor": 6.634709339027748,
+    "texto": "6,6"
+  },
+  "coefSupFamiTieneinternetSi": {
+    "valor": 7.412689534242809,
+    "texto": "7,4"
+  },
+  "coefFamiTienecomputadorSi": {
+    "valor": 9.010544103745737,
+    "texto": "9,0"
+  },
+  "coefInfFamiTienecomputadorSi": {
+    "valor": 8.65988268686539,
+    "texto": "8,7"
+  },
+  "coefSupFamiTienecomputadorSi": {
+    "valor": 9.361205520626083,
+    "texto": "9,4"
+  },
+  "coefFamiTieneautomovilSi": {
+    "valor": 1.4414109638626358,
+    "texto": "1,4"
+  },
+  "coefInfFamiTieneautomovilSi": {
+    "valor": 1.0749578884908064,
+    "texto": "1,1"
+  },
+  "coefSupFamiTieneautomovilSi": {
+    "valor": 1.8078640392344651,
+    "texto": "1,8"
+  },
+  "coefFamiTienelavadoraSi": {
+    "valor": 1.6261297968114359,
+    "texto": "1,6"
+  },
+  "coefInfFamiTienelavadoraSi": {
+    "valor": 1.250224925400281,
+    "texto": "1,3"
+  },
+  "coefSupFamiTienelavadoraSi": {
+    "valor": 2.0020346682225907,
+    "texto": "2,0"
+  },
+  "coefColeNaturalezaNoOficial": {
+    "valor": 12.446147232337088,
+    "texto": "12,4"
+  },
+  "coefInfColeNaturalezaNoOficial": {
+    "valor": 11.997082404152808,
+    "texto": "12,0"
+  },
+  "coefSupColeNaturalezaNoOficial": {
+    "valor": 12.895212060521368,
+    "texto": "12,9"
+  },
+  "coefColeAreaUbicacionRural": {
+    "valor": -10.256291289722602,
+    "texto": "-10,3"
+  },
+  "coefInfColeAreaUbicacionRural": {
+    "valor": -10.672244871166939,
+    "texto": "-10,7"
+  },
+  "coefSupColeAreaUbicacionRural": {
+    "valor": -9.840337708278266,
+    "texto": "-9,8"
+  },
+  "coefColeJornadaCompleta": {
+    "valor": 11.245731178354713,
+    "texto": "11,2"
+  },
+  "coefInfColeJornadaCompleta": {
+    "valor": 10.734393450838542,
+    "texto": "10,7"
+  },
+  "coefSupColeJornadaCompleta": {
+    "valor": 11.757068905870884,
+    "texto": "11,8"
+  },
+  "coefColeJornadaNoche": {
+    "valor": -19.827063792813437,
+    "texto": "-19,8"
+  },
+  "coefInfColeJornadaNoche": {
+    "valor": -20.572410748496203,
+    "texto": "-20,6"
+  },
+  "coefSupColeJornadaNoche": {
+    "valor": -19.08171683713067,
+    "texto": "-19,1"
+  },
+  "coefColeJornadaSabatina": {
+    "valor": -23.064036307890774,
+    "texto": "-23,1"
+  },
+  "coefInfColeJornadaSabatina": {
+    "valor": -23.78699695236413,
+    "texto": "-23,8"
+  },
+  "coefSupColeJornadaSabatina": {
+    "valor": -22.341075663417417,
+    "texto": "-22,3"
+  },
+  "coefColeJornadaTarde": {
+    "valor": -1.7639457052378937,
+    "texto": "-1,8"
+  },
+  "coefInfColeJornadaTarde": {
+    "valor": -2.277344064152554,
+    "texto": "-2,3"
+  },
+  "coefSupColeJornadaTarde": {
+    "valor": -1.2505473463232333,
+    "texto": "-1,3"
+  },
+  "coefColeJornadaUnica": {
+    "valor": 3.647196271306315,
+    "texto": "3,6"
+  },
+  "coefInfColeJornadaUnica": {
+    "valor": 3.274023556688363,
+    "texto": "3,3"
+  },
+  "coefSupColeJornadaUnica": {
+    "valor": 4.020368985924266,
+    "texto": "4,0"
+  },
+  "coefColeCalendarioB": {
+    "valor": 2.5770985080383837,
+    "texto": "2,6"
+  },
+  "coefInfColeCalendarioB": {
+    "valor": -1.3357679016261708,
+    "texto": "-1,3"
+  },
+  "coefSupColeCalendarioB": {
+    "valor": 6.489964917702938,
+    "texto": "6,5"
+  },
+  "coefColeCalendarioOtro": {
+    "valor": -8.647394006393952,
+    "texto": "-8,6"
+  },
+  "coefInfColeCalendarioOtro": {
+    "valor": -11.247053868961569,
+    "texto": "-11,2"
+  },
+  "coefSupColeCalendarioOtro": {
+    "valor": -6.047734143826336,
+    "texto": "-6,0"
+  },
+  "coefColeCaracterNoAplica": {
+    "valor": -8.60539443500596,
+    "texto": "-8,6"
+  },
+  "coefInfColeCaracterNoAplica": {
+    "valor": -9.742788562215717,
+    "texto": "-9,7"
+  },
+  "coefSupColeCaracterNoAplica": {
+    "valor": -7.468000307796205,
+    "texto": "-7,5"
+  },
+  "coefColeCaracterTecnico": {
+    "valor": -2.2316101776932493,
+    "texto": "-2,2"
+  },
+  "coefInfColeCaracterTecnico": {
+    "valor": -2.728047299229013,
+    "texto": "-2,7"
+  },
+  "coefSupColeCaracterTecnico": {
+    "valor": -1.735173056157486,
+    "texto": "-1,7"
+  },
+  "coefColeCaracterTecnicoAcademico": {
+    "valor": 0.033651778820095346,
+    "texto": "0,0"
+  },
+  "coefInfColeCaracterTecnicoAcademico": {
+    "valor": -0.32530132787188176,
+    "texto": "-0,3"
+  },
+  "coefSupColeCaracterTecnicoAcademico": {
+    "valor": 0.39260488551207245,
+    "texto": "0,4"
+  },
+  "coefColeBilingueS": {
+    "valor": -2.7856825135762597,
+    "texto": "-2,8"
+  },
+  "coefInfColeBilingueS": {
+    "valor": -4.150323540154062,
+    "texto": "-4,2"
+  },
+  "coefSupColeBilingueS": {
+    "valor": -1.4210414869984578,
+    "texto": "-1,4"
+  },
+  "coefColeGeneroFemenino": {
+    "valor": 16.893030987615095,
+    "texto": "16,9"
+  },
+  "coefInfColeGeneroFemenino": {
+    "valor": 15.937476729456508,
+    "texto": "15,9"
+  },
+  "coefSupColeGeneroFemenino": {
+    "valor": 17.84858524577368,
+    "texto": "17,8"
+  },
+  "coefColeGeneroMasculino": {
+    "valor": 13.667264905278884,
+    "texto": "13,7"
+  },
+  "coefInfColeGeneroMasculino": {
+    "valor": 11.997216261047662,
+    "texto": "12,0"
+  },
+  "coefSupColeGeneroMasculino": {
+    "valor": 15.337313549510107,
+    "texto": "15,3"
+  },
+  "coefColeDeptoUbicacionAmazonas": {
+    "valor": -19.78222354675807,
+    "texto": "-19,8"
+  },
+  "coefInfColeDeptoUbicacionAmazonas": {
+    "valor": -23.298025527264095,
+    "texto": "-23,3"
+  },
+  "coefSupColeDeptoUbicacionAmazonas": {
+    "valor": -16.266421566252042,
+    "texto": "-16,3"
+  },
+  "coefColeDeptoUbicacionAntioquia": {
+    "valor": -9.676621722471875,
+    "texto": "-9,7"
+  },
+  "coefInfColeDeptoUbicacionAntioquia": {
+    "valor": -10.221520520465386,
+    "texto": "-10,2"
+  },
+  "coefSupColeDeptoUbicacionAntioquia": {
+    "valor": -9.131722924478364,
+    "texto": "-9,1"
+  },
+  "coefColeDeptoUbicacionArauca": {
+    "valor": 0.8089714641927717,
+    "texto": "0,8"
+  },
+  "coefInfColeDeptoUbicacionArauca": {
+    "valor": -1.0046026010456026,
+    "texto": "-1,0"
+  },
+  "coefSupColeDeptoUbicacionArauca": {
+    "valor": 2.6225455294311457,
+    "texto": "2,6"
+  },
+  "coefColeDeptoUbicacionAtlantico": {
+    "valor": -16.115668092512312,
+    "texto": "-16,1"
+  },
+  "coefInfColeDeptoUbicacionAtlantico": {
+    "valor": -16.828051880812723,
+    "texto": "-16,8"
+  },
+  "coefSupColeDeptoUbicacionAtlantico": {
+    "valor": -15.403284304211903,
+    "texto": "-15,4"
+  },
+  "coefColeDeptoUbicacionBolivar": {
+    "valor": -21.480000917016948,
+    "texto": "-21,5"
+  },
+  "coefInfColeDeptoUbicacionBolivar": {
+    "valor": -22.23537713566139,
+    "texto": "-22,2"
+  },
+  "coefSupColeDeptoUbicacionBolivar": {
+    "valor": -20.724624698372505,
+    "texto": "-20,7"
+  },
+  "coefColeDeptoUbicacionBoyaca": {
+    "valor": 6.940338916448764,
+    "texto": "6,9"
+  },
+  "coefInfColeDeptoUbicacionBoyaca": {
+    "valor": 6.020838732475206,
+    "texto": "6,0"
+  },
+  "coefSupColeDeptoUbicacionBoyaca": {
+    "valor": 7.859839100422321,
+    "texto": "7,9"
+  },
+  "coefColeDeptoUbicacionCaldas": {
+    "valor": -1.2779456240480072,
+    "texto": "-1,3"
+  },
+  "coefInfColeDeptoUbicacionCaldas": {
+    "valor": -2.359090023268572,
+    "texto": "-2,4"
+  },
+  "coefSupColeDeptoUbicacionCaldas": {
+    "valor": -0.19680122482744222,
+    "texto": "-0,2"
+  },
+  "coefColeDeptoUbicacionCaqueta": {
+    "valor": -4.926243260960774,
+    "texto": "-4,9"
+  },
+  "coefInfColeDeptoUbicacionCaqueta": {
+    "valor": -6.588624345773976,
+    "texto": "-6,6"
+  },
+  "coefSupColeDeptoUbicacionCaqueta": {
+    "valor": -3.263862176147573,
+    "texto": "-3,3"
+  },
+  "coefColeDeptoUbicacionCasanare": {
+    "valor": 4.198046191906059,
+    "texto": "4,2"
+  },
+  "coefInfColeDeptoUbicacionCasanare": {
+    "valor": 2.7790616328618625,
+    "texto": "2,8"
+  },
+  "coefSupColeDeptoUbicacionCasanare": {
+    "valor": 5.617030750950255,
+    "texto": "5,6"
+  },
+  "coefColeDeptoUbicacionCauca": {
+    "valor": -13.794676694184332,
+    "texto": "-13,8"
+  },
+  "coefInfColeDeptoUbicacionCauca": {
+    "valor": -14.780214777181113,
+    "texto": "-14,8"
+  },
+  "coefSupColeDeptoUbicacionCauca": {
+    "valor": -12.809138611187551,
+    "texto": "-12,8"
+  },
+  "coefColeDeptoUbicacionCesar": {
+    "valor": -11.13300004793146,
+    "texto": "-11,1"
+  },
+  "coefInfColeDeptoUbicacionCesar": {
+    "valor": -12.099697662373497,
+    "texto": "-12,1"
+  },
+  "coefSupColeDeptoUbicacionCesar": {
+    "valor": -10.166302433489424,
+    "texto": "-10,2"
+  },
+  "coefColeDeptoUbicacionChoco": {
+    "valor": -38.024519846390525,
+    "texto": "-38,0"
+  },
+  "coefInfColeDeptoUbicacionChoco": {
+    "valor": -39.55642008721641,
+    "texto": "-39,6"
+  },
+  "coefSupColeDeptoUbicacionChoco": {
+    "valor": -36.49261960556464,
+    "texto": "-36,5"
+  },
+  "coefColeDeptoUbicacionCordoba": {
+    "valor": -9.7075624056524,
+    "texto": "-9,7"
+  },
+  "coefInfColeDeptoUbicacionCordoba": {
+    "valor": -10.52048110323151,
+    "texto": "-10,5"
+  },
+  "coefSupColeDeptoUbicacionCordoba": {
+    "valor": -8.89464370807329,
+    "texto": "-8,9"
+  },
+  "coefColeDeptoUbicacionCundinamarca": {
+    "valor": 0.6976188978933633,
+    "texto": "0,7"
+  },
+  "coefInfColeDeptoUbicacionCundinamarca": {
+    "valor": 0.036380021321367195,
+    "texto": "0,0"
+  },
+  "coefSupColeDeptoUbicacionCundinamarca": {
+    "valor": 1.3588577744653594,
+    "texto": "1,4"
+  },
+  "coefColeDeptoUbicacionGuainia": {
+    "valor": -4.360848500420624,
+    "texto": "-4,4"
+  },
+  "coefInfColeDeptoUbicacionGuainia": {
+    "valor": -9.465281905246236,
+    "texto": "-9,5"
+  },
+  "coefSupColeDeptoUbicacionGuainia": {
+    "valor": 0.7435849044049876,
+    "texto": "0,7"
+  },
+  "coefColeDeptoUbicacionGuaviare": {
+    "valor": -9.368419867028257,
+    "texto": "-9,4"
+  },
+  "coefInfColeDeptoUbicacionGuaviare": {
+    "valor": -12.548637099350609,
+    "texto": "-12,5"
+  },
+  "coefSupColeDeptoUbicacionGuaviare": {
+    "valor": -6.188202634705904,
+    "texto": "-6,2"
+  },
+  "coefColeDeptoUbicacionHuila": {
+    "valor": 0.9836694199397787,
+    "texto": "1,0"
+  },
+  "coefInfColeDeptoUbicacionHuila": {
+    "valor": 0.008497453907215125,
+    "texto": "0,0"
+  },
+  "coefSupColeDeptoUbicacionHuila": {
+    "valor": 1.9588413859723424,
+    "texto": "2,0"
+  },
+  "coefColeDeptoUbicacionLaGuajira": {
+    "valor": -20.946218643367732,
+    "texto": "-20,9"
+  },
+  "coefInfColeDeptoUbicacionLaGuajira": {
+    "valor": -22.065990060786284,
+    "texto": "-22,1"
+  },
+  "coefSupColeDeptoUbicacionLaGuajira": {
+    "valor": -19.82644722594918,
+    "texto": "-19,8"
+  },
+  "coefColeDeptoUbicacionMagdalena": {
+    "valor": -22.11631211982587,
+    "texto": "-22,1"
+  },
+  "coefInfColeDeptoUbicacionMagdalena": {
+    "valor": -23.013564498957063,
+    "texto": "-23,0"
+  },
+  "coefSupColeDeptoUbicacionMagdalena": {
+    "valor": -21.21905974069468,
+    "texto": "-21,2"
+  },
+  "coefColeDeptoUbicacionMeta": {
+    "valor": -1.8007835422165022,
+    "texto": "-1,8"
+  },
+  "coefInfColeDeptoUbicacionMeta": {
+    "valor": -2.827361991844435,
+    "texto": "-2,8"
+  },
+  "coefSupColeDeptoUbicacionMeta": {
+    "valor": -0.7742050925885697,
+    "texto": "-0,8"
+  },
+  "coefColeDeptoUbicacionNarino": {
+    "valor": 2.7504471137790953,
+    "texto": "2,8"
+  },
+  "coefInfColeDeptoUbicacionNarino": {
+    "valor": 1.8344342521494368,
+    "texto": "1,8"
+  },
+  "coefSupColeDeptoUbicacionNarino": {
+    "valor": 3.666459975408754,
+    "texto": "3,7"
+  },
+  "coefColeDeptoUbicacionNorteSantander": {
+    "valor": 2.242634618904313,
+    "texto": "2,2"
+  },
+  "coefInfColeDeptoUbicacionNorteSantander": {
+    "valor": 1.3420890499870257,
+    "texto": "1,3"
+  },
+  "coefSupColeDeptoUbicacionNorteSantander": {
+    "valor": 3.1431801878216,
+    "texto": "3,1"
+  },
+  "coefColeDeptoUbicacionPutumayo": {
+    "valor": -4.109718200262148,
+    "texto": "-4,1"
+  },
+  "coefInfColeDeptoUbicacionPutumayo": {
+    "valor": -5.792598675570606,
+    "texto": "-5,8"
+  },
+  "coefSupColeDeptoUbicacionPutumayo": {
+    "valor": -2.4268377249536908,
+    "texto": "-2,4"
+  },
+  "coefColeDeptoUbicacionQuindio": {
+    "valor": 3.7985945802402563,
+    "texto": "3,8"
+  },
+  "coefInfColeDeptoUbicacionQuindio": {
+    "valor": 2.3990647578624396,
+    "texto": "2,4"
+  },
+  "coefSupColeDeptoUbicacionQuindio": {
+    "valor": 5.198124402618073,
+    "texto": "5,2"
+  },
+  "coefColeDeptoUbicacionRisaralda": {
+    "valor": -0.5520193074687036,
+    "texto": "-0,6"
+  },
+  "coefInfColeDeptoUbicacionRisaralda": {
+    "valor": -1.6602062393146921,
+    "texto": "-1,7"
+  },
+  "coefSupColeDeptoUbicacionRisaralda": {
+    "valor": 0.5561676243772848,
+    "texto": "0,6"
+  },
+  "coefColeDeptoUbicacionSanAndres": {
+    "valor": -20.48270764195866,
+    "texto": "-20,5"
+  },
+  "coefInfColeDeptoUbicacionSanAndres": {
+    "valor": -24.63376597809342,
+    "texto": "-24,6"
+  },
+  "coefSupColeDeptoUbicacionSanAndres": {
+    "valor": -16.331649305823895,
+    "texto": "-16,3"
+  },
+  "coefColeDeptoUbicacionSantander": {
+    "valor": 10.519597959092488,
+    "texto": "10,5"
+  },
+  "coefInfColeDeptoUbicacionSantander": {
+    "valor": 9.759664483388905,
+    "texto": "9,8"
+  },
+  "coefSupColeDeptoUbicacionSantander": {
+    "valor": 11.279531434796072,
+    "texto": "11,3"
+  },
+  "coefColeDeptoUbicacionSucre": {
+    "valor": -12.38017178723546,
+    "texto": "-12,4"
+  },
+  "coefInfColeDeptoUbicacionSucre": {
+    "valor": -13.436264368291784,
+    "texto": "-13,4"
+  },
+  "coefSupColeDeptoUbicacionSucre": {
+    "valor": -11.324079206179135,
+    "texto": "-11,3"
+  },
+  "coefColeDeptoUbicacionTolima": {
+    "valor": -9.1555434728354,
+    "texto": "-9,2"
+  },
+  "coefInfColeDeptoUbicacionTolima": {
+    "valor": -10.058980522024374,
+    "texto": "-10,1"
+  },
+  "coefSupColeDeptoUbicacionTolima": {
+    "valor": -8.252106423646428,
+    "texto": "-8,3"
+  },
+  "coefColeDeptoUbicacionValle": {
+    "valor": -7.090973246534831,
+    "texto": "-7,1"
+  },
+  "coefInfColeDeptoUbicacionValle": {
+    "valor": -7.767309712294473,
+    "texto": "-7,8"
+  },
+  "coefSupColeDeptoUbicacionValle": {
+    "valor": -6.414636780775188,
+    "texto": "-6,4"
+  },
+  "coefColeDeptoUbicacionVaupes": {
+    "valor": -12.760072091367952,
+    "texto": "-12,8"
+  },
+  "coefInfColeDeptoUbicacionVaupes": {
+    "valor": -17.69134655582252,
+    "texto": "-17,7"
+  },
+  "coefSupColeDeptoUbicacionVaupes": {
+    "valor": -7.828797626913387,
+    "texto": "-7,8"
+  },
+  "coefColeDeptoUbicacionVichada": {
+    "valor": -14.76965734995166,
+    "texto": "-14,8"
+  },
+  "coefInfColeDeptoUbicacionVichada": {
+    "valor": -18.90606060342657,
+    "texto": "-18,9"
+  },
+  "coefSupColeDeptoUbicacionVichada": {
+    "valor": -10.633254096476747,
+    "texto": "-10,6"
+  },
+  "coefEstuGeneroM": {
+    "valor": 6.580037063115552,
+    "texto": "6,6"
+  },
+  "coefInfEstuGeneroM": {
+    "valor": 6.299217110876161,
+    "texto": "6,3"
+  },
+  "coefSupEstuGeneroM": {
+    "valor": 6.860857015354942,
+    "texto": "6,9"
+  },
+  "coefFamiCuartoshogar": {
+    "valor": -4.20652166310908,
+    "texto": "-4,2"
+  },
+  "coefInfFamiCuartoshogar": {
+    "valor": -4.378021255720257,
+    "texto": "-4,4"
+  },
+  "coefSupFamiCuartoshogar": {
+    "valor": -4.035022070497903,
+    "texto": "-4,0"
+  },
+  "coefFamiPersonashogar": {
+    "valor": 0.16494389821412284,
+    "texto": "0,2"
+  },
+  "coefInfFamiPersonashogar": {
+    "valor": 0.0664322879967756,
+    "texto": "0,1"
+  },
+  "coefSupFamiPersonashogar": {
+    "valor": 0.2634555084314701,
+    "texto": "0,3"
+  },
+  "coefEstuEdad": {
+    "valor": -3.676833073375568,
+    "texto": "-3,7"
+  },
+  "coefInfEstuEdad": {
+    "valor": -3.7622136938962383,
+    "texto": "-3,8"
+  },
+  "coefSupEstuEdad": {
+    "valor": -3.591452452854898,
+    "texto": "-3,6"
+  },
+  "coefFaltaFamiEstratovivienda": {
+    "valor": -7.6960282904008706,
+    "texto": "-7,7"
+  },
+  "coefInfFaltaFamiEstratovivienda": {
+    "valor": -9.007611186473012,
+    "texto": "-9,0"
+  },
+  "coefSupFaltaFamiEstratovivienda": {
+    "valor": -6.384445394328729,
+    "texto": "-6,4"
+  },
+  "coefFaltaFamiEducacionmadre": {
+    "valor": -0.023563541104521562,
+    "texto": "-0,0"
+  },
+  "coefInfFaltaFamiEducacionmadre": {
+    "valor": -2.5223510674145695,
+    "texto": "-2,5"
+  },
+  "coefSupFaltaFamiEducacionmadre": {
+    "valor": 2.4752239852055267,
+    "texto": "2,5"
+  },
+  "coefFaltaFamiEducacionpadre": {
+    "valor": 0.03786806053856004,
+    "texto": "0,0"
+  },
+  "coefInfFaltaFamiEducacionpadre": {
+    "valor": -2.2432129045412883,
+    "texto": "-2,2"
+  },
+  "coefSupFaltaFamiEducacionpadre": {
+    "valor": 2.318949025618408,
+    "texto": "2,3"
+  },
+  "coefFaltaFamiTieneinternet": {
+    "valor": -4.287197115455857,
+    "texto": "-4,3"
+  },
+  "coefInfFaltaFamiTieneinternet": {
+    "valor": -6.243371572991588,
+    "texto": "-6,2"
+  },
+  "coefSupFaltaFamiTieneinternet": {
+    "valor": -2.3310226579201263,
+    "texto": "-2,3"
+  },
+  "coefFaltaFamiTienecomputador": {
+    "valor": 4.911216466552567,
+    "texto": "4,9"
+  },
+  "coefInfFaltaFamiTienecomputador": {
+    "valor": 2.2557856018805995,
+    "texto": "2,3"
+  },
+  "coefSupFaltaFamiTienecomputador": {
+    "valor": 7.566647331224534,
+    "texto": "7,6"
+  },
+  "coefFaltaFamiTieneautomovil": {
+    "valor": -12.052570424051702,
+    "texto": "-12,1"
+  },
+  "coefInfFaltaFamiTieneautomovil": {
+    "valor": -14.440705138946216,
+    "texto": "-14,4"
+  },
+  "coefSupFaltaFamiTieneautomovil": {
+    "valor": -9.664435709157187,
+    "texto": "-9,7"
+  },
+  "coefFaltaFamiTienelavadora": {
+    "valor": 0.4497719466028397,
+    "texto": "0,4"
+  },
+  "coefInfFaltaFamiTienelavadora": {
+    "valor": -2.2501381167514807,
+    "texto": "-2,3"
+  },
+  "coefSupFaltaFamiTienelavadora": {
+    "valor": 3.1496820099571603,
+    "texto": "3,1"
+  },
+  "coefFaltaFamiCuartoshogar": {
+    "valor": 2.7890456970285724,
+    "texto": "2,8"
+  },
+  "coefInfFaltaFamiCuartoshogar": {
+    "valor": 0.8923917898525682,
+    "texto": "0,9"
+  },
+  "coefSupFaltaFamiCuartoshogar": {
+    "valor": 4.685699604204577,
+    "texto": "4,7"
+  },
+  "coefFaltaFamiPersonashogar": {
+    "valor": 1.0262967780123151,
+    "texto": "1,0"
+  },
+  "coefInfFaltaFamiPersonashogar": {
+    "valor": -1.1176400736064867,
+    "texto": "-1,1"
+  },
+  "coefSupFaltaFamiPersonashogar": {
+    "valor": 3.1702336296311167,
+    "texto": "3,2"
+  },
+  "coefFaltaColeCaracter": {
+    "valor": -8.267266027285315,
+    "texto": "-8,3"
+  },
+  "coefInfFaltaColeCaracter": {
+    "valor": -9.081042419660166,
+    "texto": "-9,1"
+  },
+  "coefSupFaltaColeCaracter": {
+    "valor": -7.453489634910464,
+    "texto": "-7,5"
+  },
+  "coefFaltaColeBilingue": {
+    "valor": -3.4424930321895633,
+    "texto": "-3,4"
+  },
+  "coefInfFaltaColeBilingue": {
+    "valor": -3.865766300618947,
+    "texto": "-3,9"
+  },
+  "coefSupFaltaColeBilingue": {
+    "valor": -3.0192197637601796,
+    "texto": "-3,0"
+  },
+  "coefFaltaEstuEdad": {
+    "valor": -24.319518525408473,
+    "texto": "-24,3"
+  },
+  "coefInfFaltaEstuEdad": {
+    "valor": -31.553396596511,
+    "texto": "-31,6"
+  },
+  "coefSupFaltaEstuEdad": {
+    "valor": -17.085640454305945,
+    "texto": "-17,1"
+  },
+  "diferenciaPrediccionSklearn": {
+    "valor": "7,4e-12",
+    "texto": "7,4e-12"
+  },
+  "diferenciaCoeficientesSklearn": {
+    "valor": "6,8e-12",
+    "texto": "6,8e-12"
+  },
+  "rCuadradoEntrenamientoMultiple": {
+    "valor": 0.31805520883752936,
+    "texto": "0,318"
+  },
+  "rmseEntrenamientoMultiple": {
+    "valor": 42.80300807360439,
+    "texto": "42,8"
+  },
+  "maeEntrenamientoMultiple": {
+    "valor": 34.71572353765648,
+    "texto": "34,7"
+  },
+  "rCuadradoValidacionMultiple": {
+    "valor": 0.31873398488476945,
+    "texto": "0,319"
+  },
+  "rmseValidacionMultiple": {
+    "valor": 42.81137555835408,
+    "texto": "42,8"
+  },
+  "maeValidacionMultiple": {
+    "valor": 34.70826898310094,
+    "texto": "34,7"
+  },
+  "breuschPaganLm": {
+    "valor": 7549.201873832679,
+    "texto": "7549"
+  },
+  "asimetriaResiduos": {
+    "valor": 0.1523111208780019,
+    "texto": "0,15"
+  },
+  "curtosisResiduos": {
+    "valor": -0.2433772287001843,
+    "texto": "-0,24"
+  },
+  "casosCook": {
+    "valor": 16233.0,
+    "texto": "16.233"
+  },
+  "pctCasosCook": {
+    "valor": 4.354438936457864,
+    "texto": "4,35"
+  },
+  "maximoCook": {
+    "valor": 0.0008745177930756951,
+    "texto": "0,0009"
+  },
+  "rCuadradoSinInfluyentes": {
+    "valor": 0.36213571836872116,
+    "texto": "0,362"
+  },
+  "correlacionCoefSinInfluyentes": {
+    "valor": 0.9975340713380576,
+    "texto": "0,998"
+  },
+  "rmseValidacionHuber": {
+    "valor": 42.85348773764713,
+    "texto": "42,9"
+  },
+  "maeValidacionHuber": {
+    "valor": 34.64427309591265,
+    "texto": "34,6"
+  },
+  "correlacionCoefHuber": {
+    "valor": 0.9991600529975563,
+    "texto": "0,999"
+  },
+  "huberFamiTieneinternetSi": {
+    "valor": 7.2513984236501665,
+    "texto": "7,3"
+  },
+  "huberFamiTienecomputadorSi": {
+    "valor": 9.32467055430011,
+    "texto": "9,3"
+  },
+  "huberFamiEstratoviviendaEstratoSeis": {
+    "valor": -17.186826966271713,
+    "texto": "-17,2"
+  },
+  "huberColeNaturalezaNoOficial": {
+    "valor": 12.99512557105768,
+    "texto": "13,0"
+  },
+  "huberColeAreaUbicacionRural": {
+    "valor": -10.421599869917864,
+    "texto": "-10,4"
+  },
+  "huberFamiEducacionmadrePostgrado": {
+    "valor": 36.51218402111597,
+    "texto": "36,5"
+  },
+  "huberFaltaFamiTieneinternet": {
+    "valor": -4.84748981828695,
+    "texto": "-4,8"
+  },
+  "huberEstuEdad": {
+    "valor": -3.602864327800901,
+    "texto": "-3,6"
+  },
+  "razonHcTresMediana": {
+    "valor": 0.990974708690386,
+    "texto": "0,99"
+  },
+  "razonAgrupadoMediana": {
+    "valor": 1.7422488662253517,
+    "texto": "1,74"
+  },
+  "razonAgrupadoMaxima": {
+    "valor": 8.31442759937614,
+    "texto": "8,3"
+  },
+  "agrupadoInfFamiTieneinternetSi": {
+    "valor": 5.9291891386451026,
+    "texto": "5,9"
+  },
+  "agrupadoSupFamiTieneinternetSi": {
+    "valor": 8.118209734625456,
+    "texto": "8,1"
+  },
+  "agrupadoInfFamiTienecomputadorSi": {
+    "valor": 8.291206426532543,
+    "texto": "8,3"
+  },
+  "agrupadoSupFamiTienecomputadorSi": {
+    "valor": 9.72988178095893,
+    "texto": "9,7"
+  },
+  "agrupadoInfFamiEstratoviviendaEstratoSeis": {
+    "valor": -22.934150770640862,
+    "texto": "-22,9"
+  },
+  "agrupadoSupFamiEstratoviviendaEstratoSeis": {
+    "valor": -7.804042442347228,
+    "texto": "-7,8"
+  },
+  "agrupadoInfColeNaturalezaNoOficial": {
+    "valor": 9.086478150835134,
+    "texto": "9,1"
+  },
+  "agrupadoSupColeNaturalezaNoOficial": {
+    "valor": 15.805816313839042,
+    "texto": "15,8"
+  },
+  "agrupadoInfColeAreaUbicacionRural": {
+    "valor": -13.580577624931657,
+    "texto": "-13,6"
+  },
+  "agrupadoSupColeAreaUbicacionRural": {
+    "valor": -6.932004954513548,
+    "texto": "-6,9"
+  },
+  "agrupadoInfFamiEducacionmadrePostgrado": {
+    "valor": 32.319036827874655,
+    "texto": "32,3"
+  },
+  "agrupadoSupFamiEducacionmadrePostgrado": {
+    "valor": 36.19010249238572,
+    "texto": "36,2"
+  },
+  "agrupadoInfFaltaFamiTieneinternet": {
+    "valor": -6.513842648203254,
+    "texto": "-6,5"
+  },
+  "agrupadoSupFaltaFamiTieneinternet": {
+    "valor": -2.0605515827084604,
+    "texto": "-2,1"
+  },
+  "agrupadoInfEstuEdad": {
+    "valor": -4.133958600704842,
+    "texto": "-4,1"
+  },
+  "agrupadoSupEstuEdad": {
+    "valor": -3.219707546046294,
+    "texto": "-3,2"
+  },
+  "rCuadradoSoloHogar": {
+    "valor": 0.21134299921977018,
+    "texto": "0,211"
+  },
+  "rCuadradoAportaHogar": {
+    "valor": 0.07069156390137354,
+    "texto": "0,071"
+  },
+  "fCuadradoHogar": {
+    "valor": 0.103661711061492,
+    "texto": "0,104"
+  },
+  "rCuadradoSoloColegio": {
+    "valor": 0.21891357489315988,
+    "texto": "0,219"
+  },
+  "rCuadradoAportaColegio": {
+    "valor": 0.07078435848217635,
+    "texto": "0,071"
+  },
+  "fCuadradoColegio": {
+    "valor": 0.1037977845120196,
+    "texto": "0,104"
+  },
+  "rCuadradoSoloEstudiante": {
+    "valor": 0.08386696796233217,
+    "texto": "0,084"
+  },
+  "rCuadradoAportaEstudiante": {
+    "valor": 0.01667579299144084,
+    "texto": "0,017"
+  },
+  "fCuadradoEstudiante": {
+    "valor": 0.024453288898965864,
+    "texto": "0,024"
+  },
+  "departamentoMinimo": {
+    "valor": -38.024519846390525,
+    "texto": "-38,0"
+  },
+  "departamentoMinimoNombre": {
+    "valor": "Choco",
+    "texto": "Choco"
+  },
+  "departamentoMaximo": {
+    "valor": 10.519597959092488,
+    "texto": "10,5"
+  },
+  "departamentoMaximoNombre": {
+    "valor": "Santander",
+    "texto": "Santander"
+  },
+  "rCuadradoPruebaDummy": {
+    "valor": -3.933906555175781e-06,
+    "texto": "-0,000"
+  },
+  "rmsePruebaDummy": {
+    "valor": 51.82762145996094,
+    "texto": "51,8"
+  },
+  "maePruebaDummy": {
+    "valor": 43.022377014160156,
+    "texto": "43,0"
+  },
+  "rCuadradoPruebaSimple": {
+    "valor": 0.10645572485691068,
+    "texto": "0,106"
+  },
+  "rmsePruebaSimple": {
+    "valor": 48.99124418203955,
+    "texto": "49,0"
+  },
+  "maePruebaSimple": {
+    "valor": 40.30326723858765,
+    "texto": "40,3"
+  },
+  "rCuadradoPruebaMultiple": {
+    "valor": 0.3185730912948004,
+    "texto": "0,319"
+  },
+  "rmsePruebaMultiple": {
+    "valor": 42.782885299603336,
+    "texto": "42,8"
+  },
+  "maePruebaMultiple": {
+    "valor": 34.7549203415657,
+    "texto": "34,8"
+  },
+  "accuracyPruebaDummyClase": {
+    "valor": 0.773849909244539,
+    "texto": "0,774"
+  },
+  "precisionPruebaDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "recallPruebaDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "fUnoPruebaDummyClase": {
+    "valor": 0.0,
+    "texto": "0,000"
+  },
+  "aucPruebaDummyClase": {
+    "valor": 0.5,
+    "texto": "0,500"
+  },
+  "accuracyPruebaLogistica": {
+    "valor": 0.7115979220128935,
+    "texto": "0,712"
+  },
+  "precisionPruebaLogistica": {
+    "valor": 0.41436787546922893,
+    "texto": "0,414"
+  },
+  "recallPruebaLogistica": {
+    "valor": 0.6660024355142257,
+    "texto": "0,666"
+  },
+  "fUnoPruebaLogistica": {
+    "valor": 0.5108804110141605,
+    "texto": "0,511"
+  },
+  "aucPruebaLogistica": {
+    "valor": 0.765248769433774,
+    "texto": "0,765"
+  },
+  "brechaRmseMultiple": {
+    "valor": 0.020122774001052335,
+    "texto": "0,02"
+  },
+  "paridadValores": {
+    "valor": 176.0,
+    "texto": "176"
+  },
+  "paridadCoeficientes": {
+    "valor": 98.0,
+    "texto": "98"
+  },
+  "paridadMaxCoeficientes": {
+    "valor": "1,2e-10",
+    "texto": "1,2e-10"
+  },
+  "paridadMaxDescriptivos": {
+    "valor": "3,4e-15",
+    "texto": "3,4e-15"
+  },
+  "paridadDescriptivos": {
+    "valor": 70.0,
+    "texto": "70"
+  },
+  "paridadMaxRCuadrado": {
+    "valor": "2,6e-14",
+    "texto": "2,6e-14"
+  },
+  "paridadTablasFrecuencia": {
+    "valor": 6.0,
+    "texto": "6"
+  },
+  "versionR": {
+    "valor": "4.6.1",
+    "texto": "4.6.1"
+  },
+  "versionGgplot": {
+    "valor": "4.0.3",
+    "texto": "4.0.3"
+  },
+  "medidaInstruccionesCoefMatplotlib": {
+    "valor": 5.0,
+    "texto": "5"
+  },
+  "medidaTiempoCoefMatplotlib": {
+    "valor": 0.08400659699964308,
+    "texto": "0,08"
+  },
+  "medidaPngCoefMatplotlib": {
+    "valor": 103.21484375,
+    "texto": "103"
+  },
+  "medidaSegundaCoefMatplotlib": {
+    "valor": 19.177734375,
+    "texto": "19"
+  },
+  "medidaInstruccionesCoefSeaborn": {
+    "valor": 6.0,
+    "texto": "6"
+  },
+  "medidaTiempoCoefSeaborn": {
+    "valor": 0.09148610099964571,
+    "texto": "0,09"
+  },
+  "medidaPngCoefSeaborn": {
+    "valor": 103.275390625,
+    "texto": "103"
+  },
+  "medidaSegundaCoefSeaborn": {
+    "valor": 19.001953125,
+    "texto": "19"
+  },
+  "medidaInstruccionesCoefPlotly": {
+    "valor": 5.0,
+    "texto": "5"
+  },
+  "medidaTiempoCoefPlotly": {
+    "valor": 1.7499401940003736,
+    "texto": "1,75"
+  },
+  "medidaPngCoefPlotly": {
+    "valor": 128.525390625,
+    "texto": "129"
+  },
+  "medidaSegundaCoefPlotly": {
+    "valor": 10.892578125,
+    "texto": "11"
+  },
+  "medidaInstruccionesCoefGgplot": {
+    "valor": 1.0,
+    "texto": "1"
+  },
+  "medidaTiempoCoefGgplot": {
+    "valor": 0.0905001163482666,
+    "texto": "0,09"
+  },
+  "medidaPngCoefGgplot": {
+    "valor": 84.0478515625,
+    "texto": "84"
+  },
+  "medidaSegundaCoefGgplot": {
+    "valor": 5.78515625,
+    "texto": "6"
+  },
+  "medidaInstruccionesResidMatplotlib": {
+    "valor": 6.0,
+    "texto": "6"
+  },
+  "medidaTiempoResidMatplotlib": {
+    "valor": 0.09501884400015115,
+    "texto": "0,10"
+  },
+  "medidaPngResidMatplotlib": {
+    "valor": 46.140625,
+    "texto": "46"
+  },
+  "medidaSegundaResidMatplotlib": {
+    "valor": 55.533203125,
+    "texto": "56"
+  },
+  "medidaInstruccionesResidSeaborn": {
+    "valor": 5.0,
+    "texto": "5"
+  },
+  "medidaTiempoResidSeaborn": {
+    "valor": 0.20818634599982033,
+    "texto": "0,21"
+  },
+  "medidaPngResidSeaborn": {
+    "valor": 47.7138671875,
+    "texto": "48"
+  },
+  "medidaSegundaResidSeaborn": {
+    "valor": 55.6982421875,
+    "texto": "56"
+  },
+  "medidaInstruccionesResidPlotly": {
+    "valor": 7.0,
+    "texto": "7"
+  },
+  "medidaTiempoResidPlotly": {
+    "valor": 1.7643607410000186,
+    "texto": "1,76"
+  },
+  "medidaPngResidPlotly": {
+    "valor": 67.1171875,
+    "texto": "67"
+  },
+  "medidaSegundaResidPlotly": {
+    "valor": 76.4541015625,
+    "texto": "76"
+  },
+  "medidaInstruccionesResidGgplot": {
+    "valor": 1.0,
+    "texto": "1"
+  },
+  "medidaTiempoResidGgplot": {
+    "valor": 0.265989303588867,
+    "texto": "0,27"
+  },
+  "medidaPngResidGgplot": {
+    "valor": 38.7998046875,
+    "texto": "39"
+  },
+  "medidaSegundaResidGgplot": {
+    "valor": 12.697265625,
+    "texto": "13"
+  },
+  "medidaComponentesCoefGgplot": {
+    "valor": 6.0,
+    "texto": "6"
+  },
+  "medidaComponentesResidGgplot": {
+    "valor": 7.0,
+    "texto": "7"
+  },
+  "medidaHtmlCoef": {
+    "valor": 10.892578125,
+    "texto": "11"
+  },
+  "medidaHtmlResid": {
+    "valor": 76.4541015625,
+    "texto": "76"
+  },
+  "terminosFiguraCoeficientes": {
+    "valor": 14.0,
+    "texto": "14"
+  },
+  "artistasPanel": {
+    "valor": 111.0,
+    "texto": "111"
+  },
+  "limiteBajoDistribucion": {
+    "valor": 160.0,
+    "texto": "160"
+  },
+  "limiteAltoDistribucion": {
+    "valor": 390.0,
+    "texto": "390"
+  },
+  "filasAgregadoCubo": {
+    "valor": 81.0,
+    "texto": "81"
+  },
+  "celdaMinimaCubo": {
+    "valor": 100.0,
+    "texto": "100"
+  },
+  "celdaMinimaDepartamentoZona": {
+    "valor": 130.0,
+    "texto": "130"
+  },
+  "celdaMinimaCoeficientes": {
+    "valor": 135.0,
+    "texto": "135"
+  },
+  "celdaMinimaGrupos": {
+    "valor": 253.0,
+    "texto": "253"
+  },
+  "archivosAgregadosNuevos": {
+    "valor": 6.0,
+    "texto": "6"
+  }
+}
