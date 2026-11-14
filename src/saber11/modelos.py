@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 import numpy as np
@@ -39,6 +40,20 @@ from saber11 import variables as v
 IMPUTACION = "moda"
 ESPECIFICACION = "componentes"
 ATIPICOS = {v.EDAD: "winsorizar", v.HACINAMIENTO: "conservar"}
+# Modelos que la fase 3 evalúa una sola vez en prueba (§22 de su cuaderno), en su propio
+# registro; las bases de la fase 2 no se reevalúan. Si el LDA no entra, se quita de aquí.
+FINALES_FASE_3 = (
+    "ridge",
+    "lasso",
+    "elasticNet",
+    "randomForestRegresion",
+    "xgboostRegresion",
+    "mlpRegresion",
+    "randomForestClasificacion",
+    "xgboostClasificacion",
+    "svmClasificacion",
+    "ldaClasificacion",
+)
 
 TERMINO = re.compile(r"C\((\w+), Treatment\('(.*)'\)\)\[T\.(.*)\]")
 
@@ -162,23 +177,45 @@ def iniciar_registro_prueba(ruta: Path) -> None:
     ruta.write_text("[]\n", encoding="utf-8")
 
 
-def evaluar_en_prueba(ruta: Path, modelo: str, metricas: dict[str, float]) -> None:
-    """Agrega la evaluación de un modelo en prueba; falla si ese modelo ya se evaluó."""
+def _registro_sin(ruta: Path, modelo: str) -> list[dict]:
+    """Registro de prueba leído; falla si `modelo` ya está en él."""
     registro = json.loads(ruta.read_text(encoding="utf-8"))
     if any(fila["modelo"] == modelo for fila in registro):
         raise ValueError(f"El modelo {modelo!r} ya se evaluó en prueba: la prueba se usa una sola vez")
+    return registro
+
+
+def evaluar_en_prueba(ruta: Path, modelo: str, metricas: dict[str, float]) -> None:
+    """Agrega la evaluación de un modelo en prueba; falla si ese modelo ya se evaluó."""
+    registro = _registro_sin(ruta, modelo)
     registro.append({"modelo": modelo, "metricas": metricas})
     ruta.write_text(json.dumps(registro, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def predecir_en_prueba[P](ruta: Path, modelo: str, predecir: Callable[[], P], medir: Callable[[P], dict[str, float]]) -> P:
+    """Evalúa `modelo` una sola vez en prueba y devuelve sus predicciones sin guardarlas.
+
+    Comprueba el registro antes de predecir, así que un modelo ya evaluado no vuelve a tocar
+    la prueba; luego registra `medir(predicciones)` con `evaluar_en_prueba`. Las predicciones
+    se devuelven para usarlas en la misma celda (McNemar) y no se escriben en ningún archivo.
+    """
+    _registro_sin(ruta, modelo)
+    predicciones = predecir()
+    evaluar_en_prueba(ruta, modelo, medir(predicciones))
+    return predicciones
+
+
+def variable_de_origen(columna: str, predictores: tuple[str, ...]) -> str:
+    """Variable original de una columna codificada: la del one-hot o la que marca un indicador `FALTA_`."""
+    nombre = columna.removeprefix(v.PREFIJO_FALTA)
+    return next((p for p in sorted(predictores, key=len, reverse=True) if nombre == p or nombre.startswith(f"{p}_")), nombre)
 
 
 def bloques_de_columnas(columnas: list[str], predictores: tuple[str, ...]) -> dict[str, list[str]]:
     """Agrupa las columnas codificadas por variable de origen; los indicadores de faltante van en un bloque."""
     bloques: dict[str, list[str]] = {}
     for columna in columnas:
-        if v.es_indicador(columna):
-            origen = "Indicadores de faltante"
-        else:
-            origen = next(p for p in sorted(predictores, key=len, reverse=True) if columna == p or columna.startswith(f"{p}_"))
+        origen = "Indicadores de faltante" if v.es_indicador(columna) else variable_de_origen(columna, predictores)
         bloques.setdefault(origen, []).append(columna)
     return bloques
 

@@ -48,24 +48,66 @@ ESTILO = {
     "axes.facecolor": "white",
     "axes.prop_cycle": mpl.cycler(color=list(PALETA_CATEGORICA)),
 }
-FORMATO_MILES = FuncFormatter(lambda valor, _: en_espanol(valor))
-FORMATO_DECIMAL = FuncFormatter(lambda valor, _: en_espanol(valor, 0 if float(valor).is_integer() else len(f"{valor:g}".split(".")[-1])))
+# Las figuras de un informe IEEE se dibujan al ancho de una columna, para que su letra se
+# imprima al tamaño con que se escribe, sin reducir la imagen: 6,5 puntos en marcas, ejes y
+# leyendas y 7 en los títulos, lo que deja el informe dentro de su límite de páginas.
+ANCHO_COLUMNA = 3.45
+ESTILO_INFORME = {
+    "font.size": 6.5,
+    "axes.titlesize": 7,
+    "axes.labelsize": 6.5,
+    "xtick.labelsize": 6.5,
+    "ytick.labelsize": 6.5,
+    "legend.fontsize": 6.5,
+    "legend.title_fontsize": 6.5,
+}
+LETRA_FUENTE = 7
+# Ancho medio de un carácter de DejaVu Serif, en fracciones del tamaño de la letra.
+ANCHO_CARACTER = 0.58
+MENOS = "−"
+
+
+def con_signo_menos(texto: str) -> str:
+    """Cambia el guion de los negativos por el signo menos tipográfico."""
+    return texto.replace("-", MENOS)
+
+
+def formato_fijo(decimales: int) -> FuncFormatter:
+    """Marcas del eje con coma decimal y el mismo número de decimales en todas."""
+    return FuncFormatter(lambda valor, _: con_signo_menos(en_espanol(valor, decimales)))
+
+
+FORMATO_MILES = FuncFormatter(lambda valor, _: con_signo_menos(en_espanol(valor)))
+FORMATO_DECIMAL = FuncFormatter(lambda valor, _: con_signo_menos(en_espanol(valor, 0 if float(valor).is_integer() else len(f"{valor:g}".split(".")[-1]))))
 PUNTOS_POR_PULGADA_PLOTLY = 96
+ALTO_MINIMO_HTML = 450
 
 
-def aplicar_estilo() -> None:
+def aplicar_estilo(informe: bool = False) -> None:
+    """Estilo de las fases; con `informe`, la letra de las figuras dibujadas al ancho de impresión."""
     mpl.rcParams.update(ESTILO)
+    if informe:
+        mpl.rcParams.update(ESTILO_INFORME)
+
+
+def ajustar_al_ancho(texto: str, ancho_pulgadas: float, tamano: float) -> str:
+    """Parte cada línea del texto para que quepa en el ancho dado con la letra dada."""
+    caracteres = max(20, int(ancho_pulgadas * 72 / (ANCHO_CARACTER * tamano)))
+    return "\n".join(textwrap.fill(linea, caracteres) for linea in texto.split("\n"))
 
 
 def anotar_fuente(eje: plt.Axes, texto: str) -> None:
-    """Escribe la fuente de los datos al pie de la figura, debajo del título del eje horizontal."""
+    """Escribe la fuente de los datos al pie de la figura, debajo del título del eje horizontal.
+
+    El texto se parte al ancho de la figura, para que una nota larga no la ensanche.
+    """
     eje.annotate(
-        texto,
+        ajustar_al_ancho(texto, eje.figure.get_figwidth(), LETRA_FUENTE),
         xy=(0.0, 0.0),
         xycoords=("figure fraction", eje.xaxis.label),
         xytext=(0, -6),
         textcoords="offset points",
-        fontsize=7,
+        fontsize=LETRA_FUENTE,
         color="#4C4C4C",
         ha="left",
         va="top",
@@ -100,10 +142,16 @@ def instrucciones(funcion: Callable) -> int:
 
 
 def exportar(figura: plt.Figure | go.Figure, ruta: Path) -> None:
-    """Exporta a PNG o PDF (Matplotlib) o a PNG o HTML (Plotly) y libera la figura."""
+    """Exporta a PNG o PDF (Matplotlib) o a PNG o HTML (Plotly) y libera la figura.
+
+    El tamaño del diseño de Plotly es el de la imagen impresa; el HTML, en cambio, ocupa el
+    ancho de la ventana y al menos `ALTO_MINIMO_HTML` píxeles de alto.
+    """
     if isinstance(figura, go.Figure):
         if ruta.suffix == ".html":
-            figura.write_html(ruta, include_plotlyjs="cdn")
+            alto = max(figura.layout.height or 0, ALTO_MINIMO_HTML)
+            interactiva = go.Figure(figura).update_layout(width=None, height=None, autosize=True)
+            interactiva.write_html(ruta, include_plotlyjs="cdn", default_width="100%", default_height=f"{alto}px")
         else:
             figura.write_image(ruta, scale=mpl.rcParams["savefig.dpi"] / PUNTOS_POR_PULGADA_PLOTLY)
         return
