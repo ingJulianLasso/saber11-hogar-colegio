@@ -1,0 +1,822 @@
+{
+  "version_r": "4.6.1",
+  "version_ggplot2": "4.0.3",
+  "version_car": "3.1.5",
+  "h1": {
+    "t": 216.116192363542,
+    "gl": 284889.375653904,
+    "p": 0,
+    "diferencia": 31.8019554250444,
+    "inferior": 31.5135413483153,
+    "superior": 32.0903695017734,
+    "d": 0.639971680216147,
+    "n_a": 363657,
+    "n_b": 137266
+  },
+  "h2": {
+    "F": 8272.5917835424,
+    "gl1": 9,
+    "gl2": 90644.7594492006,
+    "p": 0,
+    "eta2": 0.136506941945403,
+    "H": 62389.9069497692,
+    "gl_kruskal": 9,
+    "p_kruskal": 0,
+    "epsilon2": 0.127891411952339,
+    "n": 487836,
+    "tukey": [
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Primaria incompleta",
+        "diferencia": 17.6612372022072,
+        "inferior": 16.0473895325843,
+        "superior": 19.2750848718302,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Primaria completa",
+        "diferencia": 22.2477179799994,
+        "inferior": 20.5790128253247,
+        "superior": 23.916423134674,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Secundaria (Bachillerato) incompleta",
+        "diferencia": 27.5631726150832,
+        "inferior": 25.9607033128061,
+        "superior": 29.1656419173604,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Secundaria (Bachillerato) completa",
+        "diferencia": 38.1943790173482,
+        "inferior": 36.6455247560658,
+        "superior": 39.7432332786307,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Técnica o tecnológica incompleta",
+        "diferencia": 48.6871334853018,
+        "inferior": 46.811744256733,
+        "superior": 50.5625227138707,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 56.8056737189023,
+        "inferior": 55.1690611448837,
+        "superior": 58.4422862929209,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 60.511257367064,
+        "inferior": 58.574905625567,
+        "superior": 62.447609108561,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 67.1991448518771,
+        "inferior": 65.5842760402254,
+        "superior": 68.8140136635288,
+        "p": 0
+      },
+      {
+        "grupo_a": "Ninguno",
+        "grupo_b": "Postgrado",
+        "diferencia": 96.3145442023248,
+        "inferior": 94.2507271806669,
+        "superior": 98.3783612239827,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Primaria completa",
+        "diferencia": 4.58648077779216,
+        "inferior": 3.63205213950989,
+        "superior": 5.54090941607443,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Secundaria (Bachillerato) incompleta",
+        "diferencia": 9.90193541287601,
+        "inferior": 9.06870975492003,
+        "superior": 10.735161070832,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Secundaria (Bachillerato) completa",
+        "diferencia": 20.533141815141,
+        "inferior": 19.8083613966497,
+        "superior": 21.2579222336323,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Técnica o tecnológica incompleta",
+        "diferencia": 31.0258962830946,
+        "inferior": 29.7439283072982,
+        "superior": 32.307864258891,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 39.1444365166951,
+        "inferior": 38.2472978151716,
+        "superior": 40.0415752182186,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 42.8500201648568,
+        "inferior": 41.480416134805,
+        "superior": 44.2196241949085,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 49.5379076496698,
+        "inferior": 48.6810772048437,
+        "superior": 50.394738094496,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria incompleta",
+        "grupo_b": "Postgrado",
+        "diferencia": 78.6533070001176,
+        "inferior": 77.108736564294,
+        "superior": 80.1978774359413,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Secundaria (Bachillerato) incompleta",
+        "diferencia": 5.31545463508385,
+        "inferior": 4.38039442869794,
+        "superior": 6.25051484146977,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Secundaria (Bachillerato) completa",
+        "diferencia": 15.9466610373489,
+        "inferior": 15.1067924479143,
+        "superior": 16.7865296267834,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Técnica o tecnológica incompleta",
+        "diferencia": 26.4394155053025,
+        "inferior": 25.0890398229615,
+        "superior": 27.7897911876434,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 34.5579557389029,
+        "inferior": 33.56551912014,
+        "superior": 35.5503923576658,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 38.2635393870646,
+        "inferior": 36.8297026489301,
+        "superior": 39.6973761251992,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 44.9514268718777,
+        "inferior": 43.9952725937033,
+        "superior": 45.9075811500521,
+        "p": 0
+      },
+      {
+        "grupo_a": "Primaria completa",
+        "grupo_b": "Postgrado",
+        "diferencia": 74.0668262223255,
+        "inferior": 72.4650239799401,
+        "superior": 75.6686284647108,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Secundaria (Bachillerato) completa",
+        "diferencia": 10.631206402265,
+        "inferior": 9.93212828143617,
+        "superior": 11.3302845230938,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Técnica o tecnológica incompleta",
+        "diferencia": 21.1239608702186,
+        "inferior": 19.8563467905553,
+        "superior": 22.3915749498819,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 29.2425011038191,
+        "inferior": 28.3659958763593,
+        "superior": 30.1190063312789,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 32.9480847519808,
+        "inferior": 31.5919067536608,
+        "superior": 34.3042627503007,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 39.6359722367938,
+        "inferior": 38.8007704796273,
+        "superior": 40.4711739939604,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) incompleta",
+        "grupo_b": "Postgrado",
+        "diferencia": 68.7513715872416,
+        "inferior": 67.2186937361543,
+        "superior": 70.2840494383289,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) completa",
+        "grupo_b": "Técnica o tecnológica incompleta",
+        "diferencia": 10.4927544679536,
+        "inferior": 9.29363516074812,
+        "superior": 11.6918737751591,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) completa",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 18.6112947015541,
+        "inferior": 17.8371480282959,
+        "superior": 19.3854413748122,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) completa",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 22.3168783497158,
+        "inferior": 21.0244927953708,
+        "superior": 23.6092639040607,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) completa",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 29.0047658345288,
+        "inferior": 28.2777145068178,
+        "superior": 29.7318171622398,
+        "p": 0
+      },
+      {
+        "grupo_a": "Secundaria (Bachillerato) completa",
+        "grupo_b": "Postgrado",
+        "diferencia": 58.1201651849766,
+        "inferior": 56.6436344358332,
+        "superior": 59.59669593412,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica incompleta",
+        "grupo_b": "Técnica o tecnológica completa",
+        "diferencia": 8.11854023360047,
+        "inferior": 6.80802952870113,
+        "superior": 9.42905093849981,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica incompleta",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 11.8241238817621,
+        "inferior": 10.1542748894821,
+        "superior": 13.4939728740422,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica incompleta",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 18.5120113665752,
+        "inferior": 17.2287581300449,
+        "superior": 19.7952646031055,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica incompleta",
+        "grupo_b": "Postgrado",
+        "diferencia": 47.627410717023,
+        "inferior": 45.8112944517181,
+        "superior": 49.4435269823279,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica completa",
+        "grupo_b": "Educación profesional incompleta",
+        "diferencia": 3.70558364816168,
+        "inferior": 2.30922709776981,
+        "superior": 5.10194019855354,
+        "p": 1.03583808197527e-13
+      },
+      {
+        "grupo_a": "Técnica o tecnológica completa",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 10.3934711329748,
+        "inferior": 9.49449681305835,
+        "superior": 11.2924454528912,
+        "p": 0
+      },
+      {
+        "grupo_a": "Técnica o tecnológica completa",
+        "grupo_b": "Postgrado",
+        "diferencia": 39.5088704834225,
+        "inferior": 37.9405292425222,
+        "superior": 41.0772117243228,
+        "p": 0
+      },
+      {
+        "grupo_a": "Educación profesional incompleta",
+        "grupo_b": "Educación profesional completa",
+        "diferencia": 6.68788748481307,
+        "inferior": 5.31708035861626,
+        "superior": 8.05869461100989,
+        "p": 0
+      },
+      {
+        "grupo_a": "Educación profesional incompleta",
+        "grupo_b": "Postgrado",
+        "diferencia": 35.8032868352608,
+        "inferior": 33.9242840153397,
+        "superior": 37.682289655182,
+        "p": 0
+      },
+      {
+        "grupo_a": "Educación profesional completa",
+        "grupo_b": "Postgrado",
+        "diferencia": 29.1153993504478,
+        "inferior": 27.569762003164,
+        "superior": 30.6610366977315,
+        "p": 0
+      }
+    ]
+  },
+  "h3": {
+    "anova": {
+      "estrato": {
+        "suma_cuadrados": 41618820.1984818,
+        "gl": 6,
+        "F": 2921.37036255094,
+        "p": 0,
+        "F_hc3": 3461.70895439765,
+        "p_hc3": 0,
+        "eta_parcial": 0.034089447923156
+      },
+      "naturaleza": {
+        "suma_cuadrados": 50106732.4633055,
+        "gl": 1,
+        "F": 21102.9994340747,
+        "p": 0,
+        "F_hc3": 18195.0327388531,
+        "p_hc3": 0,
+        "eta_parcial": 0.040758422771142
+      },
+      "estrato:naturaleza": {
+        "suma_cuadrados": 31084546.9027607,
+        "gl": 6,
+        "F": 2181.93292414287,
+        "p": 0,
+        "F_hc3": 1852.04803201927,
+        "p_hc3": 0,
+        "eta_parcial": 0.0256825599384314
+      }
+    },
+    "gl_residual": 496655,
+    "n": 496669,
+    "efectos_simples": [
+      {
+        "estrato": "Estrato 1",
+        "diferencia": 4.53218173680258,
+        "inferior": 3.65983919554328,
+        "superior": 5.40452427806189,
+        "t": 10.1835015660679,
+        "gl": 18265.6765238208,
+        "p": 2.72826887465478e-24,
+        "d": 0.0965476303926619
+      },
+      {
+        "estrato": "Estrato 2",
+        "diferencia": 15.38485956143,
+        "inferior": 14.7759766091792,
+        "superior": 15.9937425136809,
+        "t": 49.5243181742248,
+        "gl": 49161.4031074489,
+        "p": 0,
+        "d": 0.317613645180669
+      },
+      {
+        "estrato": "Estrato 3",
+        "diferencia": 29.6633649065471,
+        "inferior": 29.0297863308798,
+        "superior": 30.2969434822144,
+        "t": 91.7645116784467,
+        "gl": 78039.6604425625,
+        "p": 0,
+        "d": 0.585423601667684
+      },
+      {
+        "estrato": "Estrato 4",
+        "diferencia": 63.9699214448412,
+        "inferior": 62.7157691014302,
+        "superior": 65.2240737882521,
+        "t": 99.9752563276741,
+        "gl": 27795.5706414509,
+        "p": 0,
+        "d": 1.19369944531331
+      },
+      {
+        "estrato": "Estrato 5",
+        "diferencia": 83.7355167373746,
+        "inferior": 81.5155426978343,
+        "superior": 85.9554907769149,
+        "t": 73.9387998739845,
+        "gl": 8411.4378881889,
+        "p": 0,
+        "d": 1.58402963121242
+      },
+      {
+        "estrato": "Estrato 6",
+        "diferencia": 91.4183883563693,
+        "inferior": 87.9474131630295,
+        "superior": 94.8893635497091,
+        "t": 51.6427478860919,
+        "gl": 2933.91057071994,
+        "p": 0,
+        "d": 1.73603665315382
+      },
+      {
+        "estrato": "Sin Estrato",
+        "diferencia": 18.430661590611,
+        "inferior": 15.9067848239648,
+        "superior": 20.9545383572572,
+        "t": 14.3204484882936,
+        "gl": 2230.30467493782,
+        "p": 1.44980295876758e-44,
+        "d": 0.428142622245671
+      }
+    ]
+  },
+  "h4": {
+    "estrato_naturaleza": {
+      "chi2": 46630.680488902,
+      "gl": 6,
+      "p": 0,
+      "v": 0.306409587110229,
+      "n": 496669,
+      "residuos": {
+        "Estrato 1": {
+          "OFICIAL": 133.087705888871,
+          "NO OFICIAL": -133.087705888871
+        },
+        "Estrato 2": {
+          "OFICIAL": 41.9345390475207,
+          "NO OFICIAL": -41.9345390475206
+        },
+        "Estrato 3": {
+          "OFICIAL": -117.180110693967,
+          "NO OFICIAL": 117.180110693967
+        },
+        "Estrato 4": {
+          "OFICIAL": -124.846464428519,
+          "NO OFICIAL": 124.846464428519
+        },
+        "Estrato 5": {
+          "OFICIAL": -69.5072924000599,
+          "NO OFICIAL": 69.5072924000599
+        },
+        "Estrato 6": {
+          "OFICIAL": -32.395183427669,
+          "NO OFICIAL": 32.395183427669
+        },
+        "Sin Estrato": {
+          "OFICIAL": 43.6955768089489,
+          "NO OFICIAL": -43.6955768089489
+        }
+      }
+    },
+    "internet_zona": {
+      "chi2": 36492.5910650444,
+      "gl": 1,
+      "p": 0,
+      "v": 0.269908687778611,
+      "n": 500923,
+      "residuos": {
+        "Si": {
+          "URBANO": 191.030340692374,
+          "RURAL": -191.030340692374
+        },
+        "No": {
+          "URBANO": -191.030340692374,
+          "RURAL": 191.030340692374
+        }
+      }
+    }
+  },
+  "medias": {
+    "h1": [
+      {
+        "grupo": "Si",
+        "n": 363657,
+        "media": 260.153375295952,
+        "desviacion": 51.5583475052386,
+        "inferior": 259.985802872701,
+        "superior": 260.320947719202
+      },
+      {
+        "grupo": "No",
+        "n": 137266,
+        "media": 228.351419870908,
+        "desviacion": 44.3726811855823,
+        "inferior": 228.116680410039,
+        "superior": 228.586159331777
+      },
+      {
+        "grupo": "Sin dato",
+        "n": 31638,
+        "media": 229.597730577154,
+        "desviacion": 49.9987095060745,
+        "inferior": 229.04677194628,
+        "superior": 230.148689208028
+      }
+    ],
+    "h2": [
+      {
+        "grupo": "Ninguno",
+        "n": 10258,
+        "media": 211.187170988497,
+        "desviacion": 41.5097088146281,
+        "inferior": 210.383797155904,
+        "superior": 211.990544821089
+      },
+      {
+        "grupo": "Primaria incompleta",
+        "n": 62853,
+        "media": 228.84840819054,
+        "desviacion": 43.0565105546905,
+        "inferior": 228.511794109705,
+        "superior": 229.185022271374
+      },
+      {
+        "grupo": "Primaria completa",
+        "n": 42105,
+        "media": 233.434888968056,
+        "desviacion": 45.4936990342297,
+        "inferior": 233.000333728989,
+        "superior": 233.869444207123
+      },
+      {
+        "grupo": "Secundaria (Bachillerato) incompleta",
+        "n": 69848,
+        "media": 238.750343603253,
+        "desviacion": 45.6121694918353,
+        "inferior": 238.412076815926,
+        "superior": 239.088610390579
+      },
+      {
+        "grupo": "Secundaria (Bachillerato) completa",
+        "n": 143664,
+        "media": 249.381550005569,
+        "desviacion": 48.2843201129691,
+        "inferior": 249.131869926382,
+        "superior": 249.631230084755
+      },
+      {
+        "grupo": "Técnica o tecnológica incompleta",
+        "n": 17972,
+        "media": 259.874304473626,
+        "desviacion": 47.5418140823346,
+        "inferior": 259.179192312688,
+        "superior": 260.569416634563
+      },
+      {
+        "grupo": "Técnica o tecnológica completa",
+        "n": 52269,
+        "media": 267.992844707188,
+        "desviacion": 48.3158614073326,
+        "inferior": 267.578629747983,
+        "superior": 268.407059666393
+      },
+      {
+        "grupo": "Educación profesional incompleta",
+        "n": 15207,
+        "media": 271.698428355363,
+        "desviacion": 51.5177770189086,
+        "inferior": 270.879552618345,
+        "superior": 272.51730409238
+      },
+      {
+        "grupo": "Educación profesional completa",
+        "n": 62291,
+        "media": 278.38631584017,
+        "desviacion": 54.0027201373993,
+        "inferior": 277.962224392557,
+        "superior": 278.810407287782
+      },
+      {
+        "grupo": "Postgrado",
+        "n": 11369,
+        "media": 307.50171519043,
+        "desviacion": 54.0693674865961,
+        "inferior": 306.507719528174,
+        "superior": 308.495710852686
+      },
+      {
+        "grupo": "No sabe",
+        "n": 12633,
+        "media": 261.520145650281,
+        "desviacion": 55.110157347964,
+        "inferior": 260.559046686914,
+        "superior": 262.481244613648
+      },
+      {
+        "grupo": "No Aplica",
+        "n": 1098,
+        "media": 233.511839708561,
+        "desviacion": 57.1514352459228,
+        "inferior": 230.127659413002,
+        "superior": 236.89602000412
+      },
+      {
+        "grupo": "Sin dato",
+        "n": 30994,
+        "media": 229.920016777441,
+        "desviacion": 50.0106815040362,
+        "inferior": 229.363229875507,
+        "superior": 230.476803679375
+      }
+    ],
+    "h3": [
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 1",
+        "n": 130863,
+        "media": 241.497887103307,
+        "desviacion": 46.1904352096172,
+        "inferior": 241.247624633618,
+        "superior": 241.748149572995
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 2",
+        "n": 144954,
+        "media": 250.690115484912,
+        "desviacion": 47.175845560938,
+        "inferior": 250.447255307273,
+        "superior": 250.932975662552
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 3",
+        "n": 70704,
+        "media": 252.583983933017,
+        "desviacion": 49.6454363818161,
+        "inferior": 252.218041420012,
+        "superior": 252.949926446021
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 4",
+        "n": 13157,
+        "media": 233.420080565478,
+        "desviacion": 52.8668992018522,
+        "inferior": 232.516652767418,
+        "superior": 234.323508363539
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 5",
+        "n": 3864,
+        "media": 216.003623188406,
+        "desviacion": 46.0024252567663,
+        "inferior": 214.552693539548,
+        "superior": 217.454552837264
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Estrato 6",
+        "n": 2152,
+        "media": 204.415427509294,
+        "desviacion": 42.90987499743,
+        "inferior": 202.601463565949,
+        "superior": 206.229391452639
+      },
+      {
+        "naturaleza": "OFICIAL",
+        "estrato": "Sin Estrato",
+        "n": 17790,
+        "media": 210.753681843732,
+        "desviacion": 41.4205852770696,
+        "inferior": 210.144978204024,
+        "superior": 211.362385483441
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 1",
+        "n": 15398,
+        "media": 246.030068840109,
+        "desviacion": 52.9041448943079,
+        "inferior": 245.194389291537,
+        "superior": 246.865748388681
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 2",
+        "n": 35065,
+        "media": 266.074975046343,
+        "desviacion": 53.3439505096129,
+        "inferior": 265.516618855012,
+        "superior": 266.633331237673
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 3",
+        "n": 39511,
+        "media": 282.247348839564,
+        "desviacion": 52.4533017558681,
+        "inferior": 281.730128952013,
+        "superior": 282.764568727114
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 4",
+        "n": 14923,
+        "media": 297.39000201032,
+        "desviacion": 54.2188512895915,
+        "inferior": 296.520029435858,
+        "superior": 298.259974584782
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 5",
+        "n": 4581,
+        "media": 299.73913992578,
+        "desviacion": 58.0211888569858,
+        "inferior": 298.058520593998,
+        "superior": 301.419759257563
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Estrato 6",
+        "n": 1727,
+        "media": 295.833815865663,
+        "desviacion": 62.7228971127849,
+        "inferior": 292.873536581405,
+        "superior": 298.794095149921
+      },
+      {
+        "naturaleza": "NO OFICIAL",
+        "estrato": "Sin Estrato",
+        "n": 1980,
+        "media": 229.184343434343,
+        "desviacion": 55.5764941108068,
+        "inferior": 226.734872233292,
+        "superior": 231.633814635395
+      }
+    ]
+  },
+  "medicion": {
+    "interaccion": {
+      "instrucciones": 1,
+      "componentes": 8,
+      "tiempo_s": 0.140249490737915,
+      "png_kb": 41.083984375,
+      "pdf_kb": 5.6826171875
+    }
+  }
+}
