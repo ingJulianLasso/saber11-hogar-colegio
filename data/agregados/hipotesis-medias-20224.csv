@@ -1,0 +1,17 @@
+hipotesis,variable,orden,grupo,etiqueta,probado,n,media,desviacion,inferior,superior
+H1,Internet en el hogar,0,Si,Sí,True,363657,260.1534,51.5583,259.9858,260.3209
+H1,Internet en el hogar,1,No,No,True,137266,228.3514,44.3727,228.1167,228.5862
+H1,Internet en el hogar,2,Sin dato,Sin dato,False,31638,229.5977,49.9987,229.0468,230.1487
+H2,Educación de la madre,0,Ninguno,Ninguno,True,10258,211.1872,41.5097,210.3838,211.9905
+H2,Educación de la madre,1,Primaria incompleta,Primaria inc.,True,62853,228.8484,43.0565,228.5118,229.185
+H2,Educación de la madre,2,Primaria completa,Primaria comp.,True,42105,233.4349,45.4937,233.0003,233.8694
+H2,Educación de la madre,3,Secundaria (Bachillerato) incompleta,Secundaria inc.,True,69848,238.7503,45.6122,238.4121,239.0886
+H2,Educación de la madre,4,Secundaria (Bachillerato) completa,Secundaria comp.,True,143664,249.3816,48.2843,249.1319,249.6312
+H2,Educación de la madre,5,Técnica o tecnológica incompleta,Técnica inc.,True,17972,259.8743,47.5418,259.1792,260.5694
+H2,Educación de la madre,6,Técnica o tecnológica completa,Técnica comp.,True,52269,267.9928,48.3159,267.5786,268.4071
+H2,Educación de la madre,7,Educación profesional incompleta,Profesional inc.,True,15207,271.6984,51.5178,270.8796,272.5173
+H2,Educación de la madre,8,Educación profesional completa,Profesional comp.,True,62291,278.3863,54.0027,277.9622,278.8104
+H2,Educación de la madre,9,Postgrado,Posgrado,True,11369,307.5017,54.0694,306.5077,308.4957
+H2,Educación de la madre,10,No sabe,No sabe,False,12633,261.5201,55.1102,260.559,262.4812
+H2,Educación de la madre,11,No Aplica,No aplica,False,1098,233.5118,57.1514,230.1277,236.896
+H2,Educación de la madre,12,Sin dato,Sin dato,False,30994,229.92,50.0107,229.3632,230.4768

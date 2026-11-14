@@ -1,0 +1,91 @@
+metodo,grupo_a,grupo_b,par,consecutivo,diferencia,inferior,superior,p,n
+Tukey,Ninguno,Primaria incompleta,Ninguno → Primaria inc.,True,17.6612,16.0474,19.2751,0.0,10258
+Tukey,Ninguno,Primaria completa,Ninguno → Primaria comp.,False,22.2477,20.579,23.9164,0.0,10258
+Tukey,Ninguno,Secundaria (Bachillerato) incompleta,Ninguno → Secundaria inc.,False,27.5632,25.9607,29.1656,0.0,10258
+Tukey,Ninguno,Secundaria (Bachillerato) completa,Ninguno → Secundaria comp.,False,38.1944,36.6455,39.7432,0.0,10258
+Tukey,Ninguno,Técnica o tecnológica incompleta,Ninguno → Técnica inc.,False,48.6871,46.8117,50.5625,0.0,10258
+Tukey,Ninguno,Técnica o tecnológica completa,Ninguno → Técnica comp.,False,56.8057,55.1691,58.4423,0.0,10258
+Tukey,Ninguno,Educación profesional incompleta,Ninguno → Profesional inc.,False,60.5113,58.5749,62.4476,0.0,10258
+Tukey,Ninguno,Educación profesional completa,Ninguno → Profesional comp.,False,67.1991,65.5843,68.814,0.0,10258
+Tukey,Ninguno,Postgrado,Ninguno → Posgrado,False,96.3145,94.2507,98.3784,0.0,10258
+Tukey,Primaria incompleta,Primaria completa,Primaria inc. → Primaria comp.,True,4.5865,3.6321,5.5409,0.0,42105
+Tukey,Primaria incompleta,Secundaria (Bachillerato) incompleta,Primaria inc. → Secundaria inc.,False,9.9019,9.0687,10.7352,0.0,62853
+Tukey,Primaria incompleta,Secundaria (Bachillerato) completa,Primaria inc. → Secundaria comp.,False,20.5331,19.8084,21.2579,0.0,62853
+Tukey,Primaria incompleta,Técnica o tecnológica incompleta,Primaria inc. → Técnica inc.,False,31.0259,29.7439,32.3079,0.0,17972
+Tukey,Primaria incompleta,Técnica o tecnológica completa,Primaria inc. → Técnica comp.,False,39.1444,38.2473,40.0416,0.0,52269
+Tukey,Primaria incompleta,Educación profesional incompleta,Primaria inc. → Profesional inc.,False,42.85,41.4804,44.2196,0.0,15207
+Tukey,Primaria incompleta,Educación profesional completa,Primaria inc. → Profesional comp.,False,49.5379,48.6811,50.3947,0.0,62291
+Tukey,Primaria incompleta,Postgrado,Primaria inc. → Posgrado,False,78.6533,77.1087,80.1979,0.0,11369
+Tukey,Primaria completa,Secundaria (Bachillerato) incompleta,Primaria comp. → Secundaria inc.,True,5.3155,4.3804,6.2505,0.0,42105
+Tukey,Primaria completa,Secundaria (Bachillerato) completa,Primaria comp. → Secundaria comp.,False,15.9467,15.1068,16.7865,0.0,42105
+Tukey,Primaria completa,Técnica o tecnológica incompleta,Primaria comp. → Técnica inc.,False,26.4394,25.089,27.7898,0.0,17972
+Tukey,Primaria completa,Técnica o tecnológica completa,Primaria comp. → Técnica comp.,False,34.558,33.5655,35.5504,0.0,42105
+Tukey,Primaria completa,Educación profesional incompleta,Primaria comp. → Profesional inc.,False,38.2635,36.8297,39.6974,0.0,15207
+Tukey,Primaria completa,Educación profesional completa,Primaria comp. → Profesional comp.,False,44.9514,43.9953,45.9076,0.0,42105
+Tukey,Primaria completa,Postgrado,Primaria comp. → Posgrado,False,74.0668,72.465,75.6686,0.0,11369
+Tukey,Secundaria (Bachillerato) incompleta,Secundaria (Bachillerato) completa,Secundaria inc. → Secundaria comp.,True,10.6312,9.9321,11.3303,0.0,69848
+Tukey,Secundaria (Bachillerato) incompleta,Técnica o tecnológica incompleta,Secundaria inc. → Técnica inc.,False,21.124,19.8563,22.3916,0.0,17972
+Tukey,Secundaria (Bachillerato) incompleta,Técnica o tecnológica completa,Secundaria inc. → Técnica comp.,False,29.2425,28.366,30.119,0.0,52269
+Tukey,Secundaria (Bachillerato) incompleta,Educación profesional incompleta,Secundaria inc. → Profesional inc.,False,32.9481,31.5919,34.3043,0.0,15207
+Tukey,Secundaria (Bachillerato) incompleta,Educación profesional completa,Secundaria inc. → Profesional comp.,False,39.636,38.8008,40.4712,0.0,62291
+Tukey,Secundaria (Bachillerato) incompleta,Postgrado,Secundaria inc. → Posgrado,False,68.7514,67.2187,70.284,0.0,11369
+Tukey,Secundaria (Bachillerato) completa,Técnica o tecnológica incompleta,Secundaria comp. → Técnica inc.,True,10.4928,9.2936,11.6919,0.0,17972
+Tukey,Secundaria (Bachillerato) completa,Técnica o tecnológica completa,Secundaria comp. → Técnica comp.,False,18.6113,17.8371,19.3854,0.0,52269
+Tukey,Secundaria (Bachillerato) completa,Educación profesional incompleta,Secundaria comp. → Profesional inc.,False,22.3169,21.0245,23.6093,0.0,15207
+Tukey,Secundaria (Bachillerato) completa,Educación profesional completa,Secundaria comp. → Profesional comp.,False,29.0048,28.2777,29.7318,0.0,62291
+Tukey,Secundaria (Bachillerato) completa,Postgrado,Secundaria comp. → Posgrado,False,58.1202,56.6436,59.5967,0.0,11369
+Tukey,Técnica o tecnológica incompleta,Técnica o tecnológica completa,Técnica inc. → Técnica comp.,True,8.1185,6.808,9.4291,0.0,17972
+Tukey,Técnica o tecnológica incompleta,Educación profesional incompleta,Técnica inc. → Profesional inc.,False,11.8241,10.1543,13.494,0.0,15207
+Tukey,Técnica o tecnológica incompleta,Educación profesional completa,Técnica inc. → Profesional comp.,False,18.512,17.2288,19.7953,0.0,17972
+Tukey,Técnica o tecnológica incompleta,Postgrado,Técnica inc. → Posgrado,False,47.6274,45.8113,49.4435,0.0,11369
+Tukey,Técnica o tecnológica completa,Educación profesional incompleta,Técnica comp. → Profesional inc.,True,3.7056,2.3092,5.1019,0.0,15207
+Tukey,Técnica o tecnológica completa,Educación profesional completa,Técnica comp. → Profesional comp.,False,10.3935,9.4945,11.2924,0.0,52269
+Tukey,Técnica o tecnológica completa,Postgrado,Técnica comp. → Posgrado,False,39.5089,37.9405,41.0772,0.0,11369
+Tukey,Educación profesional incompleta,Educación profesional completa,Profesional inc. → Profesional comp.,True,6.6879,5.3171,8.0587,0.0,15207
+Tukey,Educación profesional incompleta,Postgrado,Profesional inc. → Posgrado,False,35.8033,33.9243,37.6823,0.0,11369
+Tukey,Educación profesional completa,Postgrado,Profesional comp. → Posgrado,True,29.1154,27.5698,30.661,0.0,11369
+Games-Howell,Ninguno,Primaria incompleta,Ninguno → Primaria inc.,True,17.6612,16.2552,19.0673,0.0,10258
+Games-Howell,Ninguno,Primaria completa,Ninguno → Primaria comp.,False,22.2477,20.7733,23.7221,0.0,10258
+Games-Howell,Ninguno,Secundaria (Bachillerato) incompleta,Ninguno → Secundaria inc.,False,27.5632,26.1561,28.9703,0.0,10258
+Games-Howell,Ninguno,Secundaria (Bachillerato) completa,Ninguno → Secundaria comp.,False,38.1944,36.8363,39.5524,0.0,10258
+Games-Howell,Ninguno,Técnica o tecnológica incompleta,Ninguno → Técnica inc.,False,48.6871,46.9723,50.4019,0.0,10258
+Games-Howell,Ninguno,Técnica o tecnológica completa,Ninguno → Técnica comp.,False,56.8057,55.3466,58.2647,0.0,10258
+Games-Howell,Ninguno,Educación profesional incompleta,Ninguno → Profesional inc.,False,60.5113,58.6596,62.3629,0.0,10258
+Games-Howell,Ninguno,Educación profesional completa,Ninguno → Profesional comp.,False,67.1991,65.7327,68.6656,0.0,10258
+Games-Howell,Ninguno,Postgrado,Ninguno → Posgrado,False,96.3145,94.2516,98.3775,0.0,10258
+Games-Howell,Primaria incompleta,Primaria completa,Primaria inc. → Primaria comp.,True,4.5865,3.6992,5.4737,0.0,42105
+Games-Howell,Primaria incompleta,Secundaria (Bachillerato) incompleta,Primaria inc. → Secundaria inc.,False,9.9019,9.1317,10.6722,0.0,62853
+Games-Howell,Primaria incompleta,Secundaria (Bachillerato) completa,Primaria inc. → Secundaria comp.,False,20.5331,19.8567,21.2096,0.0,62853
+Games-Howell,Primaria incompleta,Técnica o tecnológica incompleta,Primaria inc. → Técnica inc.,False,31.0259,29.7792,32.2726,0.0,17972
+Games-Howell,Primaria incompleta,Técnica o tecnológica completa,Primaria inc. → Técnica comp.,False,39.1444,38.2829,40.006,0.0,52269
+Games-Howell,Primaria incompleta,Educación profesional incompleta,Primaria inc. → Profesional inc.,False,42.85,41.4209,44.2792,0.0,15207
+Games-Howell,Primaria incompleta,Educación profesional completa,Primaria inc. → Profesional comp.,False,49.5379,48.6639,50.4119,0.0,62291
+Games-Howell,Primaria incompleta,Postgrado,Primaria inc. → Posgrado,False,78.6533,76.9592,80.3474,0.0,11369
+Games-Howell,Primaria completa,Secundaria (Bachillerato) incompleta,Primaria comp. → Secundaria inc.,True,5.3155,4.4266,6.2044,0.0,42105
+Games-Howell,Primaria completa,Secundaria (Bachillerato) completa,Primaria comp. → Secundaria comp.,False,15.9467,15.1377,16.7556,0.0,42105
+Games-Howell,Primaria completa,Técnica o tecnológica incompleta,Primaria comp. → Técnica inc.,False,26.4394,25.1162,27.7627,0.0,17972
+Games-Howell,Primaria completa,Técnica o tecnológica completa,Primaria comp. → Técnica comp.,False,34.558,33.5889,35.527,0.0,42105
+Games-Howell,Primaria completa,Educación profesional incompleta,Primaria comp. → Profesional inc.,False,38.2635,36.7671,39.76,0.0,15207
+Games-Howell,Primaria completa,Educación profesional completa,Primaria comp. → Profesional comp.,False,44.9514,43.9713,45.9315,0.0,42105
+Games-Howell,Primaria completa,Postgrado,Primaria comp. → Posgrado,False,74.0668,72.3157,75.818,0.0,11369
+Games-Howell,Secundaria (Bachillerato) incompleta,Secundaria (Bachillerato) completa,Secundaria inc. → Secundaria comp.,True,10.6312,9.9526,11.3098,0.0,69848
+Games-Howell,Secundaria (Bachillerato) incompleta,Técnica o tecnológica incompleta,Secundaria inc. → Técnica inc.,False,21.124,19.8761,22.3718,0.0,17972
+Games-Howell,Secundaria (Bachillerato) incompleta,Técnica o tecnológica completa,Secundaria inc. → Técnica comp.,False,29.2425,28.3793,30.1057,0.0,52269
+Games-Howell,Secundaria (Bachillerato) incompleta,Educación profesional incompleta,Secundaria inc. → Profesional inc.,False,32.9481,31.5179,34.3783,0.0,15207
+Games-Howell,Secundaria (Bachillerato) incompleta,Educación profesional completa,Secundaria inc. → Profesional comp.,False,39.636,38.7604,40.5116,0.0,62291
+Games-Howell,Secundaria (Bachillerato) incompleta,Postgrado,Secundaria inc. → Posgrado,False,68.7514,67.0564,70.4463,0.0,11369
+Games-Howell,Secundaria (Bachillerato) completa,Técnica o tecnológica incompleta,Secundaria comp. → Técnica inc.,True,10.4928,9.3005,11.685,0.0,17972
+Games-Howell,Secundaria (Bachillerato) completa,Técnica o tecnológica completa,Secundaria comp. → Técnica comp.,False,18.6113,17.8306,19.392,0.0,52269
+Games-Howell,Secundaria (Bachillerato) completa,Educación profesional incompleta,Secundaria comp. → Profesional inc.,False,22.3169,20.9349,23.6988,0.0,15207
+Games-Howell,Secundaria (Bachillerato) completa,Educación profesional completa,Secundaria comp. → Profesional comp.,False,29.0048,28.2104,29.7991,0.0,62291
+Games-Howell,Secundaria (Bachillerato) completa,Postgrado,Secundaria comp. → Posgrado,False,58.1202,56.4657,59.7746,0.0,11369
+Games-Howell,Técnica o tecnológica incompleta,Técnica o tecnológica completa,Técnica inc. → Técnica comp.,True,8.1185,6.8124,9.4247,0.0,17972
+Games-Howell,Técnica o tecnológica incompleta,Educación profesional incompleta,Técnica inc. → Profesional inc.,False,11.8241,10.0903,13.5579,0.0,15207
+Games-Howell,Técnica o tecnológica incompleta,Educación profesional completa,Técnica inc. → Profesional comp.,False,18.512,17.1976,19.8264,0.0,17972
+Games-Howell,Técnica o tecnológica incompleta,Postgrado,Técnica inc. → Posgrado,False,47.6274,45.6695,49.5853,0.0,11369
+Games-Howell,Técnica o tecnológica completa,Educación profesional incompleta,Técnica comp. → Profesional inc.,True,3.7056,2.2243,5.1869,0.0,15207
+Games-Howell,Técnica o tecnológica completa,Educación profesional completa,Técnica comp. → Profesional comp.,False,10.3935,9.4366,11.3503,0.0,52269
+Games-Howell,Técnica o tecnológica completa,Postgrado,Técnica comp. → Posgrado,False,39.5089,37.7706,41.2472,0.0,11369
+Games-Howell,Educación profesional incompleta,Educación profesional completa,Profesional inc. → Profesional comp.,True,6.6879,5.1993,8.1765,0.0,15207
+Games-Howell,Educación profesional incompleta,Postgrado,Profesional inc. → Posgrado,False,35.8033,33.7245,37.8821,0.0,11369
+Games-Howell,Educación profesional completa,Postgrado,Profesional comp. → Posgrado,True,29.1154,27.3709,30.8599,0.0,11369

@@ -1,0 +1,19 @@
+tabla,fila,columna,n,residuo
+estrato_naturaleza,Estrato 1,OFICIAL,130863,133.0877
+estrato_naturaleza,Estrato 1,NO OFICIAL,15398,-133.0877
+estrato_naturaleza,Estrato 2,OFICIAL,144954,41.9345
+estrato_naturaleza,Estrato 2,NO OFICIAL,35065,-41.9345
+estrato_naturaleza,Estrato 3,OFICIAL,70704,-117.1801
+estrato_naturaleza,Estrato 3,NO OFICIAL,39511,117.1801
+estrato_naturaleza,Estrato 4,OFICIAL,13157,-124.8465
+estrato_naturaleza,Estrato 4,NO OFICIAL,14923,124.8465
+estrato_naturaleza,Estrato 5,OFICIAL,3864,-69.5073
+estrato_naturaleza,Estrato 5,NO OFICIAL,4581,69.5073
+estrato_naturaleza,Estrato 6,OFICIAL,2152,-32.3952
+estrato_naturaleza,Estrato 6,NO OFICIAL,1727,32.3952
+estrato_naturaleza,Sin Estrato,OFICIAL,17790,43.6956
+estrato_naturaleza,Sin Estrato,NO OFICIAL,1980,-43.6956
+internet_zona,Si,URBANO,324576,191.0303
+internet_zona,Si,RURAL,39081,-191.0303
+internet_zona,No,URBANO,91333,-191.0303
+internet_zona,No,RURAL,45933,191.0303
