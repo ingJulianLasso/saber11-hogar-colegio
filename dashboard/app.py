@@ -902,9 +902,10 @@ def figura_del_proyecto(ruta: str, pie: str) -> None:
 def clasificacion(metricas: pd.DataFrame) -> None:
     st.subheader("Curvas de los clasificadores")
     figura_del_proyecto(
-        "fase-3/clasificacion-curvas.png",
-        "Fase 3. (a) Curvas ROC y (b) de precisión y exhaustividad de los clasificadores en validación, con la clase no oficial como "
-        "positiva; el punto marca el umbral elegido. La diagonal de la ROC es el azar y la línea horizontal de la PR, la proporción de no oficiales.",
+        "fase-4/clasificacion-curvas.png",
+        "Clasificadores de la fase 3, trazados de nuevo en la fase 4. (a) Curvas ROC y (b) de precisión y exhaustividad en validación, "
+        "con la clase no oficial como positiva. La diagonal de la ROC es el azar y la línea horizontal de la PR, la proporción de no oficiales. "
+        "(c) y (d) amplían el recuadro de (a) y (b); cada marcador es el umbral elegido de un modelo.",
     )
     st.subheader("Métricas de prueba")
     vista = metricas.loc[metricas["tarea"].eq("Clasificación")]
