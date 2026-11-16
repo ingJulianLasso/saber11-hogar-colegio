@@ -63,13 +63,14 @@ Sin GPU, XGBoost y la red neuronal tardan más y sus cifras pueden diferir un po
 
 ## Datos
 
-Los recortes ya están en `data/` y reproducir el proyecto no descarga nada. Para regenerarlos desde el portal de datos abiertos y verificar los conteos de cada periodo:
+Los recortes ya están en `data/` y reproducir el proyecto no descarga nada. Para regenerarlos desde el portal de datos abiertos, verificar los conteos de cada periodo y compararlos con los de `data/`:
 
 ```bash
-uv run python -m saber11.datos --fuente api --verificar --materializar
+uv run python -m saber11.datos --fuente api --verificar --materializar --destino data/intermedio/portal
+uv run python -m saber11.reproducir --portal data/intermedio/portal
 ```
 
-El comando baja por la API los seis periodos del proyecto (4.352.174 filas, porque el portal publica filas duplicadas que el paquete quita), comprueba las filas únicas y las que quedan fuera del estado `PUBLICAR` de cada periodo, deja solo los resultados publicados y escribe `data/saber11-20224.parquet` y `data/saber11-serie.parquet`. En una prueba del 8 de noviembre de 2026, el 2022-2 (1.065.888 filas) bajó en 2 min 30 s y su recorte salió idéntico, fila por fila, al del repositorio; con una conexión parecida, los seis periodos toman unos 10 minutos. Si ya se tiene la exportación completa del portal convertida a Parquet, `--fuente local --parquet <ruta>` hace lo mismo sin descargar.
+El primer comando baja por la API los seis periodos del proyecto (4.352.174 filas, porque el portal publica filas duplicadas que el paquete quita), comprueba las filas únicas y las que quedan fuera del estado `PUBLICAR` de cada periodo, deja solo los resultados publicados y escribe los dos recortes en `data/intermedio/portal/` (ignorada por git). El segundo comprueba que traen las mismas filas que `data/saber11-20224.parquet` y `data/saber11-serie.parquet`. El portal las entrega en otro orden, y por eso los recortes de `data/` no se reemplazan: la partición de la fase 2 se hace por la posición de cada fila, así que con otro orden cambiarían los conjuntos de entrenamiento, validación y prueba, y con ellos las cifras de las fases 2 y 3. El 16 de noviembre de 2026, la descarga de los seis periodos, con sus conteos, tardó 29 min 30 s y trajo las mismas filas que los recortes del repositorio. Si ya se tiene la exportación completa del portal convertida a Parquet, `--fuente local --parquet <ruta>` hace lo mismo sin descargar.
 
 ## Reproducir todo
 
@@ -81,9 +82,10 @@ uv run python -m saber11.reproducir
 
 Son doce pasos: la comprobación de los recortes de `data/` (las filas de cada periodo deben ser las únicas del portal menos las que quedan fuera de `PUBLICAR`); en cada fase, los intermedios, los scripts de R y el cuaderno, que jupytext convierte a `.ipynb` y nbconvert ejecuta en su lugar; el cuaderno de síntesis de la fase 4, y las pruebas. El comando se detiene en el primer paso que falla, porque cada uno usa la salida de los anteriores, y termina con el tiempo de cada paso. Con una RTX 5080, el cuaderno de la fase 3 tarda unos 50 minutos y domina el total.
 
-- `--api` antepone la descarga de la sección «Datos»: regenera los recortes y verifica los conteos del portal.
+- `--api` antepone los dos comandos de la sección «Datos»: baja los recortes del portal a `data/intermedio/portal/`, verifica sus conteos y comprueba que traen las mismas filas que los de `data/`, que son los que usan los pasos siguientes.
 - `--lista` imprime los pasos con sus comandos, sin ejecutarlos.
 - `--recortes` solo comprueba los recortes de `data/`.
+- `--portal <carpeta>` solo compara los recortes de `data/` con los bajados a esa carpeta.
 
 Al terminar, `git status` muestra lo que se regeneró (cuadernos, cifras, figuras, agregados y el modelo del tablero) y `git diff` deja comparar con lo publicado. Las cifras deben coincidir, salvo los tiempos y los pesos de archivo de las comparaciones de herramientas y la memoria del dashboard (claves que empiezan por `medida`), y algunas del Random Forest desde el octavo dígito significativo, porque las predicciones de sus árboles se suman en paralelo.
 

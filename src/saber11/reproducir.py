@@ -5,15 +5,18 @@ comprueba que los recortes de `data/` tengan, periodo por periodo, las filas que
 portal tras quitar duplicados y resultados fuera de `PUBLICAR`; después corre cada fase en
 orden (intermedios, scripts de R y cuaderno, que jupytext convierte a `.ipynb` y nbconvert
 ejecuta en su lugar), el cuaderno de síntesis de la fase 4 y las pruebas. Con `--api`, antes
-vuelve a bajar los seis periodos del portal de datos abiertos, verifica sus conteos y regenera
-los recortes. Se detiene en el primer paso que falla, porque cada uno usa la salida de los
-anteriores, y cierra con el tiempo de cada paso.
+baja los seis periodos del portal de datos abiertos a `data/intermedio/portal/`, verifica sus
+conteos y comprueba que traen las mismas filas que los recortes de `data/`. Estos no se
+reescriben: el portal entrega las filas en otro orden, y la partición de la fase 2 se hace por
+la posición de cada fila. Se detiene en el primer paso que falla, porque cada uno usa la salida
+de los anteriores, y cierra con el tiempo de cada paso.
 
 Uso, desde la raíz del repositorio:
-    uv run python -m saber11.reproducir              # todo, con los recortes de data/
-    uv run python -m saber11.reproducir --api        # además, los datos desde el portal
-    uv run python -m saber11.reproducir --lista      # solo imprime los pasos
-    uv run python -m saber11.reproducir --recortes   # solo comprueba los recortes
+    uv run python -m saber11.reproducir                    # todo, con los recortes de data/
+    uv run python -m saber11.reproducir --api              # además, los datos desde el portal
+    uv run python -m saber11.reproducir --lista            # solo imprime los pasos
+    uv run python -m saber11.reproducir --recortes         # solo comprueba los recortes
+    uv run python -m saber11.reproducir --portal <carpeta> # solo los compara con los bajados
 """
 
 from __future__ import annotations
@@ -34,6 +37,8 @@ from saber11.cifras import en_espanol
 CUADERNOS = {1: "fase-1-eda", 2: "fase-2-preparacion", 3: "fase-3-modelado", 4: "fase-4-sintesis"}
 # Código de salida de la consola cuando no encuentra el ejecutable.
 SIN_EJECUTABLE = 127
+# Carpeta, ignorada por git, a la que --api baja los recortes del portal, relativa a la raíz.
+CARPETA_PORTAL = "data/intermedio/portal"
 
 Comando = tuple[str, ...]
 Correr = Callable[[Comando], int]
@@ -72,8 +77,11 @@ def cuaderno(fase: int) -> Paso:
 
 
 def pasos(api: bool = False) -> list[Paso]:
-    """Pasos en el orden del README; con `api`, la descarga del portal va primero."""
-    descarga = [Paso("Datos desde el portal", (python("-m", "saber11.datos", "--fuente", "api", "--verificar", "--materializar"),))]
+    """Pasos en el orden del README; con `api`, la descarga del portal y su comparación van primero."""
+    descarga = [Paso("Datos desde el portal", (
+        python("-m", "saber11.datos", "--fuente", "api", "--verificar", "--materializar", "--destino", CARPETA_PORTAL),
+        python("-m", "saber11.reproducir", "--portal", CARPETA_PORTAL),
+    ))]
     return [
         *(descarga if api else []),
         Paso("Conteos de los recortes de data/", (python("-m", "saber11.reproducir", "--recortes"),)),
@@ -181,12 +189,55 @@ def comprobar_recortes() -> int:
     return 0
 
 
+def mismas_filas(a: pl.DataFrame, b: pl.DataFrame) -> bool:
+    """Mismo esquema y las mismas filas, cada una repetida las mismas veces, sin importar el orden."""
+    if a.schema != b.schema or a.height != b.height:
+        return False
+    return a.sort(a.columns, nulls_last=True).equals(b.sort(b.columns, nulls_last=True))
+
+
+def filas_del_periodo(ruta: Path, periodo: int) -> pl.DataFrame:
+    return pl.scan_parquet(ruta).filter(pl.col("PERIODO") == periodo).collect()
+
+
+def mismos_recortes(recorte: Path, bajado: Path) -> bool:
+    """Las mismas filas en los dos archivos; compara periodo por periodo para no ordenar la serie entera en memoria."""
+    periodos = filas_por_periodo(recorte)
+    return filas_por_periodo(bajado) == periodos and all(
+        mismas_filas(filas_del_periodo(recorte, periodo), filas_del_periodo(bajado, periodo)) for periodo in periodos
+    )
+
+
+def problemas_con_el_portal(portal: Path, recortes: Sequence[Path] = (datos.RECORTE_MODELADO, datos.RECORTE_SERIE)) -> list[str]:
+    """Compara los recortes bajados a `portal` con los de data/; una lista vacía significa que traen las mismas filas."""
+    problemas = []
+    for recorte in recortes:
+        bajado = portal / recorte.name
+        if not bajado.is_file():
+            problemas.append(f"{bajado}: no existe")
+        elif not mismos_recortes(recorte, bajado):
+            problemas.append(f"{bajado}: no trae las mismas filas que {recorte.name} de data/")
+    return problemas
+
+
+def comprobar_portal(portal: Path) -> int:
+    problemas = problemas_con_el_portal(portal)
+    for problema in problemas:
+        print(f"ERROR: {problema}", file=sys.stderr)
+    if problemas:
+        return 1
+    print("Los recortes del portal traen las mismas filas que los de data/. Los pasos siguientes usan los de data/, "
+          "porque la partición de la fase 2 se hace por la posición de cada fila y el portal puede entregarlas en otro orden.")
+    return 0
+
+
 def argumentos(argv: Sequence[str] | None) -> argparse.Namespace:
     analizador = argparse.ArgumentParser(prog="python -m saber11.reproducir", description="Reproduce el proyecto completo y mide cada paso.")
-    analizador.add_argument("--api", action="store_true", help="antes, baja los seis periodos del portal, verifica sus conteos y regenera los recortes")
+    analizador.add_argument("--api", action="store_true", help=f"antes, baja los seis periodos del portal a {CARPETA_PORTAL}/, verifica sus conteos y comprueba que traen las mismas filas que los recortes de data/")
     modo = analizador.add_mutually_exclusive_group()
     modo.add_argument("--lista", action="store_true", help="solo imprime los pasos y sus comandos")
     modo.add_argument("--recortes", action="store_true", help="solo comprueba los recortes de data/")
+    modo.add_argument("--portal", type=Path, metavar="CARPETA", help="solo comprueba que los recortes bajados a CARPETA traen las mismas filas que los de data/")
     return analizador.parse_args(argv)
 
 
@@ -194,6 +245,8 @@ def main(argv: Sequence[str] | None = None, correr: Correr | None = None) -> int
     args = argumentos(argv)
     if args.recortes:
         return comprobar_recortes()
+    if args.portal:
+        return comprobar_portal(args.portal)
     lista = pasos(args.api)
     if args.lista:
         for numero, paso in enumerate(lista, start=1):

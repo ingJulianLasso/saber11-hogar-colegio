@@ -41,7 +41,8 @@ def test_cada_cuaderno_se_convierte_antes_de_ejecutarse():
 def test_cada_paso_apunta_a_un_archivo_o_modulo_que_existe():
     for paso in reproducir.pasos(api=True):
         for comando in paso.comandos:
-            rutas = [a for a in comando[1:] if "/" in a and not a.startswith("-")]
+            # La carpeta del portal la crea la descarga.
+            rutas = [a for a in comando[1:] if "/" in a and not a.startswith("-") and a != reproducir.CARPETA_PORTAL]
             for ruta in rutas:
                 if ruta.endswith(".ipynb"):
                     ruta = ruta.removesuffix(".ipynb") + ".py"
@@ -53,7 +54,19 @@ def test_cada_paso_apunta_a_un_archivo_o_modulo_que_existe():
 def test_con_api_la_descarga_va_primero_y_lo_demas_no_cambia():
     sin_api, con_api = reproducir.pasos(), reproducir.pasos(api=True)
     assert con_api[1:] == sin_api
-    assert con_api[0].comandos == (("python", "-m", "saber11.datos", "--fuente", "api", "--verificar", "--materializar"),)
+    assert con_api[0].comandos == (
+        ("python", "-m", "saber11.datos", "--fuente", "api", "--verificar", "--materializar", "--destino", "data/intermedio/portal"),
+        ("python", "-m", "saber11.reproducir", "--portal", "data/intermedio/portal"),
+    )
+
+
+def test_con_api_la_descarga_no_reescribe_los_recortes_de_data():
+    # El orden de las filas fija la partición de la fase 2, y el portal las entrega en otro.
+    descarga, comparacion = reproducir.pasos(api=True)[0].comandos
+    destino = descarga[descarga.index("--destino") + 1]
+    assert (datos.RAIZ_PROYECTO / destino).resolve() != datos.DESTINO.resolve()
+    assert destino.startswith("data/intermedio/")
+    assert comparacion[-2:] == ("--portal", destino)
 
 
 def test_ejecutar_se_detiene_en_el_primer_paso_que_falla():
@@ -144,3 +157,56 @@ def test_recortes_con_una_fila_de_menos_o_una_columna_de_control_dan_problemas(t
 @pytest.mark.skipif(not datos.RECORTE_SERIE.exists(), reason="sin los recortes de data/")
 def test_los_recortes_del_repositorio_cuadran_con_los_conteos_del_portal():
     assert reproducir.problemas_de_los_recortes() == []
+
+
+def test_mismas_filas_no_mira_el_orden_pero_si_los_valores_las_repeticiones_y_el_esquema():
+    a = pl.DataFrame({"x": [1, 1, 2, None], "y": ["a", "a", "b", "c"]})
+    assert reproducir.mismas_filas(a, a.reverse())
+    assert not reproducir.mismas_filas(a, a.with_columns(pl.col("x").fill_null(3)))
+    assert not reproducir.mismas_filas(a, pl.DataFrame({"x": [1, 2, 2, None], "y": ["a", "b", "b", "c"]}))
+    assert not reproducir.mismas_filas(a, a.head(3))
+    assert not reproducir.mismas_filas(a, a.with_columns(pl.col("x").cast(pl.Float64)))
+
+
+@pytest.fixture
+def data_y_portal(tmp_path):
+    """Recortes sintéticos de data/ y del portal: las mismas filas, en otro orden."""
+    data, portal = tmp_path / "data", tmp_path / "portal"
+    data.mkdir()
+    portal.mkdir()
+    recorte(data / "modelado.parquet", [20224] * 3, PUNT_GLOBAL=[200.0, 250.0, 300.0])
+    recorte(portal / "modelado.parquet", [20224] * 3, PUNT_GLOBAL=[300.0, 200.0, 250.0])
+    recorte(data / "serie.parquet", [20194, 20224], PUNT_GLOBAL=[210.0, 220.0])
+    recorte(portal / "serie.parquet", [20224, 20194], PUNT_GLOBAL=[220.0, 210.0])
+    return portal, (data / "modelado.parquet", data / "serie.parquet")
+
+
+def test_el_portal_con_las_mismas_filas_en_otro_orden_no_da_problemas(data_y_portal):
+    assert reproducir.problemas_con_el_portal(*data_y_portal) == []
+
+
+def test_el_portal_con_un_valor_distinto_o_sin_un_recorte_da_problemas(data_y_portal):
+    portal, recortes = data_y_portal
+    recorte(portal / "serie.parquet", [20194, 20224], PUNT_GLOBAL=[210.0, 221.0])
+    assert reproducir.problemas_con_el_portal(portal, recortes) == [f"{portal / 'serie.parquet'}: no trae las mismas filas que serie.parquet de data/"]
+    (portal / "modelado.parquet").unlink()
+    assert reproducir.problemas_con_el_portal(portal, recortes)[0] == f"{portal / 'modelado.parquet'}: no existe"
+
+
+def test_main_con_portal_solo_compara_y_sale_con_1_si_hay_problemas(monkeypatch, capsys):
+    def no_debe_correr(comando):
+        raise AssertionError("--portal no ejecuta pasos")
+
+    monkeypatch.setattr(reproducir, "problemas_con_el_portal", lambda portal: [f"{portal}: no existe"])
+    assert reproducir.main(["--portal", "otra"], correr=no_debe_correr) == 1
+    assert "ERROR: otra: no existe" in capsys.readouterr().err
+    monkeypatch.setattr(reproducir, "problemas_con_el_portal", lambda portal: [])
+    assert reproducir.main(["--portal", "otra"], correr=no_debe_correr) == 0
+    assert "mismas filas" in capsys.readouterr().out
+
+
+def test_mismos_recortes_detecta_un_periodo_de_mas(data_y_portal):
+    portal, (_, serie) = data_y_portal
+    assert reproducir.mismos_recortes(serie, portal / "serie.parquet")
+    recorte(portal / "serie.parquet", [20194, 20224, 20142], PUNT_GLOBAL=[210.0, 220.0, 230.0])
+    assert not reproducir.mismos_recortes(serie, portal / "serie.parquet")
