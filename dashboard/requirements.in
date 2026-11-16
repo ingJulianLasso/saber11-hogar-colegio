@@ -1,0 +1,15 @@
+# Dependencias directas del dashboard. requirements.txt se compila desde aquí con las versiones
+# del entorno principal (desde la raíz del repositorio):
+#   uv pip compile --python-version 3.13 --index-strategy unsafe-best-match -c requirements.txt dashboard/requirements.in -o dashboard/requirements.txt
+# (el requirements.txt de la raíz trae el índice de PyTorch; con esa estrategia, cada paquete se
+# busca también en PyPI).
+# El modelo de la pestaña Predicción necesita scikit-learn, xgboost, joblib y scipy; el paquete
+# saber11 no se instala (arrastraría torch): la app agrega src/ a la ruta de importación.
+joblib
+numpy
+pandas
+plotly
+scikit-learn
+scipy
+streamlit
+xgboost
