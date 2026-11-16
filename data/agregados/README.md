@@ -1,6 +1,6 @@
 # Datos agregados del Saber 11
 
-Los dos primeros archivos los escribe la sección 10 de `notebooks/fase-1-eda.ipynb`; los seis siguientes, la sección 17 de `notebooks/fase-2-preparacion.ipynb`, y los diez últimos, la sección 21 de `notebooks/fase-3-modelado.ipynb`. Son los únicos datos que lee el dashboard (`dashboard/app.py`). No contienen filas individuales.
+Los dos primeros archivos los escribe la sección 10 de `notebooks/fase-1-eda.ipynb`; los seis siguientes, la sección 17 de `notebooks/fase-2-preparacion.ipynb`; los diez siguientes, la sección 21 de `notebooks/fase-3-modelado.ipynb`, y los dos últimos, las secciones 2 y 5 de `notebooks/fase-4-sintesis.ipynb`. Son los únicos datos que lee el dashboard (`dashboard/app.py`); además, la app carga el modelo de predicción de `dashboard/modelo/` y algunas figuras de `figuras/`. No contienen filas individuales.
 
 | Archivo | Una fila por | Columnas |
 | --- | --- | --- |
@@ -20,6 +20,8 @@ Los dos primeros archivos los escribe la sección 10 de `notebooks/fase-1-eda.ip
 | `pca-cargas-20224.csv` | Componente del PCA (cinco) y área (cinco) | `componente`, `area`, `carga`, `varianza` explicada por el componente (en porcentaje) y `n` |
 | `cluster-perfiles-20224.csv` | Clúster de K-Means | `cluster`, `n`, `porcentaje` de los estudiantes, media de cada área en la escala de la prueba (`lectura_critica`, `matematicas`, `ciencias_naturales`, `sociales_ciudadanas`, `ingles`) y estandarizada (las mismas con prefijo `z_`), y `puntaje_global` medio |
 | `cluster-estrato-20224.csv`, `cluster-zona-20224.csv`, `cluster-naturaleza-20224.csv` | Nivel del estrato (con «Sin Estrato»), de la zona o de la naturaleza del colegio, y clúster de K-Means | La dimensión (`estrato`, `zona` o `naturaleza`), `cluster`, `n` y `porcentaje` de los estudiantes del nivel que caen en el clúster |
+| `metricas-modelos.csv` | Modelo evaluado en prueba (quince: cinco bases de la fase 2 y diez modelos de la fase 3) | `tarea` (regresión o clasificación), `enfoque` («Sin IA», estadística clásica, o «Con IA», aprendizaje automático), `modelo` (nombre en los registros de prueba), `etiqueta`, `fase`, `n` (estudiantes de prueba) y las métricas de prueba que calculó su fase: `r2`, `rmse` y `mae` en la regresión; `accuracy`, `precision`, `recall`, `f1`, `f1_macro`, `auc` y `auc_pr` en la clasificación (vacías las que la fase no calculó) |
+| `jornada-estrato-naturaleza-20224.csv` | Jornada, estrato (con «Sin dato») y naturaleza del colegio, en 2022-2, más sus marginales con «Todos»: el cruce más fino con la jornada que tiene 10 o más estudiantes en todas sus celdas | `jornada`, `estrato`, `naturaleza`, `n` y la media, la mediana, los cuartiles (`q1`, `q3`) y la desviación estándar del puntaje global |
 
 Los archivos de pruebas de hipótesis resumen los casos completos de cada prueba sobre el 2022-2 depurado en la fase 2, con los valores observados, sin imputar; los de PCA y clústeres, los estudiantes del conjunto de entrenamiento con las cinco áreas.
 
@@ -27,7 +29,7 @@ Reglas:
 
 - Solo entran los resultados en estado `PUBLICAR` y las filas con las dimensiones de cada archivo registradas. «Sin Estrato» es una categoría del formulario y se conserva.
 - **Cada archivo es un cruce completo con 10 o más estudiantes en todas sus celdas, por diseño y sin supresión.** Una celda oculta se podría recuperar restando de los totales, así que el cruce que no cumple no se publica: por eso no hay un archivo de departamento por naturaleza, y el dashboard dice que esa combinación no está publicada. Los cuadernos se detienen si una celda no llega al mínimo, y `tests/test_agregados.py` lo vuelve a comprobar. La rejilla del plano PCA no es un producto completo porque sus celdas vacías no tienen estudiantes y no se escriben; que no falte ninguna lo prueba la suma de los `n`, igual a todos los estudiantes del plano.
-- Las medidas se redondean a dos decimales; las métricas de `regresion-metricas.csv` y los archivos de la fase 3, a cuatro, para que el dashboard, que los muestra con uno o dos, no redondee dos veces.
+- Las medidas se redondean a dos decimales; las métricas de `regresion-metricas.csv` y los archivos de la fase 3, a cuatro, y las de `metricas-modelos.csv`, a seis, para que el dashboard, que los muestra con uno a tres, no redondee dos veces. `metricas-modelos.csv` no lee la prueba: copia los registros que escribieron las fases 2 y 3 al evaluar cada modelo una sola vez.
 
 Fuente: Instituto Colombiano para la Evaluación de la Educación. (2023). *Resultados únicos Saber 11* [Conjunto de datos]. Datos Abiertos Colombia. https://www.datos.gov.co/Educaci-n/Resultados-nicos-Saber-11/kgxf-xxbe
 
