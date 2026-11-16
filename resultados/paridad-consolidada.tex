@@ -1,0 +1,14 @@
+% Generado por notebooks/fase-4-sintesis.ipynb (sección 4): no editar a mano.
+% R 4.6.1; ggplot2 4.0.3; car 3.1.5.
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{4.3cm}rl@{}}
+\toprule
+Buzón & Qué replica R & Valores & Mayor diferencia \\
+\midrule
+A2 & Descriptivos de los seis puntajes, frecuencias, correlaciones de Pearson y Spearman y $\chi^2$ de H4 & 178 & $<10^{-11}$ \\
+A3 y A4 & Descriptivos y frecuencias antes y después de preparar; \texttt{lm} simple y múltiple con \texttt{broom} & 176 & $2{,}6\times10^{-14}$; $1{,}2\times10^{-10}$ abs. \\
+A5 & \texttt{t.test}, \texttt{oneway.test}, \texttt{aov} con \texttt{TukeyHSD}, \texttt{car::Anova} tipo II, \texttt{kruskal.test} y \texttt{chisq.test} de H1 a H4 & 418 & $3{,}4\times10^{-8}$ \\
+A6 & \texttt{prcomp}, medias por clúster de K-Means y de Ward y \texttt{chisq.test} de los tres cruces & 76 & $3{,}7\times10^{-12}$ \\
+\midrule
+Total & R 4.6.1 & 848 & $3{,}4\times10^{-8}$ \\
+\bottomrule
+\end{tabular}

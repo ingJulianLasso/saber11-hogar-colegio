@@ -1,0 +1,442 @@
+{
+  "modelo": "XGBoost de la fase 3, reajustado en la CPU con hojas de 10 o más estudiantes",
+  "archivo": "regresion.joblib",
+  "objetivo": "PUNT_GLOBAL",
+  "periodo": "2022-2",
+  "estimacion": "Puntaje global esperado (promedio) de los estudiantes con el perfil; no es el resultado de una persona.",
+  "entrada": [
+    {
+      "columna": "FAMI_ESTRATOVIVIENDA",
+      "etiqueta": "Estrato de la vivienda",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "Estrato 1",
+        "Estrato 2",
+        "Estrato 3",
+        "Estrato 4",
+        "Estrato 5",
+        "Estrato 6",
+        "Sin Estrato"
+      ]
+    },
+    {
+      "columna": "FAMI_EDUCACIONMADRE",
+      "etiqueta": "Educación de la madre",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "Ninguno",
+        "Primaria incompleta",
+        "Primaria completa",
+        "Secundaria (Bachillerato) incompleta",
+        "Secundaria (Bachillerato) completa",
+        "Técnica o tecnológica incompleta",
+        "Técnica o tecnológica completa",
+        "Educación profesional incompleta",
+        "Educación profesional completa",
+        "Postgrado",
+        "No Aplica",
+        "No sabe"
+      ]
+    },
+    {
+      "columna": "FAMI_EDUCACIONPADRE",
+      "etiqueta": "Educación del padre",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "Ninguno",
+        "Primaria incompleta",
+        "Primaria completa",
+        "Secundaria (Bachillerato) incompleta",
+        "Secundaria (Bachillerato) completa",
+        "Técnica o tecnológica incompleta",
+        "Técnica o tecnológica completa",
+        "Educación profesional incompleta",
+        "Educación profesional completa",
+        "Postgrado",
+        "No Aplica",
+        "No sabe"
+      ]
+    },
+    {
+      "columna": "FAMI_TIENEINTERNET",
+      "etiqueta": "Internet en el hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    {
+      "columna": "FAMI_TIENECOMPUTADOR",
+      "etiqueta": "Computador en el hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    {
+      "columna": "FAMI_TIENEAUTOMOVIL",
+      "etiqueta": "Automóvil en el hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    {
+      "columna": "FAMI_TIENELAVADORA",
+      "etiqueta": "Lavadora en el hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "No",
+        "Si"
+      ]
+    },
+    {
+      "columna": "FAMI_CUARTOSHOGAR",
+      "etiqueta": "Cuartos del hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "numerica",
+      "minimo": 1.0,
+      "maximo": 6.0,
+      "valores": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "respuestas": [
+        {
+          "valor": 1.0,
+          "respuesta": "Uno"
+        },
+        {
+          "valor": 2.0,
+          "respuesta": "Dos"
+        },
+        {
+          "valor": 3.0,
+          "respuesta": "Tres"
+        },
+        {
+          "valor": 4.0,
+          "respuesta": "Cuatro"
+        },
+        {
+          "valor": 5.0,
+          "respuesta": "Cinco"
+        },
+        {
+          "valor": 6.0,
+          "respuesta": "Seis o mas"
+        }
+      ]
+    },
+    {
+      "columna": "FAMI_PERSONASHOGAR",
+      "etiqueta": "Personas del hogar",
+      "grupo": "hogar",
+      "sin_dato": true,
+      "tipo": "numerica",
+      "minimo": 1.5,
+      "maximo": 9.0,
+      "valores": [
+        1.5,
+        3.5,
+        5.5,
+        7.5,
+        9.0
+      ],
+      "respuestas": [
+        {
+          "valor": 1.5,
+          "respuesta": "1 a 2"
+        },
+        {
+          "valor": 3.5,
+          "respuesta": "3 a 4"
+        },
+        {
+          "valor": 5.5,
+          "respuesta": "5 a 6"
+        },
+        {
+          "valor": 7.5,
+          "respuesta": "7 a 8"
+        },
+        {
+          "valor": 9.0,
+          "respuesta": "9 o más"
+        }
+      ]
+    },
+    {
+      "columna": "COLE_NATURALEZA",
+      "etiqueta": "Naturaleza del colegio",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "NO OFICIAL",
+        "OFICIAL"
+      ]
+    },
+    {
+      "columna": "COLE_AREA_UBICACION",
+      "etiqueta": "Zona de la sede",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "RURAL",
+        "URBANO"
+      ]
+    },
+    {
+      "columna": "COLE_JORNADA",
+      "etiqueta": "Jornada",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "COMPLETA",
+        "MAÑANA",
+        "NOCHE",
+        "SABATINA",
+        "TARDE",
+        "UNICA"
+      ]
+    },
+    {
+      "columna": "COLE_CALENDARIO",
+      "etiqueta": "Calendario",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "A",
+        "B",
+        "OTRO"
+      ]
+    },
+    {
+      "columna": "COLE_CARACTER",
+      "etiqueta": "Carácter del colegio",
+      "grupo": "colegio",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "ACADÉMICO",
+        "NO APLICA",
+        "TÉCNICO",
+        "TÉCNICO/ACADÉMICO"
+      ]
+    },
+    {
+      "columna": "COLE_BILINGUE",
+      "etiqueta": "Colegio bilingüe",
+      "grupo": "colegio",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "N",
+        "S"
+      ]
+    },
+    {
+      "columna": "COLE_GENERO",
+      "etiqueta": "Género del colegio",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "FEMENINO",
+        "MASCULINO",
+        "MIXTO"
+      ]
+    },
+    {
+      "columna": "COLE_DEPTO_UBICACION",
+      "etiqueta": "Departamento de la sede",
+      "grupo": "colegio",
+      "sin_dato": false,
+      "tipo": "categorica",
+      "niveles": [
+        "AMAZONAS",
+        "ANTIOQUIA",
+        "ARAUCA",
+        "ATLANTICO",
+        "BOGOTÁ",
+        "BOLIVAR",
+        "BOYACA",
+        "CALDAS",
+        "CAQUETA",
+        "CASANARE",
+        "CAUCA",
+        "CESAR",
+        "CHOCO",
+        "CORDOBA",
+        "CUNDINAMARCA",
+        "GUAINIA",
+        "GUAVIARE",
+        "HUILA",
+        "LA GUAJIRA",
+        "MAGDALENA",
+        "META",
+        "NARIÑO",
+        "NORTE SANTANDER",
+        "PUTUMAYO",
+        "QUINDIO",
+        "RISARALDA",
+        "SAN ANDRES",
+        "SANTANDER",
+        "SUCRE",
+        "TOLIMA",
+        "VALLE",
+        "VAUPES",
+        "VICHADA"
+      ]
+    },
+    {
+      "columna": "ESTU_GENERO",
+      "etiqueta": "Género del estudiante",
+      "grupo": "estudiante",
+      "sin_dato": true,
+      "tipo": "categorica",
+      "niveles": [
+        "F",
+        "M"
+      ]
+    },
+    {
+      "columna": "ESTU_EDAD",
+      "etiqueta": "Edad (años cumplidos)",
+      "grupo": "estudiante",
+      "sin_dato": true,
+      "tipo": "numerica",
+      "minimo": 10.0,
+      "maximo": 66.0,
+      "valores": [
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        22.0,
+        23.0,
+        24.0,
+        25.0,
+        26.0,
+        27.0,
+        28.0,
+        29.0,
+        30.0,
+        31.0,
+        32.0,
+        33.0,
+        34.0,
+        35.0,
+        36.0,
+        37.0,
+        38.0,
+        39.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0,
+        46.0,
+        47.0,
+        48.0,
+        49.0,
+        50.0,
+        51.0,
+        52.0,
+        53.0,
+        54.0,
+        55.0,
+        56.0,
+        57.0,
+        58.0,
+        59.0,
+        60.0,
+        61.0,
+        62.0,
+        64.0,
+        66.0
+      ]
+    }
+  ],
+  "hiperparametros": {
+    "n_estimators": 919,
+    "learning_rate": 0.05879431781724018,
+    "max_depth": 8,
+    "min_child_weight": 10.0,
+    "subsample": 0.815876852955632,
+    "colsample_bytree": 0.8281775897621597,
+    "reg_lambda": 3.1234907221207773
+  },
+  "hiperparametros_fase_3": {
+    "n_estimators": 919,
+    "learning_rate": 0.05879431781724018,
+    "max_depth": 8,
+    "min_child_weight": 2.6501137707458966,
+    "subsample": 0.815876852955632,
+    "colsample_bytree": 0.8281775897621597,
+    "reg_lambda": 3.1234907221207773
+  },
+  "metricas_validacion": {
+    "r2": 0.3803015351295471,
+    "rmse": 40.83109664916992,
+    "mae": 32.91870880126953,
+    "rmse_fase_3": 40.83620071411133,
+    "diferencia_rmse_pct": -0.012498873186413968,
+    "filas": 79884
+  },
+  "filas_entrenamiento": 372792,
+  "margen": {
+    "nivel": 0.9,
+    "puntos": 66.8062744140625,
+    "cobertura_validacion": 0.9000175254118472,
+    "lectura": "En validación, 9 de cada 10 estudiantes quedaron a menos de ±66,8 puntos de la estimación de su perfil."
+  },
+  "minimo_por_hoja": 10,
+  "cobertura_minima_hoja": 10.0,
+  "peso_mb": 3.50139,
+  "python": "3.13.15",
+  "versiones": {
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "joblib": "1.6.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1"
+  },
+  "fuente": "ICFES, Resultados únicos Saber 11, 2022-2 (datos.gov.co), licencia CC BY-SA 4.0."
+}

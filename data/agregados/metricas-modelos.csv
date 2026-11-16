@@ -1,0 +1,16 @@
+tarea,enfoque,modelo,etiqueta,fase,n,r2,rmse,mae,accuracy,precision,recall,f1,f1_macro,auc,auc_pr
+Regresión,Sin IA,dummyRegresion,Media del entrenamiento,2,79885,-4e-06,51.827621,43.022377,,,,,,,
+Regresión,Sin IA,linealSimple,Lineal simple,2,79885,0.106456,48.991244,40.303267,,,,,,,
+Regresión,Sin IA,regresionMultiple,Regresión múltiple,2,79885,0.318573,42.782885,34.75492,,,,,,,
+Regresión,Con IA,ridge,Ridge,3,79885,0.318572,42.782925,34.755437,,,,,,,
+Regresión,Con IA,lasso,Lasso,3,79885,0.318574,42.782848,34.755589,,,,,,,
+Regresión,Con IA,elasticNet,ElasticNet,3,79885,0.318574,42.782861,34.755618,,,,,,,
+Regresión,Con IA,randomForestRegresion,Random Forest,3,79885,0.353132,41.683897,33.776214,,,,,,,
+Regresión,Con IA,xgboostRegresion,XGBoost,3,79885,0.3793,40.832054,32.931084,,,,,,,
+Regresión,Con IA,mlpRegresion,MLP,3,79885,0.379059,40.839973,32.956384,,,,,,,
+Clasificación,Sin IA,dummyClasificacion,Clase mayoritaria,2,79885,,,,0.77385,0.0,0.0,0.0,,0.5,
+Clasificación,Sin IA,logisticaBase,Logística base,2,79885,,,,0.711598,0.414368,0.666002,0.51088,,0.765249,
+Clasificación,Sin IA,ldaClasificacion,LDA,3,79885,,,,0.756725,0.468245,0.558286,0.509317,0.673794,0.758952,0.546567
+Clasificación,Con IA,randomForestClasificacion,Random Forest,3,79885,,,,0.762634,0.479271,0.573342,0.522103,0.682104,0.770893,0.560713
+Clasificación,Con IA,xgboostClasificacion,XGBoost,3,79885,,,,0.772035,0.496411,0.55502,0.524082,0.687102,0.774466,0.567027
+Clasificación,Con IA,svmClasificacion,SVM,3,79885,,,,0.757464,0.470646,0.58087,0.519981,0.678861,0.761973,0.535572
