@@ -34,7 +34,9 @@ requires = ["uv_build>=0.12.23,<0.13"]
 build-backend = "uv_build"
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu130" }
+# Linux y Windows usan la rueda con CUDA 13.0, que también corre en CPU si no hay GPU de NVIDIA.
+# El índice de PyTorch no publica ruedas para macOS: allí torch se instala desde PyPI.
+torch = { index = "pytorch-cu130", marker = "sys_platform != 'darwin'" }
 
 [[tool.uv.index]]
 name = "pytorch-cu130"
@@ -43,3 +45,5 @@ explicit = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# src/ en la ruta: las pruebas del dashboard corren también en su entorno liviano, sin instalar el paquete.
+pythonpath = ["src"]
