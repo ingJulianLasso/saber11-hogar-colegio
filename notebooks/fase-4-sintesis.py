@@ -33,14 +33,15 @@
 #
 # ### 0.1. Qué hace este cuaderno
 #
-# Las fases 1 a 3 dejaron sus resultados en archivos: las cifras de cada cuaderno (`resultados/cifras-fase-{1,2,3}.json`), los dos registros de evaluación en prueba, las salidas de los scripts de R y los agregados del dashboard. Esta fase no vuelve a calcular nada de eso. El cuaderno es liviano y hace seis cosas:
+# Las fases 1 a 3 dejaron sus resultados en archivos: las cifras de cada cuaderno (`resultados/cifras-fase-{1,2,3}.json`), los dos registros de evaluación en prueba, las salidas de los scripts de R y los agregados del dashboard. Esta fase no vuelve a calcular nada de eso, salvo los cinco clasificadores de la fase 3, que §8 ajusta otra vez con sus hiperparámetros solo para trazar de nuevo sus curvas. El cuaderno hace siete cosas:
 #
 # 1. Une las cifras de las tres fases en un solo registro, para que el documento del dashboard (A7), el informe final (A8) y las diapositivas (A9) carguen un único archivo de macros (§1).
 # 2. Reúne las métricas de prueba de los quince modelos en un solo agregado, sin volver a evaluar ninguno (§2), y compara la estadística clásica con los modelos de aprendizaje automático (§3).
 # 3. Consolida en una tabla la paridad entre Python y R de las tres fases (§4).
 # 4. Agrega el puntaje por jornada, la característica del colegio que nombra la pregunta principal y que ningún agregado traía (§5).
 # 5. Exporta el modelo de predicción del tablero, con su ficha y su margen, mide la memoria del dashboard (§6) y compara el tamaño de efecto de las hipótesis con la importancia SHAP de ese modelo (§7).
-# 6. Escribe las cifras de la fase y comprueba que todo existe (última sección).
+# 6. Traza para el documento del dashboard, con la letra con que se imprime, las curvas de clasificación de la fase 3 con los cinco umbrales a la vista y la interacción de H3 (§8).
+# 7. Escribe las cifras de la fase y comprueba que todo existe (última sección).
 #
 # Ninguna celda lee el conjunto de prueba: sus métricas salen de los registros que las fases 2 y 3 escribieron al evaluarlo una sola vez, y el modelo del tablero se elige y se mide en validación.
 
@@ -52,20 +53,27 @@
 # %%
 import json
 import platform
+import textwrap
 import warnings
 from itertools import combinations
 from importlib.metadata import version
+from pathlib import Path
 
 import joblib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
 from matplotlib.ticker import MultipleLocator
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import precision_recall_curve, roc_auc_score, roc_curve
 from sklearn.model_selection import train_test_split
-from xgboost import XGBRegressor
+from sklearn.svm import SVC
+from xgboost import XGBClassifier, XGBRegressor
 
-from saber11 import ajuste, datos, graficos, interpretabilidad, limpieza, modelos, particion, tablero
+from saber11 import ajuste, datos, graficos, interpretabilidad, intermedios, limpieza, modelos, particion, tablero
 from saber11 import variables as v
 from saber11.cifras import Cifras, en_espanol
 from saber11.comprobaciones import Comprobaciones
@@ -77,7 +85,7 @@ for paquete in ("pandas", "numpy", "scikit-learn", "xgboost", "joblib", "matplot
 # %% [markdown]
 # ### 0.3. Estilo, rutas y comprobaciones
 #
-# Las figuras conservan la estética de las fases anteriores (`saber11.graficos`) y se dibujan al ancho de una columna IEEE, con la letra con que se imprimen. Las rutas se imprimen relativas a la raíz del repositorio. `comprobar` detiene el cuaderno si una condición falla.
+# Las figuras conservan la estética de las fases anteriores (`saber11.graficos`) y se dibujan al ancho de una columna IEEE, con la letra con que se imprimen. `guardar_para_imprimir` las guarda con un margen mínimo y comprueba que la imagen no sea más ancha que la columna (252 puntos), para que el documento no la reduzca y su letra más pequeña, de 6,5 puntos, se imprima a ese tamaño o mayor. Las rutas se imprimen relativas a la raíz del repositorio. `comprobar` detiene el cuaderno si una condición falla.
 
 # %%
 graficos.aplicar_estilo(informe=True)
@@ -96,6 +104,18 @@ comprobar = control.comprobar
 def relativa(ruta):
     """Ruta relativa a la raíz del repositorio, para no imprimir rutas locales."""
     return ruta.relative_to(RAIZ).as_posix()
+
+
+ANCHO_IMPRESO = 252 / 72.27  # ancho de una columna IEEE, en pulgadas
+
+
+def guardar_para_imprimir(figura: plt.Figure, nombre: str) -> Path:
+    """Guarda la figura con un margen mínimo y comprueba que quepa en una columna IEEE sin reducirse."""
+    with plt.rc_context({"savefig.pad_inches": 0.02}):
+        ruta = figuras.guardar(figura, nombre)
+    ancho = plt.imread(ruta).shape[1] / plt.rcParams["savefig.dpi"]
+    comprobar(f"{relativa(ruta)} mide {en_espanol(ancho, 2)} pulgadas de ancho: cabe en una columna sin reducir su letra", ancho <= ANCHO_IMPRESO)
+    return ruta
 
 
 def formatear(valor: object, decimales: int) -> object:
@@ -645,7 +665,9 @@ print(f"\nEscritos {relativa(ruta_modelo)} y {relativa(ruta_ficha)}")
 # Streamlit Community Cloud detiene una app que pasa su tope de memoria. Como Streamlit ejecuta el guion entero en cada interacción, con todas las pestañas a la vez, la medida corre la app en un proceso aparte con `AppTest`, envía el formulario de Predicción con otra audiencia y otro filtro, e informa el pico de memoria residente del proceso (`tablero.memoria_maxima_mb`), sin GPU visible, como en Community Cloud. Incluye los agregados, las figuras y el modelo, y deja fuera el servidor web de Streamlit. El pico se lee de `VmHWM` y no de `ru_maxrss`, que en Linux arrastra la memoria de este núcleo, del que el proceso nace.
 
 # %%
-LIMITE_MEMORIA_MB = 2700  # tope de memoria de una app en Streamlit Community Cloud
+# Máximo aproximado de memoria de una app en Community Cloud, según «Manage your app» de la
+# documentación de Streamlit (límites de febrero de 2024: «Memory: 690MB minimum, 2.7GBs maximum»).
+LIMITE_MEMORIA_MB = 2700
 memoria_mb = tablero.memoria_maxima_mb(RAIZ / "dashboard" / "app.py")
 print(f"Pico de memoria del proceso que recorre el dashboard: {en_espanol(memoria_mb, 0)} MB")
 comprobar(f"El dashboard cabe en el tope de memoria de Community Cloud ({en_espanol(LIMITE_MEMORIA_MB)} MB)", memoria_mb < LIMITE_MEMORIA_MB)
@@ -694,26 +716,37 @@ EFECTOS["puesto_shap"] = puesto_shap.loc[EFECTOS.index]
 EFECTOS = EFECTOS.sort_values("eta", ascending=False)
 tabla(EFECTOS.assign(eta=100 * EFECTOS["eta"]).set_index("etiqueta")[["medida", "eta", "shap", "puesto_shap"]], 2)
 
-figura, (eje_eta, eje_shap) = plt.subplots(1, 2, figsize=(graficos.ANCHO_COLUMNA, 1.55), sharey=True)
+# Cada panel lleva su origen y su medida en un título de dos líneas centrado sobre su eje, sin rótulo del eje x,
+# y los nombres largos de las variables van en dos líneas, para que los dos ejes ganen ancho y nada se toque.
+figura, (eje_eta, eje_shap) = plt.subplots(1, 2, figsize=(graficos.ANCHO_COLUMNA - 0.1, 1.7), sharey=True)
 posiciones = np.arange(len(EFECTOS))
-for eje, columna, titulo, escala, decimales in ((eje_eta, "eta", "η² o η² parcial (%)", 100, 1), (eje_shap, "shap", "SHAP medio (puntos)", 1, 1)):
+for eje, columna, titulo, escala, decimales in (
+    (eje_eta, "eta", "Pruebas de la fase 3\nη² o η² parcial (%)", 100, 1),
+    (eje_shap, "shap", "Modelo del tablero\nSHAP medio (puntos)", 1, 1),
+):
     valores = escala * EFECTOS[columna].to_numpy()
     eje.barh(posiciones, valores, height=0.6, color=graficos.COLOR_PRINCIPAL)
     for posicion, valor in zip(posiciones, valores, strict=True):
-        eje.annotate(en_espanol(valor, decimales), (valor, posicion), xytext=(2, 0), textcoords="offset points", va="center", fontsize=6)
-    eje.set_xlim(0, 1.4 * valores.max())
-    eje.set_title(titulo, loc="left")
+        eje.annotate(en_espanol(valor, decimales), (valor, posicion), xytext=(2, 0), textcoords="offset points", va="center")
+    eje.set_xlim(0, 1.6 * valores.max())
+    eje.set_title(titulo)
     eje.grid(axis="y", visible=False)
     eje.xaxis.set_major_formatter(graficos.formato_fijo(0))
-eje_eta.set_yticks(posiciones, EFECTOS["etiqueta"])
+eje_eta.set_yticks(posiciones, [textwrap.fill(etiqueta, 16) for etiqueta in EFECTOS["etiqueta"]])
 eje_eta.invert_yaxis()
-eje_shap.set_xlabel("Modelo del tablero")
 eje_eta.xaxis.set_major_locator(MultipleLocator(5))
 eje_shap.xaxis.set_major_locator(MultipleLocator(2))
-eje_eta.set_xlabel("Pruebas de la fase 3")
-figura.tight_layout(w_pad=0.8)
+figura.tight_layout(w_pad=1.6)
+# Ninguna etiqueta de valor ni ningún título se sale de su panel o pisa al otro.
+figura.canvas.draw()
+cajas_valores = {eje: [texto.get_window_extent() for texto in eje.texts] for eje in (eje_eta, eje_shap)}
+comprobar(
+    "En el panel de η² frente a SHAP, cada valor queda dentro de su eje y los dos títulos no se tocan",
+    all(caja.x1 < eje.get_window_extent().x1 for eje, cajas in cajas_valores.items() for caja in cajas)
+    and eje_eta.title.get_window_extent().x1 < eje_shap.title.get_window_extent().x0,
+)
 graficos.anotar_fuente(eje_eta, f"{FUENTE} SHAP sobre {en_espanol(FILAS_INTERPRETACION)} estudiantes de validación.")
-ruta_eta_shap = figuras.guardar(figura, "eta-shap")
+ruta_eta_shap = guardar_para_imprimir(figura, "eta-shap")
 plt.close(figura)
 print(f"Escrita {relativa(ruta_eta_shap)}")
 cifra("etaCuadradoHUno", eta_h1, 3)
@@ -726,7 +759,200 @@ cifra("variablesShapTablero", len(importancia_tablero));
 # **Lectura.** Las dos miradas no ordenan igual las variables. Por sí solas, la educación de la madre explica el 13,7 % de la varianza del puntaje global y el internet el 7,5 %, pero en el modelo, donde ya están el computador, el estrato, el departamento y la edad, sus contribuciones medias son de 4,4 y 2,8 puntos (puestos 6 y 12 de 19): buena parte de lo que explican por separado lo comparten con otras variables del hogar. La naturaleza del colegio va al revés: su η² parcial es pequeño (4,1 %), pero en el modelo es la cuarta variable (4,9 puntos), lo que concuerda con la interacción con el estrato que encontró H3. El tamaño de efecto de una prueba dice cuánto separa una variable los grupos por sí sola; SHAP dice cuánto mueve la estimación cuando las demás ya están, y no dice si una diferencia es significativa. Se leen juntos. Las tres variables de mayor SHAP (edad, departamento y computador) son las mismas que encontró la fase 3 con su XGBoost, así que el reajuste no cambió la lectura del modelo.
 
 # %% [markdown]
-# ## 8. Cifras y comprobaciones
+# ## 8. Figuras para imprimir en el documento del dashboard
+#
+# El documento del dashboard (A7) imprime dos figuras que no tenían una versión a su tamaño. La primera son las curvas ROC y PR de la subpestaña Clasificación, que vienen de la fase 3 (`figuras/fase-3/clasificacion-curvas.png`, ya entregada, que no se toca). Impresa, esa figura tiene dos defectos: el eje vertical lleva marcas cada 0,25 con rótulos de un decimal, así que la marca de 0,25 dice «0,2» y la línea de azar de la PR, en 0,226, parece quedar por debajo de 0,2; y los cinco puntos de umbral caen tan juntos que dos quedan tapados. La segunda es la interacción de H3, que el documento usa para leer la brecha dentro de cada estrato y que el dashboard solo tiene en Plotly.
+#
+# ### 8.1. Curvas de clasificación con los cinco umbrales
+#
+# Para trazar las mismas curvas se ajustan otra vez los cinco clasificadores de la fase 3, con los hiperparámetros que eligió su búsqueda (leídos de `cifras-fase-3.json`) y con sus mismas filas: el entrenamiento completo y, en la SVM, la muestra de la fase 2, cuya huella se comprueba. La logística, Random Forest, la SVM y el LDA son deterministas con su semilla y dan el mismo modelo, lo que se comprueba con su AUC-ROC de validación. XGBoost entrenó en la GPU en la fase 3 y aquí entrena en la CPU, donde el submuestreo de filas y columnas sortea distinto, así que su curva puede diferir en milésimas. Cada punto es el umbral que eligió la fase 3 (el puntaje que maximiza el F1 de la clase no oficial en validación), y se comprueba que dé la exhaustividad y la precisión de la fase. Las marcas de los ejes van cada 0,2 con un decimal, y una segunda fila amplía la zona de los umbrales, con un marcador distinto por modelo.
+
+# %%
+CLASE = v.PREDICTORES_CLASIFICACION
+muestra_fase_2 = intermedios.muestra_de_la_fase_2(limpio, conjuntos)
+en_muestra = muestra_fase_2.loc[X_ent.index].to_numpy()
+y_ent_clase, y_val_clase = (limpio.loc[m, v.OBJETIVO_CLASIFICACION].eq(v.CLASE_POSITIVA).astype(int) for m in (es_ent, es_val))
+X_ent_clase, X_val_clase = X_ent[list(CLASE)], X_val[list(CLASE)]
+filas_clase = {"entrenamiento": (X_ent_clase, y_ent_clase), "muestra": (X_ent_clase[en_muestra], y_ent_clase[en_muestra])}
+peso_no_oficial = float((y_ent_clase == 0).sum() / (y_ent_clase == 1).sum())
+comprobar("La muestra de la SVM tiene el tamaño de la de la fase 2", len(filas_clase["muestra"][0]) == cifras.valor("tamanoMuestra"))
+comprobar("El peso de la clase no oficial es el que usó XGBoost en la fase 3", abs(peso_no_oficial - cifras.valor("pesoNoOficialXgboost")) < 1e-9)
+
+ENTEROS_BUSQUEDA = {"n_estimators", "max_depth", "min_samples_leaf"}
+
+
+def de_la_busqueda(nombre: str, sufijo: str) -> dict:
+    """Hiperparámetros que eligió la búsqueda de la fase 3, leídos de sus cifras (`mejor<Modelo><Parámetro>`)."""
+    elegidos = {}
+    for clave in ajuste.ESPACIOS[nombre]:
+        parametro = clave.removeprefix("modelo__")
+        valor = cifras.valor(f"mejor{sufijo}" + "".join(parte.capitalize() for parte in parametro.split("_")))
+        elegidos[parametro] = None if valor == "sin límite" else int(valor) if parametro in ENTEROS_BUSQUEDA else valor
+    return elegidos
+
+
+def puntaje_clase(modelo, X: pd.DataFrame) -> np.ndarray:
+    """Puntaje de la clase no oficial: la probabilidad o, en la SVM, la función de decisión."""
+    if isinstance(modelo.named_steps["modelo"], SVC):
+        return modelo.decision_function(X)
+    return modelo.predict_proba(X)[:, 1]
+
+
+SUFIJO_CLASE = {"logisticaUmbral": "LogisticaUmbral", "randomForestClasificacion": "RandomForestClasificacion", "xgboostClasificacion": "XgboostClasificacion", "svmClasificacion": "Svm", "ldaClasificacion": "Lda"}
+ETIQUETA_CLASE = {"logisticaUmbral": "Logística base", "randomForestClasificacion": "Random Forest", "xgboostClasificacion": "XGBoost", "svmClasificacion": "SVM en la muestra", "ldaClasificacion": "LDA"}
+bosque = RandomForestClassifier(class_weight="balanced", n_jobs=-1, random_state=ajuste.SEMILLA, **de_la_busqueda("randomForestClasificacion", "RandomForestClasificacion"))
+refuerzo = XGBClassifier(device="cpu", scale_pos_weight=peso_no_oficial, random_state=ajuste.SEMILLA, **de_la_busqueda("xgboostClasificacion", "XgboostClasificacion"))
+clasificadores = {
+    "logisticaUmbral": (modelos.logistica_base(), "entrenamiento"),
+    "randomForestClasificacion": (modelos.pipeline(CLASE, bosque), "entrenamiento" if ajuste.REAJUSTE_RANDOM_FOREST else "muestra"),
+    "xgboostClasificacion": (modelos.pipeline(CLASE, refuerzo), "entrenamiento"),
+    "svmClasificacion": (modelos.pipeline(CLASE, SVC(kernel="rbf", class_weight="balanced", **de_la_busqueda("svmClasificacion", "Svm"))), "muestra"),
+    "ldaClasificacion": (modelos.pipeline(CLASE, LinearDiscriminantAnalysis()), "entrenamiento"),
+}
+positivos = y_val_clase.to_numpy() == 1
+curvas = {}
+for nombre, (modelo, filas) in clasificadores.items():
+    ajuste_clase = ajustado(modelo, *filas_clase[filas])
+    puntajes = puntaje_clase(ajuste_clase.modelo, X_val_clase)
+    predicho = puntajes >= cifras.valor(f"umbral{SUFIJO_CLASE[nombre]}")
+    curvas[nombre] = {
+        "puntajes": puntajes,
+        "auc": roc_auc_score(y_val_clase, puntajes),
+        "tasa_fp": predicho[~positivos].mean(),
+        "exhaustividad": predicho[positivos].mean(),
+        "precision": positivos[predicho].mean(),
+        "segundos": ajuste_clase.segundos,
+    }
+diferencias = pd.DataFrame({
+    ETIQUETA_CLASE[nombre]: {
+        "Ajuste (s)": c["segundos"],
+        "AUC-ROC": c["auc"],
+        "Dif. AUC-ROC": c["auc"] - cifras.valor(f"aucValidacion{SUFIJO_CLASE[nombre]}"),
+        "Dif. exhaustividad": c["exhaustividad"] - cifras.valor(f"recallValidacion{SUFIJO_CLASE[nombre]}"),
+        "Dif. precisión": c["precision"] - cifras.valor(f"precisionValidacion{SUFIJO_CLASE[nombre]}"),
+    }
+    for nombre, c in curvas.items()
+}).T
+print("Diferencias frente a la fase 3, en validación:")
+tabla(diferencias, 4)
+DETERMINISTAS = [ETIQUETA_CLASE[n] for n in clasificadores if n != "xgboostClasificacion"]
+comprobar("La logística, Random Forest, la SVM y el LDA dan el AUC-ROC de validación de la fase 3 (diferencia menor que 1e-6)", diferencias.loc[DETERMINISTAS, "Dif. AUC-ROC"].abs().max() < 1e-6)
+comprobar("XGBoost en la CPU da un AUC-ROC de validación a menos de 0,002 del de la fase 3", abs(diferencias.loc["XGBoost", "Dif. AUC-ROC"]) < 0.002)
+comprobar("Con el umbral de la fase 3, cada modelo da su exhaustividad y su precisión a menos de 0,01", diferencias[["Dif. exhaustividad", "Dif. precisión"]].abs().max().max() < 0.01)
+
+COLOR_CLASE = {"logisticaUmbral": graficos.COLOR_APOYO, **dict(zip(list(clasificadores)[1:], graficos.PALETA_CATEGORICA[2:], strict=False))}
+MARCADOR = {"logisticaUmbral": "o", "randomForestClasificacion": "s", "xgboostClasificacion": "D", "svmClasificacion": "^", "ldaClasificacion": "v"}
+
+
+def recuadro(xs: list[float], ys: list[float], holgura: float = 0.6) -> tuple[tuple[float, float], tuple[float, float]]:
+    """Límites que contienen los puntos, ampliados en `holgura` veces su recorrido a cada lado."""
+    return tuple((min(z) - holgura * (max(z) - min(z)), max(z) + holgura * (max(z) - min(z))) for z in (xs, ys))
+
+
+zonas = {
+    "roc": recuadro([c["tasa_fp"] for c in curvas.values()], [c["exhaustividad"] for c in curvas.values()]),
+    "pr": recuadro([c["exhaustividad"] for c in curvas.values()], [c["precision"] for c in curvas.values()]),
+}
+figura, ((eje_roc, eje_pr), (detalle_roc, detalle_pr)) = plt.subplots(2, 2, figsize=(graficos.ANCHO_COLUMNA - 0.1, 3.3), height_ratios=[1.15, 1])
+for nombre, c in curvas.items():
+    tasa_fp, tasa_vp, _ = roc_curve(y_val_clase, c["puntajes"])
+    precision, exhaustividad, _ = precision_recall_curve(y_val_clase, c["puntajes"])
+    # Sin los puntos de exhaustividad cero, que dibujarían una raya vertical sobre el eje (como en la fase 3).
+    con_aciertos = exhaustividad > 0
+    estilo = {"color": COLOR_CLASE[nombre], "linewidth": 0.9, "linestyle": "--" if nombre == "logisticaUmbral" else "-"}
+    marca = {"marker": MARCADOR[nombre], "s": 18, "color": COLOR_CLASE[nombre], "edgecolors": "white", "linewidths": 0.5, "zorder": 3}
+    for eje in (eje_roc, detalle_roc):
+        eje.plot(tasa_fp, tasa_vp, **estilo)
+    for eje in (eje_pr, detalle_pr):
+        eje.plot(exhaustividad[con_aciertos], precision[con_aciertos], **estilo)
+    detalle_roc.scatter(c["tasa_fp"], c["exhaustividad"], **marca)
+    detalle_pr.scatter(c["exhaustividad"], c["precision"], **marca)
+eje_roc.plot([0, 1], [0, 1], color=graficos.COLOR_APOYO, linewidth=0.5, linestyle=":")
+eje_pr.axhline(y_val_clase.mean(), color=graficos.COLOR_APOYO, linewidth=0.5, linestyle=":")
+for eje, detalle, zona, (etiqueta_x, etiqueta_y), (letra, titulo) in (
+    (eje_roc, detalle_roc, zonas["roc"], ("Tasa de falsos positivos", "Exhaustividad"), ("a", "Curva ROC")),
+    (eje_pr, detalle_pr, zonas["pr"], ("Exhaustividad", "Precisión"), ("b", "Curva PR")),
+):
+    (x0, x1), (y0, y1) = zona
+    eje.add_patch(Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, edgecolor="#4C4C4C", linewidth=0.6, zorder=4))
+    eje.set(xlabel=etiqueta_x, ylabel=etiqueta_y, title=f"({letra}) {titulo}", xlim=(0, 1), ylim=(0, 1.02))
+    detalle.set(xlabel=etiqueta_x, ylabel=etiqueta_y, title=f"({chr(ord(letra) + 2)}) Recuadro de ({letra})", xlim=(x0, x1), ylim=(y0, y1))
+    # Rótulos con tantos decimales como pide el paso de las marcas, para que cada uno diga el valor de la suya.
+    for panel, paso, decimales in ((eje, 0.2, 1), (detalle, 0.02, 2)):
+        for marcas in (panel.xaxis, panel.yaxis):
+            marcas.set_major_locator(MultipleLocator(paso))
+            marcas.set_major_formatter(graficos.formato_fijo(decimales))
+figura.tight_layout(h_pad=0.6, w_pad=1.0)
+manijas = [
+    Line2D([], [], color=COLOR_CLASE[n], linewidth=0.9, linestyle="--" if n == "logisticaUmbral" else "-", marker=MARCADOR[n], markersize=4, markeredgecolor="white", markeredgewidth=0.5, label=f"{ETIQUETA_CLASE[n]} ({en_espanol(c['auc'], 3)})")
+    for n, c in curvas.items()
+]
+figura.legend(handles=manijas, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, title="Modelo (AUC-ROC en validación)", handlelength=2.2, columnspacing=1.0)
+graficos.anotar_fuente(detalle_roc, FUENTE)
+ruta_curvas = guardar_para_imprimir(figura, "clasificacion-curvas")
+plt.close(figura)
+print(f"Escrita {relativa(ruta_curvas)}")
+
+# %% [markdown]
+# **Lectura.** Las curvas de la logística, Random Forest, la SVM y el LDA son las de la fase 3: dan su mismo AUC-ROC de validación (0,762; 0,769; 0,759 y 0,756). XGBoost, ajustado en la CPU, da 0,772, dos diezmilésimas más que en la GPU, y con el umbral de la fase 3 su exhaustividad y su precisión se mueven menos de tres milésimas. Los recuadros muestran lo que la figura de la fase 3 tapaba: los cinco umbrales caen en una franja de unas tres centésimas de exhaustividad, y a igual exhaustividad XGBoost tiene la mayor precisión y el LDA la menor.
+
+# %% [markdown]
+# ### 8.2. Brecha entre colegios no oficiales y oficiales dentro de cada estrato
+#
+# La interacción de H3 se dibuja con el agregado que lee el dashboard (`data/agregados/hipotesis-interaccion-20224.csv`): la media del puntaje global por estrato y naturaleza del colegio, con su intervalo del 95 %. Encima de cada estrato va la ventaja de los no oficiales, que tiene que coincidir con la brecha de cada estrato que la fase 3 calculó con Welch.
+
+# %%
+interaccion = pd.read_csv(RUTA_AGREGADOS / "hipotesis-interaccion-20224.csv")
+comprobar("Cada celda del agregado de la interacción tiene 10 o más estudiantes", interaccion["n"].min() >= MINIMO_POR_CELDA)
+comprobar("El agregado de la interacción suma los estudiantes de H3", interaccion["n"].sum() == cifras.valor("nHTres"))
+medias_h3 = interaccion.pivot(index="estrato", columns="naturaleza", values="media")
+brechas_h3 = medias_h3["NO OFICIAL"] - medias_h3["OFICIAL"]
+PALABRA_ESTRATO = {"Estrato 1": "Uno", "Estrato 2": "Dos", "Estrato 3": "Tres", "Estrato 4": "Cuatro", "Estrato 5": "Cinco", "Estrato 6": "Seis"}
+comprobar(
+    "La ventaja de los no oficiales en cada estrato es la brecha que calculó la fase 3",
+    all(abs(brechas_h3[estrato] - cifras.valor(f"brechaEstrato{palabra}")) < 1e-3 for estrato, palabra in PALABRA_ESTRATO.items()),
+)
+NATURALEZAS = {"NO OFICIAL": ("No oficial", graficos.COLOR_PRINCIPAL, "-"), "OFICIAL": ("Oficial", graficos.COLOR_APOYO, "--")}
+# Marcador pequeño y tope del intervalo más ancho que él, para que se vea dónde hay intervalo aunque sea angosto.
+DIAMETRO_MARCADOR = 2.2  # en puntos
+posiciones = np.arange(len(medias_h3))
+figura, eje = plt.subplots(figsize=(graficos.ANCHO_COLUMNA - 0.1, 1.9))
+# «Sin estrato» no sigue al estrato 6, así que su punto va suelto, sin la línea de los estratos.
+ordinales = medias_h3.index.str.startswith("Estrato ")
+for naturaleza, (etiqueta, color, linea) in NATURALEZAS.items():
+    grupo = interaccion[interaccion["naturaleza"] == naturaleza].set_index("estrato").loc[medias_h3.index]
+    errores = np.array([grupo["media"] - grupo["inferior"], grupo["superior"] - grupo["media"]])
+    estilo = {"color": color, "marker": "o", "markersize": DIAMETRO_MARCADOR, "elinewidth": 0.6, "capsize": 2.2, "capthick": 0.6}
+    eje.errorbar(posiciones[ordinales], grupo["media"][ordinales], yerr=errores[:, ordinales], linestyle=linea, linewidth=0.9, label=etiqueta, **estilo)
+    eje.errorbar(posiciones[~ordinales], grupo["media"][~ordinales], yerr=errores[:, ~ordinales], linestyle="none", **estilo)
+for posicion, brecha in zip(posiciones, brechas_h3, strict=True):
+    eje.annotate(en_espanol(brecha, 1), (posicion, 1), xycoords=("data", "axes fraction"), xytext=(0, 2), textcoords="offset points", ha="center", va="bottom")
+eje.set_title("Ventaja de los no oficiales, en puntos", loc="left", pad=11)
+eje.set_xticks(posiciones, [estrato.removeprefix("Estrato ").replace("Sin Estrato", "Sin estrato") for estrato in medias_h3.index])
+eje.set(xlabel="Estrato de la vivienda", ylabel="Puntaje global medio")
+eje.yaxis.set_major_formatter(graficos.formato_fijo(0))
+eje.legend(loc="lower left", ncol=2)
+figura.tight_layout()
+# Con miles de estudiantes por grupo, muchos intervalos son más angostos que el marcador: se cuentan para decirlo en el pie.
+figura.canvas.draw()
+puntos_por_unidad = eje.get_window_extent().height * 72 / figura.dpi / np.ptp(eje.get_ylim())
+semiancho_ic = (interaccion["superior"] - interaccion["inferior"]) / 2
+intervalos_ocultos = int((semiancho_ic * puntos_por_unidad < DIAMETRO_MARCADOR / 2).sum())
+print(f"Intervalos más angostos que el radio del marcador: {intervalos_ocultos} de {len(interaccion)}")
+comprobar("La mayoría de los intervalos del 95 % de la interacción es más angosta que el marcador, como dice el pie", intervalos_ocultos > len(interaccion) / 2)
+graficos.anotar_fuente(eje, f"{FUENTE} Medias con su IC del 95 %, más angosto que el marcador en {intervalos_ocultos} de los {len(interaccion)} grupos.")
+ruta_brecha = guardar_para_imprimir(figura, "brecha-estrato")
+plt.close(figura)
+print(f"Escrita {relativa(ruta_brecha)}")
+cifra("intervalosOcultosBrecha", intervalos_ocultos)
+cifra("gruposBrecha", len(interaccion))
+cifra("menorCeldaInteraccion", int(interaccion["n"].min()));
+
+# %% [markdown]
+# **Lectura.** La ventaja de los no oficiales es positiva en los siete grupos, pero crece de 4,5 puntos en el estrato 1 a 91,4 en el 6, porque la media de los oficiales sube hasta el estrato 3 y luego baja hasta quedar en el 6 por debajo de la del 1, mientras la de los no oficiales sube hasta el 5. Como cada grupo reúne miles de estudiantes, la mayoría de los intervalos del 95 % es más angosta que el marcador, y sus topes, más anchos que él, señalan dónde están. Es la interacción que H3 encontró con la ANOVA de dos vías: la brecha nacional, de 29,0 puntos, esconde que en el estrato 1 casi no existe y que en los estratos 5 y 6 supera los 80.
+
+# %% [markdown]
+# ## 9. Cifras y comprobaciones
 #
 # Última sección del cuaderno: escribe las cifras de los tres documentos de la fase 4 (las consolidadas de las fases 1 a 3 más las nuevas) y confirma que cada figura existe.
 

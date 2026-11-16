@@ -7800,7 +7800,7 @@
     "texto": "261,1"
   },
   "medidaMemoriaTablero": {
-    "valor": 354.0,
+    "valor": 354.171875,
     "texto": "354"
   },
   "limiteMemoriaTablero": {
@@ -7846,5 +7846,17 @@
   "variablesShapTablero": {
     "valor": 19.0,
     "texto": "19"
+  },
+  "intervalosOcultosBrecha": {
+    "valor": 10.0,
+    "texto": "10"
+  },
+  "gruposBrecha": {
+    "valor": 14.0,
+    "texto": "14"
+  },
+  "menorCeldaInteraccion": {
+    "valor": 1727.0,
+    "texto": "1727"
   }
 }
