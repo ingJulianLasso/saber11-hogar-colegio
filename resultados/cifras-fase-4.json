@@ -7675,6 +7675,26 @@
     "valor": 62.06997632980347,
     "texto": "62"
   },
+  "neuronasPrimeraCapaMlp": {
+    "valor": 128.0,
+    "texto": "128"
+  },
+  "neuronasSegundaCapaMlp": {
+    "valor": 64.0,
+    "texto": "64"
+  },
+  "abandonoMlp": {
+    "valor": 0.1,
+    "texto": "0,1"
+  },
+  "tasaAprendizajeMlp": {
+    "valor": 0.001,
+    "texto": "0,001"
+  },
+  "loteMlp": {
+    "valor": 4096.0,
+    "texto": "4096"
+  },
   "paridadValoresConsolidada": {
     "valor": 848.0,
     "texto": "848"
@@ -7800,7 +7820,7 @@
     "texto": "261,1"
   },
   "medidaMemoriaTablero": {
-    "valor": 354.171875,
+    "valor": 354.0234375,
     "texto": "354"
   },
   "limiteMemoriaTablero": {

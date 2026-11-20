@@ -40,7 +40,7 @@
 # 3. Consolida en una tabla la paridad entre Python y R de las tres fases (§4).
 # 4. Agrega el puntaje por jornada, la característica del colegio que nombra la pregunta principal y que ningún agregado traía (§5).
 # 5. Exporta el modelo de predicción del tablero, con su ficha y su margen, mide la memoria del dashboard (§6) y compara el tamaño de efecto de las hipótesis con la importancia SHAP de ese modelo (§7).
-# 6. Traza para el documento del dashboard, con la letra con que se imprime, las curvas de clasificación de la fase 3 con los cinco umbrales a la vista y la interacción de H3 (§8).
+# 6. Traza para el documento del dashboard, con la letra con que se imprime, las curvas de clasificación de la fase 3 con los cinco umbrales a la vista y la interacción de H3 (§8), y para las diapositivas, con la letra con que se proyectan, cinco figuras al tamaño de su hueco (§9).
 # 7. Escribe las cifras de la fase y comprueba que todo existe (última sección).
 #
 # Ninguna celda lee el conjunto de prueba: sus métricas salen de los registros que las fases 2 y 3 escribieron al evaluarlo una sola vez, y el modelo del tablero se elige y se mide en validación.
@@ -73,7 +73,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from xgboost import XGBClassifier, XGBRegressor
 
-from saber11 import ajuste, datos, graficos, interpretabilidad, intermedios, limpieza, modelos, particion, tablero
+from saber11 import ajuste, datos, graficos, interpretabilidad, intermedios, limpieza, mlp, modelos, particion, tablero
 from saber11 import variables as v
 from saber11.cifras import Cifras, en_espanol
 from saber11.comprobaciones import Comprobaciones
@@ -238,7 +238,7 @@ tabla(metricas.set_index("modelo")[["tarea", "enfoque", "r2", "rmse", "mae", "ac
 # %% [markdown]
 # ## 3. Estadística clásica frente a aprendizaje automático
 #
-# La figura pone lado a lado, en prueba, los modelos sin IA y con IA de las dos tareas: el RMSE de la regresión del puntaje global (en puntos; menor es mejor) y el AUC-ROC de la clasificación del colegio oficial o no oficial (mayor es mejor). Cada punto es un modelo, no un estudiante, y el eje horizontal no empieza en cero para que se vean las diferencias, que son de pocos puntos o centésimas.
+# La figura pone lado a lado, en prueba, los modelos sin IA y con IA de las dos tareas: el RMSE de la regresión del puntaje global (en puntos; menor es mejor) y el AUC-ROC de la clasificación del colegio oficial o no oficial (mayor es mejor). Cada punto es un modelo, no un estudiante, y el eje horizontal no empieza en cero para que se vean las diferencias, que son de pocos puntos o centésimas. La A8 la imprime al ancho de una columna, así que se guarda con `guardar_para_imprimir` y los valores junto a cada punto van a 6,5 puntos, como el resto de la letra.
 
 # %%
 COLOR_ENFOQUE = {SIN_IA: graficos.COLOR_APOYO, CON_IA: graficos.COLOR_PRINCIPAL}
@@ -247,7 +247,7 @@ PANELES = (
     (REGRESION, "rmse", True, "Regresión del puntaje global", "RMSE de prueba (puntos; menor es mejor)", 1, 2),
     (CLASIFICACION, "auc", False, "Clasificación: oficial o no oficial", "AUC-ROC de prueba (mayor es mejor)", 3, 0.1),
 )
-figura, ejes = plt.subplots(2, 1, figsize=(graficos.ANCHO_COLUMNA, 3.75), height_ratios=[9, 6])
+figura, ejes = plt.subplots(2, 1, figsize=(graficos.ANCHO_COLUMNA - 0.1, 3.75), height_ratios=[9, 6])
 for eje, (tarea, metrica, ascendente, titulo, etiqueta_x, decimales, paso) in zip(ejes, PANELES, strict=True):
     panel = metricas[metricas["tarea"] == tarea].sort_values(metrica, ascending=ascendente).reset_index(drop=True)
     posiciones = np.arange(len(panel))
@@ -256,9 +256,9 @@ for eje, (tarea, metrica, ascendente, titulo, etiqueta_x, decimales, paso) in zi
     eje.hlines(posiciones, minimo - margen, panel[metrica], color="#D9D9D9", linewidth=0.6, zorder=1)
     eje.scatter(panel[metrica], posiciones, s=16, color=panel["enfoque"].map(COLOR_ENFOQUE), zorder=2)
     for posicion, valor in zip(posiciones, panel[metrica], strict=True):
-        eje.annotate(en_espanol(valor, decimales), (valor, posicion), xytext=(4, 0), textcoords="offset points", va="center", fontsize=6)
+        eje.annotate(en_espanol(valor, decimales), (valor, posicion), xytext=(4, 0), textcoords="offset points", va="center", fontsize=6.5, bbox={"boxstyle": "square,pad=0.05", "facecolor": "white", "edgecolor": "none"})
     eje.set_yticks(posiciones, panel["etiqueta"])
-    eje.invert_yaxis()
+    eje.set_ylim(len(panel) - 0.5, -0.5)  # invertido, con medio puesto libre arriba y abajo para que ninguna etiqueta toque el borde
     eje.set_xlim(minimo - margen, maximo + 2.6 * margen)
     eje.xaxis.set_major_locator(MultipleLocator(paso))
     eje.set_title(titulo, loc="left")
@@ -271,7 +271,7 @@ figura.legend(
 )
 figura.tight_layout(h_pad=1.2, rect=(0, 0, 1, 0.95))
 graficos.anotar_fuente(ejes[-1], f"{FUENTE} Prueba: {en_espanol(FILAS_PRUEBA)} estudiantes; cada modelo se evaluó una sola vez.")
-ruta_con_sin_ia = figuras.guardar(figura, "con-sin-ia")
+ruta_con_sin_ia = guardar_para_imprimir(figura, "con-sin-ia")
 plt.close(figura)
 print(f"Escrita {relativa(ruta_con_sin_ia)}")
 
@@ -303,6 +303,51 @@ cifra("pctVarianzaSinExplicarPrueba", 100 * (1 - mejores[REGRESION, CON_IA]["r2"
 por_modelo = metricas.set_index("modelo")
 comprobar("Ridge, Lasso y ElasticNet quedan a menos de 0,001 puntos de RMSE de la múltiple en prueba", (por_modelo.loc[["ridge", "lasso", "elasticNet"], "rmse"] - por_modelo.loc["regresionMultiple", "rmse"]).abs().max() < 0.001)
 comprobar("En prueba, la SVM y el LDA quedan por debajo de la logística base en AUC", por_modelo.loc[["svmClasificacion", "ldaClasificacion"], "auc"].max() < por_modelo.loc["logisticaBase", "auc"]);
+
+# %% [markdown]
+# La A8 imprime también las métricas de prueba de los quince modelos en una tabla de una columna, `resultados/metricas-prueba.tex`, escrita desde el mismo `metricas-modelos.csv`: tres decimales en el R² y en las métricas de clasificación y dos en el RMSE y el MAE, que están en puntos. Las celdas que una fase no calculó (el AUC-PR de las bases de la fase 2) quedan vacías.
+
+# %%
+DECIMALES_TABLA = {"r2": 3, "rmse": 2, "mae": 2, "accuracy": 3, "f1": 3, "auc": 3, "auc_pr": 3}
+COLUMNAS_TABLA = {REGRESION: ("r2", "rmse", "mae"), CLASIFICACION: ("accuracy", "f1", "auc", "auc_pr")}
+ENCABEZADOS_TABLA = {REGRESION: (r"$R^2$", "RMSE", "MAE", ""), CLASIFICACION: ("Exact.", "F1", "AUC-ROC", "AUC-PR")}
+
+
+def celda_metrica(valor: float, metrica: str) -> str:
+    """Métrica con coma decimal y signo menos tipográfico; vacía si la fase no la calculó."""
+    if pd.isna(valor):
+        return ""
+    decimales = DECIMALES_TABLA[metrica]
+    redondeado = round(float(valor), decimales) + 0.0  # suma 0,0 para no escribir «-0,000»
+    return f"$-${en_espanol(-redondeado, decimales)}" if redondeado < 0 else en_espanol(redondeado, decimales)
+
+
+lineas_metricas = ["% Generado por notebooks/fase-4-sintesis.ipynb (sección 3): no editar a mano.", r"\begin{tabular}{@{}llrrrr@{}}", r"\toprule"]
+for tarea in (REGRESION, CLASIFICACION):
+    if tarea == CLASIFICACION:
+        lineas_metricas.append(r"\midrule")
+    lineas_metricas += [" & ".join((tarea, "Grupo", *ENCABEZADOS_TABLA[tarea])) + r" \\", r"\midrule"]
+    for _, fila in metricas[metricas["tarea"] == tarea].iterrows():
+        celdas = [celda_metrica(fila[metrica], metrica) for metrica in COLUMNAS_TABLA[tarea]]
+        lineas_metricas.append(" & ".join((fila["etiqueta"], fila["enfoque"], *celdas, *[""] * (4 - len(celdas)))) + r" \\")
+lineas_metricas += [r"\bottomrule", r"\end{tabular}"]
+ruta_metricas_tex = RUTA_RESULTADOS / "metricas-prueba.tex"
+ruta_metricas_tex.write_text("\n".join(lineas_metricas) + "\n", encoding="utf-8")
+print(f"Escrita {relativa(ruta_metricas_tex)}")
+print(ruta_metricas_tex.read_text(encoding="utf-8"))
+comprobar("La tabla de métricas de prueba tiene un modelo por fila y un encabezado por tarea", ruta_metricas_tex.read_text(encoding="utf-8").count("\\\\") == len(metricas) + 2)
+
+# %% [markdown]
+# La A8 describe también la configuración del MLP de la fase 3. Las neuronas de cada capa oculta, el abandono, la tasa de aprendizaje y el tamaño del lote son constantes de `saber11.mlp` y no resultados, pero se registran aquí como cifras para que el informe no las escriba a mano; las épocas máximas y la paciencia ya venían en las cifras de la fase 3, y se comprueba que coinciden con el módulo.
+
+# %%
+comprobar("El MLP de la fase 3 tiene dos capas ocultas, como lo describe la A8", len(mlp.OCULTAS) == 2)
+comprobar("Las épocas máximas y la paciencia de las cifras de la fase 3 son las de saber11.mlp", cifras.valor("epocasMaximasMlp") == mlp.EPOCAS and cifras.valor("pacienciaMlp") == mlp.PACIENCIA)
+cifra("neuronasPrimeraCapaMlp", mlp.OCULTAS[0])
+cifra("neuronasSegundaCapaMlp", mlp.OCULTAS[1])
+cifra("abandonoMlp", mlp.ABANDONO, 1)
+cifra("tasaAprendizajeMlp", mlp.TASA, 3)
+cifra("loteMlp", mlp.LOTE);
 
 # %% [markdown]
 # **Lectura.** En las dos tareas, el mejor modelo con IA supera al mejor sin IA, pero por poco. En la regresión, XGBoost baja el RMSE de prueba de 42,8 puntos (la múltiple) a 40,8, unos 2 puntos menos (el 4,6 %), y sube el R² de 0,319 a 0,379; Ridge, Lasso y ElasticNet quedan iguales a la múltiple, porque con 372.792 estudiantes de entrenamiento para 95 coeficientes la múltiple casi no sobreajusta y la penalización no tiene qué corregir. En la clasificación, la ventaja de XGBoost sobre la logística base es de 0,009 de AUC, y la SVM y el LDA quedan por debajo de la logística. Lo que agrega el aprendizaje automático son las interacciones y las relaciones no lineales que captan los ensambles, como la brecha entre colegios oficiales y no oficiales que crece con el estrato (H3), no un salto en la capacidad de anticipar el puntaje: con las variables del hogar, del colegio y del estudiante, cerca del 62 % de la varianza del puntaje global queda sin explicar con cualquiera de los dos enfoques.
@@ -383,7 +428,7 @@ version_r = paridad["version_r"].iloc[0]
 lineas = [
     "% Generado por notebooks/fase-4-sintesis.ipynb (sección 4): no editar a mano.",
     f"% R {version_r}; ggplot2 {salidas_r['fase-1']['version_ggplot2']}; car {salidas_r['fase-3-hipotesis']['version_car']}.",
-    r"\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{4.3cm}rl@{}}",
+    r"\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{2.9cm}rl@{}}",  # cabe en una columna de la A8
     r"\toprule",
     r"Buzón & Qué replica R & Valores & Mayor diferencia \\",
     r"\midrule",
@@ -952,7 +997,230 @@ cifra("menorCeldaInteraccion", int(interaccion["n"].min()));
 # **Lectura.** La ventaja de los no oficiales es positiva en los siete grupos, pero crece de 4,5 puntos en el estrato 1 a 91,4 en el 6, porque la media de los oficiales sube hasta el estrato 3 y luego baja hasta quedar en el 6 por debajo de la del 1, mientras la de los no oficiales sube hasta el 5. Como cada grupo reúne miles de estudiantes, la mayoría de los intervalos del 95 % es más angosta que el marcador, y sus topes, más anchos que él, señalan dónde están. Es la interacción que H3 encontró con la ANOVA de dos vías: la brecha nacional, de 29,0 puntos, esconde que en el estrato 1 casi no existe y que en los estratos 5 y 6 supera los 80.
 
 # %% [markdown]
-# ## 9. Cifras y comprobaciones
+# ## 9. Figuras para proyectar en las diapositivas
+#
+# Las diapositivas de la sustentación (A9) tienen formato de 16:9 y una caja de texto de 140 mm de ancho y unos 2,9 pulgadas de alto bajo el título. Las figuras de §3 y §8 se dibujaron para una columna IEEE impresa, con letra de 6,5 puntos y proporciones que no caben a lo alto de una diapositiva sin reducirse, de modo que proyectadas se leerían con una letra aún menor. Por eso cinco de ellas se trazan otra vez con los mismos datos y la misma estética, al tamaño exacto del hueco que ocupan en la diapositiva y con letra de 8,5 a 9,5 puntos: la interacción de H3, el RMSE de prueba de los nueve modelos de regresión, las curvas ROC y PR de los cinco clasificadores, los perfiles de los dos clústeres con su reparto y la curva de pérdida del MLP. `guardar_para_proyectar` comprueba que cada imagen quepa en su hueco (media diapositiva o el ancho completo), para que la diapositiva la incluya a su tamaño natural. No se calcula nada nuevo: las métricas son las de §2, las curvas las de §8.1, la interacción la de §8.2, los clústeres salen de los agregados que lee el dashboard y la historia de pérdidas del MLP se lee de la caché que dejó su entrenamiento en la fase 3, sin volver a entrenarlo.
+
+# %%
+ESTILO_DIAPOSITIVA = {
+    "font.size": 9,
+    "axes.titlesize": 9.5,
+    "axes.labelsize": 9,
+    "xtick.labelsize": 8.5,
+    "ytick.labelsize": 8.5,
+    "legend.fontsize": 8.5,
+    "legend.title_fontsize": 8.5,
+}
+ANCHO_DIAPOSITIVA = 140 / 25.4  # caja de texto de una diapositiva de 16:9 con márgenes de 1 cm, en pulgadas
+HUECOS = {"media": (0.6 * ANCHO_DIAPOSITIVA, 2.75), "completa": (ANCHO_DIAPOSITIVA, 2.6)}  # ancho y alto máximos, en pulgadas
+
+
+def guardar_para_proyectar(figura: plt.Figure, nombre: str, hueco: str) -> Path:
+    """Guarda la figura de una diapositiva y comprueba que quepa en su hueco sin reducirse."""
+    with plt.rc_context({"savefig.pad_inches": 0.02}):
+        ruta = figuras.guardar(figura, f"diapositiva-{nombre}")
+    alto, ancho = (lado / plt.rcParams["savefig.dpi"] for lado in plt.imread(ruta).shape[:2])
+    ancho_maximo, alto_maximo = HUECOS[hueco]
+    comprobar(
+        f"{relativa(ruta)} mide {en_espanol(ancho, 2)} por {en_espanol(alto, 2)} pulgadas: cabe en el hueco «{hueco}» de la diapositiva sin reducir su letra",
+        ancho <= ancho_maximo and alto <= alto_maximo,
+    )
+    return ruta
+
+
+def leyenda_enfoque() -> list[Line2D]:
+    """Manijas de la leyenda de los dos grupos de modelos."""
+    return [Line2D([], [], marker="o", linestyle="", color=COLOR_ENFOQUE[e], markersize=5, label=ETIQUETA_ENFOQUE[e]) for e in (SIN_IA, CON_IA)]
+
+
+# Interacción de H3: medias por estrato y naturaleza, con la ventaja de los no oficiales encima.
+estratos_h3 = np.arange(len(medias_h3))
+ordinales_h3 = medias_h3.index.str.startswith("Estrato ")
+with plt.rc_context(ESTILO_DIAPOSITIVA):
+    figura, eje = plt.subplots(figsize=(3.25, 2.35))
+    for naturaleza, (etiqueta, color, linea) in NATURALEZAS.items():
+        medias = medias_h3[naturaleza].to_numpy()
+        eje.plot(estratos_h3[ordinales_h3], medias[ordinales_h3], color=color, linestyle=linea, linewidth=1.2, marker="o", markersize=4, label=etiqueta)
+        eje.plot(estratos_h3[~ordinales_h3], medias[~ordinales_h3], color=color, linestyle="none", marker="o", markersize=4)
+    for estrato, brecha in zip(estratos_h3, brechas_h3, strict=True):
+        eje.annotate(en_espanol(brecha, 1), (estrato, 1), xycoords=("data", "axes fraction"), xytext=(0, 2), textcoords="offset points", ha="center", va="bottom", fontsize=8.5)
+    eje.set_title("Ventaja de los no oficiales, en puntos", loc="left", pad=13)
+    eje.set_xticks(estratos_h3, [e.removeprefix("Estrato ").replace("Sin Estrato", "Sin\nestrato") for e in medias_h3.index])
+    eje.set(xlabel="Estrato de la vivienda", ylabel="Puntaje global medio")
+    eje.yaxis.set_major_formatter(graficos.formato_fijo(0))
+    eje.legend(loc="center right", ncol=1, handlelength=1.8, labelspacing=0.2)
+    figura.tight_layout()
+    graficos.anotar_fuente(eje, f"{FUENTE} Cada grupo reúne {en_espanol(int(interaccion['n'].min()))} o más estudiantes.")
+    ruta_diapositiva_brecha = guardar_para_proyectar(figura, "brecha", "media")
+plt.close(figura)
+
+# RMSE de prueba de los nueve modelos de regresión, del mejor al peor, con el eje recortado como en §3.
+regresion = metricas[metricas["tarea"] == REGRESION].sort_values("rmse").reset_index(drop=True)
+ETIQUETA_CORTA = {"Media del entrenamiento": "Media", "Regresión múltiple": "Múltiple"}  # nombres que caben junto al eje
+with plt.rc_context(ESTILO_DIAPOSITIVA):
+    figura, eje = plt.subplots(figsize=(3.25, 2.5))
+    puestos = np.arange(len(regresion))
+    minimo, maximo = regresion["rmse"].min(), regresion["rmse"].max()
+    margen = 0.1 * (maximo - minimo)
+    eje.hlines(puestos, minimo - margen, regresion["rmse"], color="#D9D9D9", linewidth=0.8, zorder=1)
+    eje.scatter(regresion["rmse"], puestos, s=26, color=regresion["enfoque"].map(COLOR_ENFOQUE), zorder=2)
+    for puesto, valor in zip(puestos, regresion["rmse"], strict=True):
+        eje.annotate(en_espanol(valor, 2), (valor, puesto), xytext=(5, 0), textcoords="offset points", va="center", fontsize=8.5, bbox={"boxstyle": "square,pad=0.05", "facecolor": "white", "edgecolor": "none"})
+    eje.set_yticks(puestos, regresion["etiqueta"].replace(ETIQUETA_CORTA))
+    eje.set_ylim(len(regresion) - 0.25, -0.75)  # holgura arriba y abajo, para que ninguna etiqueta tape el marco
+    eje.set_xlim(minimo - margen, maximo + 3.4 * margen)
+    eje.xaxis.set_major_locator(MultipleLocator(2))
+    eje.xaxis.set_major_formatter(graficos.formato_fijo(0))
+    eje.set_xlabel("RMSE de prueba, en puntos")
+    eje.grid(axis="y", visible=False)
+    figura.legend(handles=leyenda_enfoque(), loc="upper center", bbox_to_anchor=(0.5, 1.0), ncol=1, handletextpad=0.2, labelspacing=0.2)
+    figura.tight_layout(rect=(0, 0, 1, 0.84))
+    graficos.anotar_fuente(eje, f"{FUENTE} Prueba: {en_espanol(FILAS_PRUEBA)} estudiantes.")
+    ruta_diapositiva_regresion = guardar_para_proyectar(figura, "regresion", "media")
+plt.close(figura)
+comprobar("En la figura de regresión de la diapositiva, XGBoost es el primero y la media del entrenamiento el último", regresion["modelo"].iloc[0] == "xgboostRegresion" and regresion["modelo"].iloc[-1] == "dummyRegresion")
+
+# Curvas ROC y PR de validación de los cinco clasificadores de §8.1, con el umbral elegido de cada uno.
+ETIQUETA_DIAPOSITIVA = {**ETIQUETA_CLASE, "svmClasificacion": "SVM (muestra)"}
+with plt.rc_context(ESTILO_DIAPOSITIVA):
+    figura, (eje_roc, eje_pr, eje_leyenda) = plt.subplots(1, 3, figsize=(5.4, 2.15), width_ratios=[1, 1, 0.72])
+    for nombre, c in curvas.items():
+        tasa_fp, tasa_vp, _ = roc_curve(y_val_clase, c["puntajes"])
+        precision, exhaustividad, _ = precision_recall_curve(y_val_clase, c["puntajes"])
+        con_aciertos = exhaustividad > 0
+        estilo = {"color": COLOR_CLASE[nombre], "linewidth": 1.1, "linestyle": "--" if nombre == "logisticaUmbral" else "-"}
+        marca = {"marker": MARCADOR[nombre], "s": 22, "color": COLOR_CLASE[nombre], "edgecolors": "white", "linewidths": 0.5, "zorder": 3}
+        eje_roc.plot(tasa_fp, tasa_vp, **estilo)
+        eje_pr.plot(exhaustividad[con_aciertos], precision[con_aciertos], **estilo)
+        eje_roc.scatter(c["tasa_fp"], c["exhaustividad"], **marca)
+        eje_pr.scatter(c["exhaustividad"], c["precision"], **marca)
+    eje_roc.plot([0, 1], [0, 1], color=graficos.COLOR_APOYO, linewidth=0.6, linestyle=":")
+    eje_pr.axhline(y_val_clase.mean(), color=graficos.COLOR_APOYO, linewidth=0.6, linestyle=":")
+    for eje, (etiqueta_x, etiqueta_y), titulo in (
+        (eje_roc, ("Falsos positivos", "Exhaustividad"), "(a) Curva ROC"),
+        (eje_pr, ("Exhaustividad", "Precisión"), "(b) Curva PR"),
+    ):
+        eje.set(xlabel=etiqueta_x, ylabel=etiqueta_y, xlim=(0, 1), ylim=(0, 1.02))
+        eje.set_title(titulo, loc="left")
+        for marcas in (eje.xaxis, eje.yaxis):
+            marcas.set_major_locator(MultipleLocator(0.5))
+            marcas.set_major_formatter(graficos.formato_fijo(1))
+    eje_leyenda.axis("off")
+    manijas = [
+        Line2D([], [], color=COLOR_CLASE[n], linewidth=1.1, linestyle="--" if n == "logisticaUmbral" else "-", marker=MARCADOR[n], markersize=5, markeredgecolor="white", markeredgewidth=0.5, label=ETIQUETA_DIAPOSITIVA[n])
+        for n in curvas
+    ] + [Line2D([], [], color=graficos.COLOR_APOYO, linewidth=0.6, linestyle=":", label="Azar")]
+    eje_leyenda.legend(handles=manijas, loc="center left", bbox_to_anchor=(0.0, 0.5), title="En validación;\nel marcador es\nel umbral elegido", alignment="left", handlelength=1.8, borderaxespad=0)
+    figura.tight_layout(w_pad=1.2)
+    graficos.anotar_fuente(eje_roc, f"{FUENTE} Validación: {en_espanol(len(y_val_clase))} estudiantes; positiva, la clase no oficial.")
+    ruta_diapositiva_clasificacion = guardar_para_proyectar(figura, "clasificacion", "completa")
+plt.close(figura)
+
+# Perfiles de los dos clústeres de K-Means por área y porcentaje de cada grupo que cae en el clúster alto.
+perfiles = pd.read_csv(RUTA_AGREGADOS / "cluster-perfiles-20224.csv").set_index("cluster")
+alto, bajo = perfiles["puntaje_global"].idxmax(), perfiles["puntaje_global"].idxmin()
+comprobar(
+    "Los puntajes globales medios de los clústeres son los de la fase 3",
+    all(abs(perfiles.loc[c, "puntaje_global"] - cifras.valor(f"globalCluster{p}")) < 0.05 for c, p in ((1, "Uno"), (2, "Dos"))),
+)
+AREAS = {"lectura_critica": "Lectura", "matematicas": "Matemáticas", "ciencias_naturales": "Naturales", "sociales_ciudadanas": "Sociales", "ingles": "Inglés"}
+REPARTOS = (
+    ("cluster-naturaleza-20224.csv", "naturaleza", {"OFICIAL": "Oficial", "NO OFICIAL": "No oficial"}),
+    ("cluster-zona-20224.csv", "zona", {"URBANO": "Urbano", "RURAL": "Rural"}),
+    ("cluster-estrato-20224.csv", "estrato", {f"Estrato {k}": f"Estrato {k}" for k in range(1, 7)} | {"Sin Estrato": "Sin estrato"}),
+)
+reparto = pd.concat(
+    pd.read_csv(RUTA_AGREGADOS / archivo).loc[lambda marco: marco["cluster"] == alto].set_index(columna).loc[list(niveles)].rename(index=niveles)[["n", "porcentaje"]]
+    for archivo, columna, niveles in REPARTOS
+)
+comprobar("Cada celda del reparto por clúster tiene 10 o más estudiantes", reparto["n"].min() >= MINIMO_POR_CELDA)
+MACROS_REPARTO = {"Oficial": "clusterAltoOficial", "No oficial": "clusterAltoNoOficial", "Urbano": "clusterAltoUrbano", "Rural": "clusterAltoRural", "Estrato 1": "clusterAltoEstratoUno", "Estrato 4": "clusterAltoEstratoCuatro", "Sin estrato": "clusterAltoSinEstrato"}
+comprobar("Los porcentajes del clúster alto son los que citan los documentos", all(abs(reparto.loc[g, "porcentaje"] - cifras.valor(m)) < 0.05 for g, m in MACROS_REPARTO.items()))
+COLOR_CLUSTER = {bajo: graficos.COLOR_APOYO, alto: graficos.COLOR_PRINCIPAL}
+NOMBRE_CLUSTER = {bajo: "Bajo", alto: "Alto"}
+with plt.rc_context(ESTILO_DIAPOSITIVA):
+    figura, (eje_perfil, eje_reparto) = plt.subplots(1, 2, figsize=(5.4, 2.3), width_ratios=[1, 1.05])
+    posiciones_area = np.arange(len(AREAS))
+    for cluster in (alto, bajo):
+        medias = perfiles.loc[cluster, list(AREAS)].to_numpy(dtype=float)
+        eje_perfil.plot(posiciones_area, medias, color=COLOR_CLUSTER[cluster], marker="o", markersize=4, linewidth=1.2, label=f"{NOMBRE_CLUSTER[cluster]} ({en_espanol(perfiles.loc[cluster, 'porcentaje'], 1)} %)")
+    eje_perfil.set_xticks(posiciones_area, list(AREAS.values()), rotation=30, ha="right", rotation_mode="anchor")
+    eje_perfil.set_ylim(30, 70)
+    eje_perfil.set_ylabel("Media del área (0 a 100)")
+    eje_perfil.yaxis.set_major_formatter(graficos.formato_fijo(0))
+    eje_perfil.set_title("(a) Perfil por área", loc="left")
+    eje_perfil.legend(loc="center", ncol=1, handlelength=1.6, labelspacing=0.2, title="Clúster", alignment="left")
+    filas_reparto = np.arange(len(reparto))
+    eje_reparto.barh(filas_reparto, reparto["porcentaje"], height=0.65, color=graficos.COLOR_PRINCIPAL)
+    for fila, valor in zip(filas_reparto, reparto["porcentaje"], strict=True):
+        eje_reparto.annotate(en_espanol(valor, 1), (valor, fila), xytext=(2, 0), textcoords="offset points", va="center", fontsize=8, bbox={"boxstyle": "square,pad=0.05", "facecolor": "white", "edgecolor": "none"})
+    eje_reparto.axvline(perfiles.loc[alto, "porcentaje"], color=graficos.COLOR_APOYO, linestyle=":", linewidth=0.9)
+    eje_reparto.set_yticks(filas_reparto, reparto.index)
+    eje_reparto.tick_params(axis="y", labelsize=8)
+    eje_reparto.set_ylim(len(reparto) - 0.4, -0.6)
+    eje_reparto.set_xlim(0, 100)
+    eje_reparto.xaxis.set_major_locator(MultipleLocator(25))
+    eje_reparto.xaxis.set_major_formatter(graficos.formato_fijo(0))
+    eje_reparto.set_xlabel("% del grupo (punteada: total)")
+    eje_reparto.set_title("(b) Peso del clúster alto", loc="left")
+    eje_reparto.grid(axis="y", visible=False)
+    figura.tight_layout(w_pad=1.0)
+    graficos.anotar_fuente(eje_perfil, f"{FUENTE} K-Means sobre las cinco áreas; entrenamiento, {en_espanol(int(perfiles['n'].sum()))} estudiantes.")
+    ruta_diapositiva_segmentacion = guardar_para_proyectar(figura, "segmentacion", "completa")
+plt.close(figura)
+comprobar("Los estudiantes de los dos clústeres son los del análisis multivariante de la fase 3", int(perfiles["n"].sum()) == cifras.valor("filasMultivariante"))
+
+
+def entrenamiento_del_mlp() -> mlp.Entrenamiento:
+    """El entrenamiento del MLP que guardó la caché de la fase 3 y que reportan sus cifras; no reentrena nada."""
+    guardados = [joblib.load(ruta) for ruta in sorted(ajuste.CARPETA_CACHE.glob("mlp-*/saber11/mlp/entrenar/*/output.pkl"))]
+    del_reporte = [
+        red
+        for red in guardados
+        if red.epocas_corridas == cifras.valor("epocaParada")
+        and red.epoca_mejor == cifras.valor("epocaMejorMlp")
+        and abs(min(red.perdidas_validacion) - cifras.valor("perdidaValidacionMlp")) < 5e-4
+    ]
+    comprobar("La caché del MLP guarda el entrenamiento que reportan las cifras de la fase 3 (épocas, mejor época y pérdida de validación)", len(del_reporte) > 0)
+    return del_reporte[-1]
+
+
+# Curva de pérdida del MLP: las mismas curvas y referencias de la fase 3, con el RMSE en puntos a la derecha.
+red = entrenamiento_del_mlp()
+comprobar("La pérdida mínima de validación, en puntos, es el RMSE de validación del MLP de la fase 3", abs(np.sqrt(min(red.perdidas_validacion)) * red.escala - cifras.valor("rmseValidacionMlp")) < 5e-3)
+epocas_red = np.arange(1, red.epocas_corridas + 1)
+REFERENCIAS_MLP = (("Múltiple", "rmseValidacionMultiple", graficos.PALETA_CATEGORICA[3]), ("XGBoost", "rmseValidacionXgboost", graficos.PALETA_CATEGORICA[2]))
+with plt.rc_context(ESTILO_DIAPOSITIVA):
+    figura, eje = plt.subplots(figsize=(3.2, 2.5))
+    eje.plot(epocas_red, red.perdidas_entrenamiento, color=graficos.COLOR_APOYO, linewidth=1.0, label="Entrenamiento")
+    eje.plot(epocas_red, red.perdidas_validacion, color=graficos.COLOR_PRINCIPAL, linewidth=1.2, label="Validación")
+    eje.axvline(red.epoca_mejor, color=graficos.PALETA_CATEGORICA[1], linestyle="--", linewidth=0.8, label=f"Mejor época ({red.epoca_mejor})")
+    for etiqueta, clave, color in REFERENCIAS_MLP:
+        eje.axhline((cifras.valor(clave) / red.escala) ** 2, color=color, linestyle=":", linewidth=0.9, label=f"{etiqueta}, validación")
+    eje.set(xlabel="Época", ylabel="MSE estandarizado", xlim=(0, red.epocas_corridas + 1))
+    eje.yaxis.set_major_locator(MultipleLocator(0.05))
+    eje.yaxis.set_major_formatter(graficos.formato_fijo(2))
+    derecho = eje.secondary_yaxis("right", functions=(lambda m: np.sqrt(np.clip(m, 0, None)) * red.escala, lambda r: (np.asarray(r) / red.escala) ** 2))
+    derecho.set_ylabel("RMSE en puntos")
+    derecho.yaxis.set_major_locator(MultipleLocator(1))
+    derecho.yaxis.set_major_formatter(graficos.formato_fijo(0))
+    # Las curvas quedan en la mitad de abajo y la leyenda arriba, sin tapar ninguna línea.
+    inferior = min(min(red.perdidas_entrenamiento), min(red.perdidas_validacion)) - 0.01
+    superior = max(red.perdidas_entrenamiento)
+    eje.set_ylim(inferior, superior + 0.35 * (superior - inferior))
+    eje.legend(loc="upper right", handlelength=1.8, labelspacing=0.2, frameon=True, framealpha=0.95, edgecolor="none")
+    figura.tight_layout()
+    graficos.anotar_fuente(eje, f"{FUENTE} Validación: {en_espanol(int(cifras.valor('filasValidacion')))} estudiantes; el entrenamiento, con el abandono activo.")
+    ruta_diapositiva_mlp = guardar_para_proyectar(figura, "mlp", "media")
+plt.close(figura)
+for ruta in (ruta_diapositiva_brecha, ruta_diapositiva_regresion, ruta_diapositiva_clasificacion, ruta_diapositiva_segmentacion, ruta_diapositiva_mlp):
+    print(f"Escrita {relativa(ruta)}")
+
+# %% [markdown]
+# **Lectura.** Las cinco figuras dicen lo mismo que sus versiones impresas, con menos detalle y más letra. La interacción de H3 deja la brecha de cada estrato encima de su columna; el RMSE de prueba ordena los nueve modelos de regresión con el eje recortado, porque las diferencias son de pocos puntos; las curvas ROC y PR no llevan los recuadros ampliados de §8.1, que no cabrían, pero conservan el umbral de cada modelo, y los perfiles casi paralelos de los dos clústeres, junto con el reparto, muestran que el clúster alto es una franja de nivel con más estudiantes de colegios no oficiales, urbanos y de estratos medios. La curva de pérdida del MLP es la misma de la fase 3, leída de su caché: la validación toca su mínimo en la época marcada y se queda en la línea de XGBoost, que es lo que la diapositiva cuenta.
+
+# %% [markdown]
+# ## 10. Cifras y comprobaciones
 #
 # Última sección del cuaderno: escribe las cifras de los tres documentos de la fase 4 (las consolidadas de las fases 1 a 3 más las nuevas) y confirma que cada figura existe.
 
